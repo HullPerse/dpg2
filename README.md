@@ -6,36 +6,46 @@ Second version if it (First one was excel version)
 
 User login and creation:
 
-![image](https://github.com/HullPerse/dpg2/assets/35864804/f37477e0-0945-4985-be67-c21988ca7ed7)
+![1](https://github.com/HullPerse/dpg2/assets/35864804/f75a2640-219e-43c1-860c-c52e538db8c9)
 
-![image](https://github.com/HullPerse/dpg2/assets/35864804/419095ce-a282-4701-85b6-5f6122f7d87a)
+
+![2](https://github.com/HullPerse/dpg2/assets/35864804/023a9d47-b4d5-4265-935e-30e0919bf40c)
+
 
 Map and context menu:
 
-![image](https://github.com/HullPerse/dpg2/assets/35864804/3ce27a68-c9ba-49d9-a5c3-b7714af6c773)
+![3](https://github.com/HullPerse/dpg2/assets/35864804/eef99f18-71f5-4e3f-b2c2-e2f787b6e7d5)
+
 
 
 Inventory, add item modal and add game modal:
 
-![image](https://github.com/HullPerse/dpg2/assets/35864804/4da7ecb1-127c-46dc-8ed3-7cfbd636881b)
+![4](https://github.com/HullPerse/dpg2/assets/35864804/36c922eb-74b6-4472-b46e-a92478c1ab8b)
 
-![image](https://github.com/HullPerse/dpg2/assets/35864804/da881536-8583-4739-9fdb-e8ef04ea89ab)
+![5](https://github.com/HullPerse/dpg2/assets/35864804/4d7fe17a-6d04-4346-a7de-b4ebc6a2383a)
 
-![image](https://github.com/HullPerse/dpg2/assets/35864804/5e75d48e-9346-42d7-8d1b-4cf4517b530b)
+![6](https://github.com/HullPerse/dpg2/assets/35864804/d2866e5f-8f87-4e0e-882f-e1a98dea2b49)
+
 
 Random game roll and random item roll:
 
-![image](https://github.com/HullPerse/dpg2/assets/35864804/ed389bc5-9e3a-4ac5-9674-e3b6d7c0f9ab)
-![image](https://github.com/HullPerse/dpg2/assets/35864804/52ea79c0-b17e-4e7c-9aff-258c823badd0)
+![7](https://github.com/HullPerse/dpg2/assets/35864804/9a2cf1f8-d205-4d27-bab7-78105f3bb1f3)
 
-![image](https://github.com/HullPerse/dpg2/assets/35864804/b1f5b9de-612b-45bd-a094-f530c843d5a3)
-![image](https://github.com/HullPerse/dpg2/assets/35864804/bdd7080d-09f9-4b37-8709-6a0797e50737)
+![8](https://github.com/HullPerse/dpg2/assets/35864804/3eb43f3e-1585-423a-a9fb-092166dab76d)
+
+
+![9](https://github.com/HullPerse/dpg2/assets/35864804/8bcf7de8-b085-417f-a462-0a227ff20ab0)
+
+![10](https://github.com/HullPerse/dpg2/assets/35864804/7b93aa82-f70a-4381-ac03-c2fa1ef2ddd3)
+
 
 Dice roll:
 
-![CPT2310110044-700x420](https://github.com/HullPerse/dpg2/assets/35864804/94119e1f-6c72-4cb4-99fe-9afe13468d29)
+![11](https://github.com/HullPerse/dpg2/assets/35864804/0414d21b-a49c-4b4c-bdd0-81f5cbb8b3df)
+
 
 Rules: 
 
-![image](https://github.com/HullPerse/dpg2/assets/35864804/4d431723-9665-47e6-a164-e28bae1e6184)
+![12](https://github.com/HullPerse/dpg2/assets/35864804/7d6dd0e6-7d03-40b6-97e0-3a70b95a8834)
+
 
