@@ -1,0 +1,212 @@
+body {
+  height: 1200px;
+  user-select: none;
+}
+
+.cellId,
+.cellTitle,
+.cellConditionTitle,
+.cellConditionTitle {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 50px;
+  line-height: 60px;
+}
+
+#map-container {
+  position: absolute;
+  display: grid;
+  grid-template-columns: repeat(10, 100px);
+  grid-template-rows: repeat(10, 100px);
+  grid-column-gap: 5px;
+  grid-row-gap: 5px;
+  top: 50px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--shadow-color);
+  transition: transform 0.2s ease;
+}
+
+.map-cell {
+  position: relative;
+  height: 100px;
+  width: 100px;
+  background-color: var(--color1);
+  overflow: hidden;
+}
+
+.map-cell:before {
+  content: "";
+  position: absolute;
+  top: -25px;
+  right: -25px;
+  width: 0;
+  height: 0;
+  border-style: solid;
+  border-width: 0 20px 20px 0;
+  border-color: transparent;
+  box-shadow: 0px 0px 0px transparent;
+}
+
+.map-cell:hover:before {
+  box-shadow: -5px 5px 10px 3px var(--shadow-color);
+  transition: ease-out 0.5s;
+  top: -0px;
+  right: -0px;
+}
+
+.map-cell:nth-last-child(-n + 30):hover:before {
+  border-color: transparent var(--difficulty-easy) transparent transparent;
+}
+
+.map-cell:nth-last-child(n + 31):before {
+  border-color: transparent var(--difficulty-medium) transparent transparent;
+}
+
+.map-cell:nth-last-child(n + 61):before {
+  border-color: transparent var(--difficulty-medium-hard) transparent
+    transparent;
+}
+
+.map-cell:nth-last-child(n + 81):before {
+  border-color: transparent var(--difficulty-hard) transparent transparent;
+}
+
+.map-cell:nth-last-child(n + 94):before {
+  border-color: transparent var(--difficulty-hell) transparent transparent;
+}
+
+.map-cell:nth-last-child(100):before {
+  border-color: transparent var(--difficulty-core) transparent transparent;
+}
+
+.map-cell:nth-last-child(even) {
+  background-color: var(--color2);
+}
+
+.map-cell:hover {
+  background-color: var(--secondary-accent);
+  cursor: pointer;
+}
+
+.map-cell:not(:empty) {
+  font-weight: bold;
+  font-size: 52px;
+  text-align: center;
+  line-height: 100px;
+  user-select: none;
+}
+
+.mapModal {
+  min-height: 300px;
+  max-height: auto;
+  min-width: 450px;
+  max-width: 1555px;
+  border-radius: 10px;
+  white-space: nowrap;
+  outline: transparent;
+  overflow: hidden;
+  border-color: transparent;
+  background-color: var(--color1);
+  color: white;
+}
+
+.mapModal::backdrop {
+  background: rgba(0, 0, 0, 0.5);
+}
+
+.closeButton {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  font-size: 25px;
+  background: transparent;
+  border: none;
+  outline: transparent;
+  cursor: pointer;
+  color: var(--color3);
+}
+
+.cellTitle {
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  font-weight: bold;
+  font-size: 35px;
+  text-align: center;
+}
+
+.cellConditionTitle {
+  position: relative;
+  color: var(--primary-accent);
+  top: -75px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-weight: bold;
+  font-size: 25px;
+  text-align: center;
+}
+
+.cellConditions {
+  position: relative;
+  top: -75px;
+  font-size: 20px;
+  text-align: left;
+}
+
+.cellId {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 20px;
+  font-weight: bold;
+}
+
+#realCondition {
+  font-weight: lighter;
+  color: #adb5bd;
+}
+
+#playerIcons-container {
+  position: absolute;
+  height: 1045px;
+  width: 1045px;
+  pointer-events: none;
+  z-index: 1;
+}
+
+.playerImage {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  border-radius: 50%;
+  border: 2px solid var(--secondary-accent);
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  height: 40px;
+  width: 40px;
+  cursor: grab;
+  pointer-events: all;
+  z-index: 0;
+}
+
+.playerImage img {
+  max-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  aspect-ratio: 1 / 1;
+}
+
+title:not() {
+  width: 100%;
+  background-color: red;
+  height: 20px;
+}
+
+#colorPicker {
+  position: absolute;
+}

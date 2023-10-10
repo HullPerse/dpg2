@@ -1,0 +1,145 @@
+[
+    {
+            "id": 0,
+            "name": "Devil May Cry 5",
+            "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/601150/header.jpg?t=1694395559",
+            "store_uscore": 95,
+            "store_url": "https://store.steampowered.com/app/601150/Devil_May_Cry_5/",
+            "hltb_url": "https://howlongtobeat.com/game/57514",
+            "platforms": "WIN",
+            "full_price": 2999,
+            "hltb_single": 11
+    },
+    {
+        "id": 1,
+        "name": "Castlevania: Lords of Shadow 2",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/239250/header.jpg?t=1690416074",
+        "store_uscore": 83,
+        "store_url": "https://store.steampowered.com/app/239250/Castlevania_Lords_of_Shadow_2/",
+        "hltb_url": "https://howlongtobeat.com/game/15941",
+        "platforms": "WIN",
+        "full_price": 3999,
+        "hltb_single": 14
+    },
+    {
+        "id": 2,
+        "name": "Castlevania: Lords of Shadow – Ultimate Edition",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/234080/header.jpg?t=1690415965",
+        "store_uscore": 80,
+        "store_url": "https://store.steampowered.com/app/234080/Castlevania_Lords_of_Shadow__Ultimate_Edition/",
+        "hltb_url": "https://howlongtobeat.com/game/1587",
+        "platforms": "WIN",
+        "full_price": 2999,
+        "hltb_single": 18
+    },
+    {
+        "id": 3,
+        "name": "NieR:Automata",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/524220/header.jpg?t=1696405478",
+        "store_uscore": 87,
+        "store_url": "https://store.steampowered.com/app/524220/NieRAutomata/",
+        "hltb_url": "https://howlongtobeat.com/game/38029",
+        "platforms": "WIN",
+        "full_price": 3999,
+        "hltb_single": 21
+    },
+    {
+        "id": 4,
+        "name": "Resident Evil 2",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/883710/header.jpg?t=1692001351",
+        "store_uscore": 97,
+        "store_url": "https://store.steampowered.com/app/883710/Resident_Evil_2/",
+        "hltb_url": "https://howlongtobeat.com/game/57479",
+        "platforms": "WIN",
+        "full_price": 3999,
+        "hltb_single": 8
+    },
+    {
+        "id": 5,
+        "name": "METAL GEAR RISING: REVENGEANCE",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/235460/header.jpg?t=1690416005",
+        "store_uscore": 95,
+        "store_url": "https://store.steampowered.com/app/235460/METAL_GEAR_RISING_REVENGEANCE/",
+        "hltb_url": "https://howlongtobeat.com/game/5905",
+        "platforms": "WIN",
+        "full_price": 2999,
+        "hltb_single": 7
+    },
+    {
+        "id": 6,
+        "name": "Nioh: Complete Edition",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/485510/header.jpg?t=1695954329",
+        "store_uscore": 78,
+        "store_url": "https://store.steampowered.com/app/485510/Nioh_Complete_Edition/",
+        "hltb_url": "https://howlongtobeat.com/game/50419",
+        "platforms": "WIN",
+        "full_price": 4999,
+        "hltb_single": 43
+    },
+    {
+        "id": 7,
+        "name": "METAL GEAR SOLID V: THE PHANTOM PAIN",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/287700/header.jpg?t=1690416673",
+        "store_uscore": 91,
+        "store_url": "https://store.steampowered.com/app/287700/METAL_GEAR_SOLID_V_THE_PHANTOM_PAIN/",
+        "hltb_url": "https://howlongtobeat.com/game/5918",
+        "platforms": "WIN",
+        "full_price": 1999,
+        "hltb_single": 46
+    },
+    {
+        "id": 8,
+        "name": "Bayonetta",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/460790/header.jpg?t=1670260448",
+        "store_uscore": 92,
+        "store_url": "https://store.steampowered.com/app/460790/Bayonetta/",
+        "hltb_url": "https://howlongtobeat.com/game/966",
+        "platforms": "WIN",
+        "full_price": 1999,
+        "hltb_single": 11
+    },
+    {
+        "id": 9,
+        "name": "Mega Man 11",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/742300/header.jpg?t=1669873876",
+        "store_uscore": 91,
+        "store_url": "https://store.steampowered.com/app/742300/Mega_Man_11/",
+        "hltb_url": "https://howlongtobeat.com/game/51164",
+        "platforms": "WIN",
+        "full_price": 2999,
+        "hltb_single": 5
+    },
+    {
+        "id": 10,
+        "name": "DARK SOULS III",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/374320/header.jpg?t=1682651227",
+        "store_uscore": 94,
+        "store_url": "https://store.steampowered.com/app/374320/DARK_SOULS_III/",
+        "hltb_url": "https://howlongtobeat.com/game/26803",
+        "platforms": "WIN",
+        "full_price": 5999,
+        "hltb_single": 32
+    },
+    {
+        "id": 11,
+        "name": "Drakengard 3",
+        "image": "https://howlongtobeat.com/games/Drakengard_3_boxart.png?width=250",
+        "store_uscore": 84,
+        "store_url": "magnet:?xt=urn:btih:006384E7A14395222C313C4FCB0BF7AB150E2F47&tr=http%3A%2F%2Fbt.t-ru.org%2Fann%3Fmagnet&dn=%5BPS3%5D%20Drakengard%203%20%5BEUR%2FRUS%5D%5BNPEB01407%5D%5BRepack%5D%5B%D0%A0%D0%B5%D0%BB%D0%B8%D0%B7%20%D0%BE%D1%82%20ALLIANCE%20%26%20MIRACLE%5D",
+        "hltb_url": "https://howlongtobeat.com/game/18810",
+        "platforms": "PS3",
+        "full_price": null,
+        "hltb_single": 18
+    },
+    {
+        "id": 12,
+        "name": "Robot Alchemic Drive",
+        "image": "https://i.ytimg.com/vi/Rkx2qr5z1f0/sddefault.jpg",
+        "store_uscore": null,
+        "store_url": null,
+        "hltb_url": null,
+        "platforms": "PS2",
+        "full_price": null,
+        "hltb_single": null
+    }
+]

@@ -1,0 +1,68 @@
+[
+    {
+        "id": 0,
+        "name": "Fallout 4",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/377160/header.jpg?t=1650909928",
+        "store_uscore": 83,
+        "store_url": "https://store.steampowered.com/app/377160/Fallout_4/",
+        "hltb_url": "https://howlongtobeat.com/game/26729",
+        "platforms": "WIN",
+        "full_price": 1999,
+        "hltb_single": 27
+    },
+    {
+        "id": 1,
+        "name": "The Evil Within",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/268050/header.jpg?t=1572026108",
+        "store_uscore": 84,
+        "store_url": "https://store.steampowered.com/app/268050/The_Evil_Within/",
+        "hltb_url": "https://howlongtobeat.com/game/9866",
+        "platforms": "WIN",
+        "full_price": 999,
+        "hltb_single": 15
+    },
+    {
+        "id": 2,
+        "name": "STAR WARS Jedi: Fallen Order™",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/1172380/header.jpg?t=1682687298",
+        "store_uscore": 89,
+        "store_url": "https://store.steampowered.com/app/1172380/_/",
+        "hltb_url": "https://howlongtobeat.com/game/60145",
+        "platforms": "WIN",
+        "full_price": 3999,
+        "hltb_single": 17
+    },
+    {
+        "id": 3,
+        "name": "The Outer Worlds",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/578650/header.jpg?t=1678291307",
+        "store_uscore": 84,
+        "store_url": "https://store.steampowered.com/app/578650/The_Outer_Worlds/",
+        "hltb_url": "https://howlongtobeat.com/game/62935",
+        "platforms": "WIN",
+        "full_price": 2999,
+        "hltb_single": 13
+    },
+    {
+        "id": 4,
+        "name": "RAGE 2",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/548570/header.jpg?t=1582901756",
+        "store_uscore": 63,
+        "store_url": "https://store.steampowered.com/app/548570/RAGE_2/",
+        "hltb_url": "https://howlongtobeat.com/game/58031",
+        "platforms": "WIN",
+        "full_price": 3999,
+        "hltb_single": 10
+    },
+    {
+        "id": 5,
+        "name": "Brutal Legend",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/225260/header.jpg?t=1669237971",
+        "store_uscore": 94,
+        "store_url": "https://store.steampowered.com/app/225260/Brutal_Legend/",
+        "hltb_url": "https://howlongtobeat.com/game/1345",
+        "platforms": "WIN",
+        "full_price": 1499,
+        "hltb_single": 9
+    }
+]

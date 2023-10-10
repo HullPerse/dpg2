@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <link rel="shortcut icon" href="#" />
+    <link rel="stylesheet" href="css/MainUI.css" />
+    <link rel="stylesheet" href="css/Map.css" />
+    <link rel="stylesheet" href="css/Login.css" />
+    <title>Карта</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+  </head>
+  <body>
+    <div class="loading-overlay">
+      <div class="loading-spinner"></div>
+    </div>
+    <div id="context-menu-container"></div>
+
+    <!-- Map Layout-->
+    <div id="map-container" style="display: grid">
+      <div id="playerIcons-container" style="display: block"></div>
+      <dialog class="mapModal" id="dialogDice">
+        <button class="closeButton" onclick="openDialog()">&times;</button>
+      </dialog>
+
+      <div id="diceModal" style="display: none">
+        <button class="closeButton" onclick="diceModal()">&times;</button>
+        <div id="diceContainer"><span id="diceSpan"></span></div>
+        <button id="rollDice" onclick="rollDice()">Кинуть</button>
+      </div>
+
+      <dialog class="mapModal" id="dialogMap">
+        <button class="closeButton" onclick="openDialog()">&times;</button>
+      </dialog>
+
+      <div class="map-cell">100</div>
+      <div class="map-cell">99</div>
+      <div class="map-cell">98</div>
+      <div class="map-cell">97</div>
+      <div class="map-cell">96</div>
+      <div class="map-cell">95</div>
+      <div class="map-cell">94</div>
+      <div class="map-cell">93</div>
+      <div class="map-cell">92</div>
+      <div class="map-cell">91</div>
+      <div class="map-cell">
+        <img src="img/checkpoint.svg" />
+        81
+      </div>
+      <div class="map-cell">82</div>
+      <div class="map-cell">83</div>
+      <div class="map-cell">84</div>
+      <div class="map-cell">85</div>
+      <div class="map-cell">86</div>
+      <div class="map-cell">87</div>
+      <div class="map-cell">88</div>
+      <div class="map-cell">89</div>
+      <div class="map-cell">90</div>
+      <div class="map-cell">80</div>
+      <div class="map-cell">79</div>
+      <div class="map-cell">78</div>
+      <div class="map-cell">77</div>
+      <div class="map-cell">76</div>
+      <div class="map-cell">75</div>
+      <div class="map-cell">74</div>
+      <div class="map-cell">73</div>
+      <div class="map-cell">72</div>
+      <div class="map-cell">71</div>
+      <div class="map-cell">
+        <img src="img/checkpoint.svg" />
+        61
+      </div>
+      <div class="map-cell">62</div>
+      <div class="map-cell">63</div>
+      <div class="map-cell">64</div>
+      <div class="map-cell">65</div>
+      <div class="map-cell">66</div>
+      <div class="map-cell">67</div>
+      <div class="map-cell">68</div>
+      <div class="map-cell">69</div>
+      <div class="map-cell">70</div>
+      <div class="map-cell">60</div>
+      <div class="map-cell">59</div>
+      <div class="map-cell">58</div>
+      <div class="map-cell">57</div>
+      <div class="map-cell">56</div>
+      <div class="map-cell">55</div>
+      <div class="map-cell">54</div>
+      <div class="map-cell">53</div>
+      <div class="map-cell">52</div>
+      <div class="map-cell">51</div>
+      <div class="map-cell">
+        <img src="img/checkpoint.svg" />
+        41
+      </div>
+      <div class="map-cell">42</div>
+      <div class="map-cell">43</div>
+      <div class="map-cell">44</div>
+      <div class="map-cell">45</div>
+      <div class="map-cell">46</div>
+      <div class="map-cell">47</div>
+      <div class="map-cell">48</div>
+      <div class="map-cell">49</div>
+      <div class="map-cell">50</div>
+      <div class="map-cell">40</div>
+      <div class="map-cell">39</div>
+      <div class="map-cell">38</div>
+      <div class="map-cell">37</div>
+      <div class="map-cell">36</div>
+      <div class="map-cell">35</div>
+      <div class="map-cell">34</div>
+      <div class="map-cell">33</div>
+      <div class="map-cell">32</div>
+      <div class="map-cell">31</div>
+      <div class="map-cell">
+        <img src="img/checkpoint.svg" />
+        21
+      </div>
+      <div class="map-cell">22</div>
+      <div class="map-cell">23</div>
+      <div class="map-cell">24</div>
+      <div class="map-cell">25</div>
+      <div class="map-cell">26</div>
+      <div class="map-cell">27</div>
+      <div class="map-cell">28</div>
+      <div class="map-cell">29</div>
+      <div class="map-cell">30</div>
+      <div class="map-cell">20</div>
+      <div class="map-cell">19</div>
+      <div class="map-cell">18</div>
+      <div class="map-cell">17</div>
+      <div class="map-cell">16</div>
+      <div class="map-cell">15</div>
+      <div class="map-cell">14</div>
+      <div class="map-cell">13</div>
+      <div class="map-cell">12</div>
+      <div class="map-cell">11</div>
+      <div class="map-cell">1</div>
+      <div class="map-cell">2</div>
+      <div class="map-cell">3</div>
+      <div class="map-cell">4</div>
+      <div class="map-cell">5</div>
+      <div class="map-cell">6</div>
+      <div class="map-cell">7</div>
+      <div class="map-cell">8</div>
+      <div class="map-cell">9</div>
+      <div class="map-cell">10</div>
+    </div>
+    <!--MainUI-->
+    <div id="mainUI-container" style="display: grid"></div>
+    <div id="timeContainer"></div>
+    <script src="js/function.js"></script>
+    <script src="js/login.js"></script>
+    <script src="js/contextmenu.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      window.onload = function () {
+        loadUI();
+        dialogEvent();
+        loginhref();
+        startClock();
+        populateCurrentUserList();
+      };
+    </script>
+  </body>
+</html>

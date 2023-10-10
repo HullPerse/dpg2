@@ -1,0 +1,174 @@
+.login-screen {
+  position: absolute;
+  min-height: 100vh;
+  min-width: 100vw;
+}
+
+.login-container,
+.register-container {
+  position: absolute;
+  left: 50%;
+  top: 10%;
+  transform: translateX(-50%);
+  width: 533px;
+  height: 290px;
+  border-radius: 15px;
+  background-color: var(--color1);
+}
+
+.register-container {
+  height: 410px;
+}
+
+.form-style {
+  position: absolute;
+  top: 100px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--shadow-color);
+  color: white;
+  height: 50px;
+  width: 450px;
+  font-size: 20px;
+  letter-spacing: 0.5px;
+  text-align: center;
+  outline: none;
+  border-radius: 10px;
+}
+
+.login-button,
+.register-button {
+  position: absolute;
+  top: 170px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: var(--primary-accent);
+  color: white;
+  height: 50px;
+  width: 225px;
+  border-radius: 10px;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.register-button {
+  top: 285px;
+}
+
+.login-button:hover,
+.register-button:hover {
+  background-color: var(--secondary-accent);
+  color: white;
+}
+
+.pfp-preview-container {
+  position: absolute;
+  left: 50%;
+  top: 4px;
+  transform: translateX(-50%);
+  height: 180px;
+  width: 180px;
+  border-radius: 50%;
+  border: 5px solid;
+  background-color: var(--color3);
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.pfp-preview-container img {
+  max-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  aspect-ratio: 1 / 1;
+}
+
+label[for="avatar-upload"] {
+  position: absolute;
+  right: -3px;
+  top: -6px;
+  height: 50px;
+  width: 50px;
+  font-size: 50px;
+  z-index: 2;
+}
+
+label[for="avatar-upload"]:hover + input::file-selector-button,
+input::-webkit-file-upload-button {
+  transition: 0.3s;
+  background-color: var(--secondary-accent);
+}
+
+input::-webkit-file-upload-button,
+input::file-selector-button {
+  position: absolute;
+  right: 5px;
+  top: 5px;
+  height: 42px;
+  width: 42px;
+  border-radius: 10px;
+  color: transparent;
+  border-color: transparent;
+  background-color: var(--primary-accent);
+}
+
+input[type="color"] {
+  right: 5px;
+  top: 47px;
+  border: none;
+  background-color: transparent;
+  width: 50px;
+  height: 50px;
+  overflow: hidden;
+  outline: none;
+  cursor: pointer;
+}
+
+input[type="color"]::-webkit-color-swatch {
+  border: none;
+  height: 40px;
+  border-radius: 10px;
+  z-index: 1;
+}
+input[type="color"]::-moz-color-swatch {
+  border: none;
+  border-radius: 10px;
+}
+
+#DPGtitle {
+  position: absolute;
+  top: -30px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 50px;
+  line-height: 60px;
+}
+
+.profile-guide {
+  top: 130px;
+}
+
+input {
+  display: block;
+}
+
+#user-not-exist {
+  position: absolute;
+  color: red;
+  left: 40px;
+  top: 81px;
+}
+
+#user-exists {
+  position: absolute;
+  color: red;
+  left: 40px;
+  top: 195px;
+}
+
+#user-characters {
+  position: absolute;
+  color: red;
+  left: 40px;
+  top: 195px;
+}

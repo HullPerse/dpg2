@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <link rel="shortcut icon" href="#" />
+    <link rel="stylesheet" href="css/MainUI.css" />
+    <link rel="stylesheet" href="css/Map.css" />
+    <link rel="stylesheet" href="css/Login.css" />
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <title>DPG Login</title>
+  </head>
+  <body style="overflow-x: hidden">
+    <div class="loading-overlay">
+      <div class="loading-spinner"></div>
+    </div>
+
+    <div
+      id="login-page"
+      class="login-screen"
+      onkeydown="loginVerify(event)"
+      style="display: block"
+    >
+      <div
+        id="login-container"
+        class="login-container"
+        style="visibility: visible"
+      >
+        <p id="DPGtitle">DPG</p>
+        <text id="user-not-exist" style="display: none"
+          >Имя пользователя не найдено</text
+        >
+        <text
+          class="profile-guide"
+          style="
+            position: absolute;
+            left: 50%;
+            transform: translate(-50%, 105px);
+          "
+        >
+          Нету профиля? <a href="#" onclick="loginchange()">Создать</a>
+        </text>
+        <input
+          id="logininput"
+          class="form-style"
+          type="text"
+          placeholder="Логин"
+          autocomplete="off"
+          autofocus="true"
+        />
+        <button class="login-button" onclick="verifyUser()" type="submit">
+          Войти
+        </button>
+      </div>
+    </div>
+
+    <div id="register-page" class="register-screen" style="display: none">
+      <div
+        id="register-container"
+        class="register-container"
+        style="visibility: visible"
+      >
+        <div id="pfp-preview-container" class="pfp-preview-container">
+          <img src="img/unnamed.png" />
+        </div>
+
+        <div id="pfppreviewContainer">
+          <label for="avatar-upload">+</label>
+          <input
+            id="avatar-upload"
+            type="file"
+            name="avatar"
+            accept="image/*"
+            onchange="previewpfp()"
+          />
+        </div>
+
+        <input id="colorPicker" type="color" value="#ffffff" />
+        <text id="user-exists" style="display: none"
+          >Такое имя пользователя уже занято</text
+        >
+        <text id="user-characters" style="display: none"
+          >Имя пользователя не может быть пустым</text
+        >
+        <input
+          id="registerinput"
+          class="form-style"
+          type="text"
+          placeholder="Логин"
+          autocomplete="off"
+          style="position: relative; top: 200px"
+        />
+        <button type="submit" class="register-button" onclick="registerUser()">
+          Создать
+        </button>
+        <div style="transform: translateY(225px)">
+          <text
+            style="
+              position: absolute;
+              top: 55px;
+              left: 50%;
+              transform: translateX(-50%);
+            "
+          >
+            Уже есть профиль? <a href="#" onclick="loginchange()">Войти</a>
+          </text>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/login.js"></script>
+    <script src="js/Function.js"></script>
+    <script>
+      window.onload = function () {
+        colorPicker();
+        populateUserList();
+        loginhreftomap();
+      };
+    </script>
+  </body>
+</html>

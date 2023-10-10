@@ -1,0 +1,113 @@
+
+[
+    {
+        "id": 0,
+        "name": "BioShock",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/7670/header.jpg?t=1568739889",
+        "store_uscore": 96,
+        "store_url": "https://store.steampowered.com/app/7670/BioShock/",
+        "hltb_url": "https://howlongtobeat.com/game/1065",
+        "platforms": "WIN",
+        "full_price": 1999,
+        "hltb_single": 12
+    },
+    {
+        "id": 1,
+        "name": "FlatOut 2",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/2990/header.jpg?t=1570210036",
+        "store_uscore": 96,
+        "store_url": "https://store.steampowered.com/app/2990/FlatOut_2/",
+        "hltb_url": "https://howlongtobeat.com/game/3587",
+        "platforms": "WIN",
+        "full_price": 999,
+        "hltb_single": 12
+    },
+    {
+        "id": 2,
+        "name": "S.T.A.L.K.E.R.: Shadow of Chernobyl",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/4500/header.jpg?t=1686945417",
+        "store_uscore": 94,
+        "store_url": "https://store.steampowered.com/app/4500/STALKER_Shadow_of_Chernobyl/",
+        "hltb_url": "https://howlongtobeat.com/game/8038",
+        "platforms": "WIN",
+        "full_price": 1999,
+        "hltb_single": 15
+    },
+    {
+        "id": 3,
+        "name": "Max Payne",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/12140/header.jpg?t=1695131271",
+        "store_uscore": 89,
+        "store_url": "https://store.steampowered.com/app/12140/Max_Payne/",
+        "hltb_url": "https://howlongtobeat.com/game/5736",
+        "platforms": "WIN",
+        "full_price": 999,
+        "hltb_single": 8
+    },
+    {
+        "id": 4,
+        "name": "Half-Life",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/70/header.jpg?t=1683302000",
+        "store_uscore": 96,
+        "store_url": "https://store.steampowered.com/app/70/HalfLife/",
+        "hltb_url": "https://howlongtobeat.com/game/4247",
+        "platforms": "WIN",
+        "full_price": 99,
+        "hltb_single": 12
+    },
+    {
+        "id": 5,
+        "name": "Far Cry 2",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/19900/header.jpg?t=1645563388",
+        "store_uscore": 77,
+        "store_url": "https://store.steampowered.com/app/19900/Far_Cry_2/",
+        "hltb_url": "https://howlongtobeat.com/game/3377",
+        "platforms": "WIN",
+        "full_price": 999,
+        "hltb_single": 17
+    },
+    {
+        "id": 6,
+        "name": "DOOM II",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/2300/header.jpg?t=1664903328",
+        "store_uscore": 95,
+        "store_url": "https://store.steampowered.com/app/2300/DOOM_II/",
+        "hltb_url": "https://howlongtobeat.com/game/2711",
+        "platforms": "WIN",
+        "full_price": 499,
+        "hltb_single": 7
+    },
+    {
+        "id": 7,
+        "name": "Grand Theft Auto: San Andreas",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/12120/header.jpg?t=1634144450",
+        "store_uscore": 91,
+        "store_url": "https://store.steampowered.com/app/12120/Grand_Theft_Auto_San_Andreas/",
+        "hltb_url": "https://howlongtobeat.com/game/4073",
+        "platforms": "WIN",
+        "full_price": null,
+        "hltb_single": 30
+    },
+    {
+        "id": 8,
+        "name": "Unreal 2: The Awakening",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/13200/header.jpg?t=1671033925",
+        "store_uscore": 69,
+        "store_url": "https://store.steampowered.com/app/13200/Unreal_2_The_Awakening/",
+        "hltb_url": "https://howlongtobeat.com/game/10828",
+        "platforms": "WIN",
+        "full_price": null,
+        "hltb_single": 8
+    },
+    {
+        "id": 9,
+        "name": "Serious Sam HD: The Second Encounter",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/41014/header.jpg?t=1573728535",
+        "store_uscore": 91,
+        "store_url": "https://store.steampowered.com/app/41014/Serious_Sam_HD_The_Second_Encounter/",
+        "hltb_url": "https://howlongtobeat.com/game/8313",
+        "platforms": "WIN",
+        "full_price": 1999,
+        "hltb_single": 7
+    }
+]

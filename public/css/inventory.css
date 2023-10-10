@@ -1,0 +1,618 @@
+#user-avatar-container {
+  position: absolute;
+  display: grid;
+  align-items: center;
+  justify-content: center;
+  left: 20px;
+  top: 50px;
+  height: 300px;
+  width: 300px;
+  border-radius: 10px;
+  background-color: var(--color1);
+}
+#user-avatar {
+  height: 290px;
+  width: 290px;
+  background-color: var(--shadow-color);
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  border: 2px solid var(--shadow-color);
+}
+#user-avatar img {
+  max-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  aspect-ratio: 1 / 1;
+}
+
+#user-options {
+  position: absolute;
+  display: grid;
+  grid-template-columns: repeat(3, 50px);
+  grid-column-gap: 15px;
+  left: 20px;
+  top: 360px;
+  height: 60px;
+  width: 300px;
+  border-radius: 10px;
+  background-color: var(--color1);
+  align-items: center;
+  justify-content: center;
+}
+
+.user-options-button {
+  display: grid;
+  justify-content: center;
+  align-items: center;
+  height: 50px;
+  width: 50px;
+  background-color: var(--shadow-color);
+  border-radius: 10px;
+}
+
+.user-options-button:hover {
+  background-color: var(--color2);
+}
+
+.user-options-button:active {
+  background-color: var(--color3);
+}
+
+.user-options-button img {
+  user-select: none;
+}
+
+#items {
+  position: absolute;
+  display: grid;
+  grid-template-columns: 60px 228px;
+  grid-template-rows: repeat(6 60px);
+  grid-column-gap: 10px;
+  grid-row-gap: 5px;
+  top: 435px;
+  left: 20px;
+  height: 410px;
+  width: 298px;
+  border: 3px solid var(--color1);
+  background-color: var(--shadow-color);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.user-items-img {
+  height: 60px;
+  width: 60px;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  outline: transparent;
+  border: 2px solid var(--color2);
+}
+
+.user-items-img img {
+  max-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  aspect-ratio: 1 / 1;
+}
+
+.user-items-text {
+  height: 60px;
+  width: 228px;
+  border: 2px solid var(--color2);
+}
+
+#roll-items {
+  position: absolute;
+  display: grid;
+  grid-template-columns: repeat(4, 50px);
+  grid-column-gap: 15px;
+  align-items: center;
+  justify-content: center;
+  top: 865px;
+  left: 20px;
+  height: 70px;
+  width: 298px;
+  border-radius: 10px;
+  border: 2px solid var(--color1);
+  background-color: var(--shadow-color);
+}
+
+.roll-items {
+  height: 50px;
+  width: 50px;
+  border-radius: 10px;
+  background-color: var(--color1);
+}
+
+#itemModal {
+  position: absolute;
+  left: 350px;
+  top: 50px;
+  height: 750px;
+  width: 1350px;
+  background-color: var(--color1);
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 10px 10px 25px 5px var(--shadow-color);
+  z-index: 999;
+}
+
+.saveButton {
+  position: absolute;
+  right: 20px;
+  bottom: 10px;
+  background-color: var(--primary-accent);
+  color: white;
+  height: 50px;
+  width: 225px;
+  border-radius: 10px;
+  font-size: 20px;
+  font-weight: 600;
+  z-index: 1;
+}
+
+#userItems-text {
+  position: absolute;
+  top: -17px;
+  left: 0px;
+  padding: 10px 10px;
+  background-color: var(--color3);
+}
+
+#userItems-text:hover {
+  background-color: var(--color2);
+  cursor: pointer;
+}
+
+#rollItems-text {
+  position: absolute;
+  top: -17px;
+  left: 108px;
+  padding: 10px 10px;
+}
+
+#rollItems-text:hover {
+  background-color: var(--color2);
+  cursor: pointer;
+}
+
+#userItems-display {
+  grid-template-columns: repeat(6, 190px);
+  grid-template-rows: 60px 190px 350px 25px;
+  column-gap: 30px;
+  align-items: center;
+  justify-content: center;
+  transform: translateY(100px);
+}
+
+#rollItems-display {
+  align-items: center;
+  justify-content: center;
+}
+
+.itemList {
+  height: 190px;
+  width: 190px;
+  transform: translateY(-70px);
+  background-color: var(--shadow-color);
+  border: 2px solid var(--color2);
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+}
+
+.itemListDescription {
+  height: 350px;
+  width: 190px;
+  transform: translateY(-70px);
+  background-color: var(--shadow-color);
+  border: 2px solid var(--color2);
+  justify-content: center;
+  align-items: center;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+
+.itemListSelection {
+  height: 30px;
+  width: 194px;
+  border: 2px solid var(--color2);
+  border-radius: 10px 10px 0 0;
+  background-color: var(--shadow-color);
+  transform: translateY(-54px);
+  color: white;
+  justify-content: center;
+  align-items: center;
+}
+
+.itemList img {
+  max-width: 190px;
+  min-height: 190px;
+  object-fit: cover;
+  aspect-ratio: 1 / 1;
+}
+
+.descHeader {
+  position: absolute;
+  top: -20px;
+  left: 0px;
+}
+
+.descText {
+  position: absolute;
+  top: 25px;
+  font-size: 15px;
+  font-weight: lighter;
+  color: #adb5bd;
+}
+
+.itemAmount {
+  position: absolute;
+  height: 30px;
+  width: 30px;
+  right: -2px;
+  bottom: 0;
+  background-color: var(--shadow-color);
+  border: 2px solid var(--color2);
+  display: grid;
+  align-items: center;
+  justify-content: center;
+}
+
+.itemType {
+  height: 25px;
+  width: 190px;
+  background-color: var(--shadow-color);
+  transform: translateY(-67px);
+  border: 2px solid var(--color2);
+  border-radius: 0 0 10px 10px;
+  color: white;
+  text-align: center;
+}
+
+.currentUserItem {
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  height: 15px;
+  width: 210px;
+  transform: translate(5px, -15px);
+}
+
+.currentItemAmount {
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  height: 15px;
+  width: 210px;
+  transform: translate(5px, -70px);
+}
+
+.currentUserItemType {
+  display: flex;
+  justify-items: center;
+  align-items: center;
+  height: 15px;
+  width: 210px;
+  transform: translate(5px, -15px);
+}
+
+.currentUserItem span {
+  font-size: 15px;
+  color: white;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.currenItemAmountText {
+  transform: translateX(5px);
+  font-size: 15px;
+  color: white;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.currentUserItemType span {
+  transform: translateX(5px);
+  font-size: 15px;
+  color: white;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+#moneyContainer {
+  position: absolute;
+  display: grid;
+  height: 40px;
+  width: 80px;
+  right: 0;
+  bottom: 0;
+  background-color: var(--shadow-color);
+  border: 3px solid var(--color1);
+  border-radius: 0 0 10px 0;
+  justify-content: center;
+  align-items: center;
+  font-size: 20px;
+}
+
+.mapModal {
+  min-height: 300px;
+  max-height: auto;
+  min-width: 450px;
+  max-width: 1280px;
+  border-radius: 10px;
+  white-space: nowrap;
+  outline: transparent;
+  overflow: hidden;
+  border-color: transparent;
+  background-color: var(--color1);
+  color: white;
+}
+
+#moneyModalContainer {
+  position: absolute;
+  height: 40px;
+  width: 190px;
+  border: 2px solid var(--color2);
+  border-radius: 10px;
+  background-color: var(--shadow-color);
+  bottom: 10px;
+  left: 30px;
+  color: white;
+  font-size: 20px;
+  text-align: center;
+}
+
+#gameTableContainer {
+  position: absolute;
+  display: grid;
+  left: 350px;
+  top: 50px;
+  height: auto;
+  width: 1550px;
+  max-width: 1550px;
+  border-radius: 10px;
+  border: 3px solid var(--color1);
+  table-layout: fixed;
+  border-collapse: separate;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: var(--color1);
+}
+
+#gameTableContainer tr {
+  font-size: 20px;
+  height: 70px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+tbody td:hover {
+  color: var(--primary-accent);
+}
+
+.gameTableTr:nth-child(even) {
+  background-color: var(--shadow-color);
+  border-radius: 10px;
+}
+
+.tdCell {
+  max-width: 100px;
+}
+
+.tdTitle {
+  max-width: 600px;
+}
+
+.tdStatus {
+  max-width: 200px;
+}
+
+.tdCommentary {
+  max-width: 650px;
+}
+
+#gameModal {
+  position: absolute;
+  left: 0;
+  top: 0;
+  align-items: center;
+  justify-content: center;
+  transform: translate(50%, 50%);
+  height: 500px;
+  width: 1000px;
+  background-color: var(--color1);
+  box-shadow: 10px 10px 25px 5px var(--shadow-color);
+  border-radius: 10px;
+  overflow: hidden;
+  z-index: 999;
+}
+
+#addGame-text {
+  position: absolute;
+  top: -17px;
+  left: 0px;
+  padding: 10px 10px;
+  background-color: var(--color3);
+}
+
+#addGameTitle {
+  transform: translateY(-150px);
+  background-color: var(--shadow-color);
+  color: white;
+  height: 50px;
+  width: 900px;
+  font-size: 20px;
+  letter-spacing: 0.5px;
+  text-align: center;
+  outline: none;
+  border-radius: 10px;
+}
+
+#addGameCell {
+  position: absolute;
+  top: 150px;
+  left: 46px;
+  background-color: var(--shadow-color);
+  color: white;
+  height: 50px;
+  width: 100px;
+  font-size: 20px;
+  letter-spacing: 0.5px;
+  text-align: center;
+  outline: none;
+  border-radius: 10px;
+}
+
+#addGameStatus {
+  position: absolute;
+  top: 150px;
+  left: 180px;
+  background-color: var(--shadow-color);
+  color: white;
+  height: 56px;
+  width: 200px;
+  font-size: 20px;
+  letter-spacing: 0.5px;
+  text-align: center;
+  outline: none;
+  border-radius: 10px;
+  outline: transparent;
+  border: transparent;
+}
+
+#addGameCommentary {
+  position: absolute;
+  top: 230px;
+  left: 46px;
+  background-color: var(--shadow-color);
+  color: white;
+  height: 200px;
+  width: 900px;
+  font-size: 20px;
+  letter-spacing: 0.5px;
+  text-align: center;
+  outline: none;
+  border-radius: 10px;
+  resize: none;
+  outline: transparent;
+  border: transparent;
+}
+
+a {
+  position: absolute;
+  transform: translate(0px, 15px);
+}
+
+.saveButton {
+  position: absolute;
+  right: 50px;
+}
+
+.gameSettings {
+  position: absolute;
+  display: grid;
+  height: 30px;
+  width: 30px;
+  left: 5px;
+  transform: translateY(0px);
+  background-color: var(--shadow-color);
+  border: 2px solid var(--color1);
+  user-select: none;
+  cursor: pointer;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+}
+
+.deleteButton {
+  position: absolute;
+  display: grid;
+  height: 50px;
+  width: 50px;
+  border-radius: 10px;
+  background-color: darkred;
+  right: 280px;
+  bottom: 10px;
+  justify-content: center;
+  align-items: center;
+}
+
+td {
+  padding: 0 132px;
+}
+
+#userModalContainer {
+  position: absolute;
+  display: grid;
+  grid-template-columns: 100px 350px;
+  grid-template-rows: repeat(auto-fill, 100px);
+  grid-column-gap: 15px;
+  grid-row-gap: 15px;
+  left: 710px;
+  top: 150px;
+  height: 700px;
+  width: 500px;
+  background-color: var(--color1);
+  border-radius: 10px;
+  overflow: scroll;
+  box-shadow: 10px 10px 25px 5px var(--shadow-color);
+  justify-content: center;
+  z-index: 999;
+}
+
+.userModalAvatar {
+  height: 100px;
+  width: 100px;
+  background-color: var(--shadow-color);
+  border: 2px solid var(--color2);
+  border-radius: 10px;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.userModalInfo {
+  height: 100px;
+  width: 350px;
+  background-color: var(--shadow-color);
+  border: 2px solid var(--color2);
+  border-radius: 10px;
+}
+
+.userModalAvatar img {
+  max-width: 100%;
+  min-height: 100%;
+  object-fit: cover;
+  aspect-ratio: 1 / 1;
+}
+
+.modalUsername {
+  transform: translate(10px, -10px);
+  top: -10px;
+  left: 10px;
+  font-size: 20px;
+}
+
+.modalMoney {
+  transform: translate(10px, -30px);
+  top: 10px;
+  left: 10px;
+  font-size: 15px;
+}
+
+.modalGame {
+  transform: translate(10px, -30px);
+  top: 10px;
+  left: 10px;
+  font-size: 15px;
+}

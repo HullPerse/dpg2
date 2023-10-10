@@ -1,0 +1,90 @@
+[
+        {
+            "id": 0,
+            "name": "Dead Estate",
+            "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/1484720/header.jpg?t=1694447980",
+            "store_uscore": 95,
+            "store_url": "https://store.steampowered.com/app/1484720/Dead_Estate/",
+            "hltb_url": "https://howlongtobeat.com/game/88143",
+            "platforms": "WIN",
+            "full_price": 1499,
+            "hltb_single": 3
+        },
+        {
+            "id": 1,
+            "name": "Hades",
+            "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/1145360/header.jpg?t=1680293801",
+            "store_uscore": 98,
+            "store_url": "https://store.steampowered.com/app/1145360/Hades/",
+            "hltb_url": "https://howlongtobeat.com/game/62941",
+            "platforms": "WIN",
+            "full_price": 2499,
+            "hltb_single": 22
+        },
+        {
+            "id": 2,
+            "name": "The Binding of Isaac: Rebirth",
+            "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/250900/header.jpg?t=1617174663",
+            "store_uscore": 97,
+            "store_url": "https://store.steampowered.com/app/250900/The_Binding_of_Isaac_Rebirth/",
+            "hltb_url": "https://howlongtobeat.com/game/9782",
+            "platforms": "WIN",
+            "full_price": 1499,
+            "hltb_single": 5
+        },
+        {
+            "id": 3,
+            "name": "Dead Cells",
+            "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/588650/header.jpg?t=1678188017",
+            "store_uscore": 96,
+            "store_url": "https://store.steampowered.com/app/588650/Dead_Cells/",
+            "hltb_url": "https://howlongtobeat.com/game/45727",
+            "platforms": "WIN",
+            "full_price": 2499,
+            "hltb_single": 14
+        },
+        {
+            "id": 4,
+            "name": "Okhlos: Omega",
+            "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/400180/header.jpg?t=1637018746",
+            "store_uscore": 79,
+            "store_url": "https://store.steampowered.com/app/400180/Okhlos_Omega/",
+            "hltb_url": "https://howlongtobeat.com/game/39398",
+            "platforms": "WIN",
+            "full_price": 1299,
+            "hltb_single": 4
+        },
+        {
+            "id": 5,
+            "name": "City of Brass",
+            "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/301840/header.jpg?t=1669095331",
+            "store_uscore": 78,
+            "store_url": "https://store.steampowered.com/app/301840/City_of_Brass/",
+            "hltb_url": "https://howlongtobeat.com/game/51203",
+            "platforms": "WIN",
+            "full_price": 1999,
+            "hltb_single": 5
+        },
+        {
+            "id": 6,
+            "name": "Pineapple Smash Crew",
+            "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/204390/header.jpg?t=1447355139",
+            "store_uscore": 84,
+            "store_url": "https://store.steampowered.com/app/204390/Pineapple_Smash_Crew/",
+            "hltb_url": "https://howlongtobeat.com/game/7057",
+            "platforms": "WIN",
+            "full_price": 999,
+            "hltb_single": 3
+        },
+        {
+            "id": 7,
+            "name": "FTL: Faster Than Light",
+            "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/212680/header_russian.jpg?t=1689017446",
+            "store_uscore": 95,
+            "store_url": "https://store.steampowered.com/app/212680/FTL_Faster_Than_Light/",
+            "hltb_url": "https://howlongtobeat.com/game/3738",
+            "platforms": "WIN",
+            "full_price": 99,
+            "hltb_single": 12
+        }
+]

@@ -1,0 +1,112 @@
+[
+    {
+        "id": 0,
+        "name": "Mafia: Definitive Edition",
+        "image": "https://steamcdn-a.akamaihd.net/steam/apps/1030840/header.jpg",
+        "store_uscore": null,
+        "store_url": "https://store.steampowered.com/app/1030840/Mafia_Definitive_Edition/",
+        "hltb_url": "https://howlongtobeat.com/game/78135",
+        "platforms": "WIN",
+        "full_price": 3999,
+        "hltb_single": 10
+    },
+    {
+        "id": 1,
+        "name": "Blacksad: Under the Skin",
+        "image": "https://steamcdn-a.akamaihd.net/steam/apps/1003890/header.jpg",
+        "store_uscore": 64,
+        "store_url": "https://store.steampowered.com/app/1003890/Blacksad_Under_the_Skin/",
+        "hltb_url": "https://howlongtobeat.com/game/65983",
+        "platforms": "WIN",
+        "full_price": 1999,
+        "hltb_single": 10
+    },
+    {
+        "id": 2,
+        "name": "Omerta - City of Gangsters",
+        "image": "https://steamcdn-a.akamaihd.net/steam/apps/208520/header.jpg",
+        "store_uscore": 53,
+        "store_url": "https://store.steampowered.com/app/208520/Omerta__City_of_Gangsters/",
+        "hltb_url": "https://howlongtobeat.com/game/6731",
+        "platforms": "WIN",
+        "full_price": 1499,
+        "hltb_single": 16
+    },
+    {
+        "id": 3,
+        "name": "Grand Theft Auto V",
+        "image": "https://steamcdn-a.akamaihd.net/steam/apps/271590/header.jpg",
+        "store_uscore": 93,
+        "store_url": "https://store.steampowered.com/app/271590/Grand_Theft_Auto_V/",
+        "hltb_url": "https://howlongtobeat.com/game/4064",
+        "platforms": "WIN",
+        "full_price": 2998,
+        "hltb_single": 31
+    },
+    {
+        "id": 4,
+        "name": "Hitman: Absolution",
+        "image": "https://steamcdn-a.akamaihd.net/steam/apps/203140/header.jpg",
+        "store_uscore": 77,
+        "store_url": "https://store.steampowered.com/app/203140/Hitman_Absolution/",
+        "hltb_url": "https://howlongtobeat.com/game/4475",
+        "platforms": "WIN",
+        "full_price": 1999,
+        "hltb_single": 12
+    },
+    {
+        "id": 5,
+        "name": "Kane & Lynch 2: Dog Days",
+        "image": "https://steamcdn-a.akamaihd.net/steam/apps/28000/header.jpg",
+        "store_uscore": 58,
+        "store_url": "https://store.steampowered.com/app/28000/Kane__Lynch_2_Dog_Days/",
+        "hltb_url": "https://howlongtobeat.com/game/4923",
+        "platforms": "WIN",
+        "full_price": 999,
+        "hltb_single": 4
+    },
+    {
+        "id": 6,
+        "name": "Mafia II: Definitive Edition",
+        "image": "https://steamcdn-a.akamaihd.net/steam/apps/1030830/header.jpg",
+        "store_uscore": null,
+        "store_url": "https://store.steampowered.com/app/1030830/Mafia_II_Definitive_Edition/",
+        "hltb_url": "https://howlongtobeat.com/game/78142",
+        "platforms": "WIN",
+        "full_price": 2999,
+        "hltb_single": 11
+    },
+    {
+        "id": 7,
+        "name": "This Is the Police",
+        "image": "https://steamcdn-a.akamaihd.net/steam/apps/443810/header.jpg",
+        "store_uscore": 57,
+        "store_url": "https://store.steampowered.com/app/443810/This_Is_the_Police/",
+        "hltb_url": "https://howlongtobeat.com/game/36888",
+        "platforms": "WIN",
+        "full_price": 1499,
+        "hltb_single": 19
+    },
+    {
+        "id": 8,
+        "name": "Grand Theft Auto IV: The Complete Edition",
+        "image": "https://steamcdn-a.akamaihd.net/steam/apps/12210/header.jpg",
+        "store_uscore": 79,
+        "store_url": "https://store.steampowered.com/app/12210",
+        "hltb_url": "https://howlongtobeat.com/game/14831",
+        "platforms": "WIN",
+        "full_price": 599,
+        "hltb_single": 33
+    },
+    {
+        "id": 9,
+        "name": "Stranglehold",
+        "image": "https://images-3.gog-statics.com/5d831e59a53f30bb3c37c56177d729a6970791463596559d565b8c4487e7ea24.jpg",
+        "store_uscore": 70,
+        "store_url": "https://www.gog.com/game/stranglehold",
+        "hltb_url": "https://howlongtobeat.com/game/9220",
+        "platforms": "WIN",
+        "full_price": 1499,
+        "hltb_single": 6
+    }
+]

@@ -1,0 +1,134 @@
+[
+    {
+        "id": 0,
+        "name": "The friends of Ringo Ishikawa",
+        "image": "https://steamcdn-a.akamaihd.net/steam/apps/846110/header.jpg",
+        "store_uscore": 50,
+        "store_url": "https://store.steampowered.com/app/846110",
+        "hltb_url": "https://howlongtobeat.com/game/56806",
+        "platforms": "WIN",
+        "full_price": 1499,
+        "hltb_single": 7
+    },
+    {
+        "id": 1,
+        "name": "TEKKEN 7",
+        "image": "https://steamcdn-a.akamaihd.net/steam/apps/389730/header.jpg",
+        "store_uscore": 70,
+        "store_url": "https://store.steampowered.com/app/389730",
+        "hltb_url": "https://howlongtobeat.com/game?id=46226",
+        "platforms": "WIN",
+        "full_price": 3999,
+        "hltb_single": 3
+    },
+    {
+        "id": 2,
+        "name": "Mortal Kombat X",
+        "image": "https://steamcdn-a.akamaihd.net/steam/apps/307780/header.jpg",
+        "store_uscore": 81,
+        "store_url": "https://store.steampowered.com/app/307780/Mortal_Kombat_X/",
+        "hltb_url": "https://howlongtobeat.com/game/21255",
+        "platforms": "WIN",
+        "full_price": 1999,
+        "hltb_single": 5
+    },
+    {
+        "id": 3,
+        "name": "9 Monkeys of Shaolin",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/739080/header.jpg?t=1695299504",
+        "store_uscore": null,
+        "store_url": "https://store.steampowered.com/app/739080/9_Monkeys_of_Shaolin/",
+        "hltb_url": "https://howlongtobeat.com/game/71374",
+        "platforms": "WIN",
+        "full_price": 1999,
+        "hltb_single": 4
+    },
+    {
+        "id": 4,
+        "name": "One Finger Death Punch",
+        "image": "https://steamcdn-a.akamaihd.net/steam/apps/264200/header.jpg",
+        "store_uscore": 66,
+        "store_url": "https://store.steampowered.com/app/264200/One_Finger_Death_Punch/",
+        "hltb_url": "https://howlongtobeat.com/game/14451",
+        "platforms": "WIN",
+        "full_price": 499,
+        "hltb_single": 7
+    },
+    {
+        "id": 5,
+        "name": "Streets of Rage 4",
+        "image": "https://steamcdn-a.akamaihd.net/steam/apps/985890/header.jpg",
+        "store_uscore": null,
+        "store_url": "https://store.steampowered.com/app/985890/Streets_of_Rage_4/",
+        "hltb_url": "https://howlongtobeat.com/game/76482",
+        "platforms": "WIN",
+        "full_price": 2499,
+        "hltb_single": 3
+    },
+    {
+        "id": 6,
+        "name": "River City Ransom: Underground",
+        "image": "https://steamcdn-a.akamaihd.net/steam/apps/422810/header.jpg",
+        "store_uscore": 58,
+        "store_url": "https://store.steampowered.com/app/422810/River_City_Ransom_Underground/",
+        "hltb_url": "https://howlongtobeat.com/game/44051",
+        "platforms": "WIN",
+        "full_price": 1999,
+        "hltb_single": 9
+    },
+    {
+        "id": 7,
+        "name": "Kung Fu Strike - The Warrior's Rise",
+        "image": "https://steamcdn-a.akamaihd.net/steam/apps/212030/header.jpg",
+        "store_uscore": 52,
+        "store_url": "https://store.steampowered.com/app/212030/Kung_Fu_Strike__The_Warriors_Rise/",
+        "hltb_url": "https://howlongtobeat.com/game/5137",
+        "platforms": "WIN",
+        "full_price": 999,
+        "hltb_single": 4
+    },
+    {
+        "id": 8,
+        "name": "Street Fighter 6",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/1364780/header_alt_assets_6.jpg?t=1695797262",
+        "store_uscore": 88,
+        "store_url": "https://store.steampowered.com/app/1364780/Street_Fighter_6/",
+        "hltb_url": "https://howlongtobeat.com/game/108883",
+        "platforms": "WIN",
+        "full_price": 5999,
+        "hltb_single": 17
+    },
+    {
+        "id": 9,
+        "name": "Street Fighter V",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/310950/header.jpg?t=1689043823",
+        "store_uscore": 71,
+        "store_url": "https://store.steampowered.com/app/310950/Street_Fighter_V/",
+        "hltb_url": "https://howlongtobeat.com/game/33284",
+        "platforms": "WIN",
+        "full_price": 1999,
+        "hltb_single": 3
+    },
+    {
+        "id": 10,
+        "name": "I Am The Hero",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/498500/header_russian.jpg?t=1511313302",
+        "store_uscore": 82,
+        "store_url": "https://store.steampowered.com/app/498500/I_Am_The_Hero/",
+        "hltb_url": "https://howlongtobeat.com/game/43962",
+        "platforms": "WIN",
+        "full_price": 999,
+        "hltb_single": 2
+    },
+    {
+        "id": 11,
+        "name": "SIFU",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/2138710/header.jpg?t=1694091646",
+        "store_uscore": 92,
+        "store_url": "https://store.steampowered.com/app/2138710/Sifu/",
+        "hltb_url": "https://howlongtobeat.com/game/89091",
+        "platforms": "WIN",
+        "full_price": 3999,
+        "hltb_single": 8
+    }
+]

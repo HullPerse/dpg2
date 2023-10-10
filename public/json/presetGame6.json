@@ -1,0 +1,233 @@
+[
+    {
+        "id": 0,
+        "name": "Medal of Honor",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/47790/header.jpg?t=1615244654",
+        "store_uscore": 81,
+        "store_url": "https://store.steampowered.com/app/47790/Medal_of_Honor/",
+        "hltb_url": "https://howlongtobeat.com/game/5776",
+        "platforms": "WIN",
+        "full_price": 1999,
+        "hltb_single": 5
+    },
+    {
+        "id": 1,
+        "name": "Medal of Honor: Warfighter",
+        "image": "https://originassets.akamaized.net/origin-com-store-final-assets-prod/181931/231.0x326.0/19718_LB_231_%5E_2012-12-09-13-03-11_2da22b377f56004326e5db19ba5f46b70fec6a101055368c654160b5105f0178.jpg",
+        "store_uscore": null,
+        "store_url": "https://www.ea.com/ru-ru/games/medal-of-honor/medal-of-honor-warfighter",
+        "hltb_url": "https://howlongtobeat.com/game/5791",
+        "platforms": "WIN",
+        "full_price": 2999,
+        "hltb_single": 5
+    },
+    {
+        "id": 2,
+        "name": "Medal of Honor: Above and Beyond",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/1402320/header.jpg?t=1624914237",
+        "store_uscore": 64,
+        "store_url": "https://store.steampowered.com/app/1402320/Medal_of_Honor_Above_and_Beyond/",
+        "hltb_url": "https://howlongtobeat.com/game/82443",
+        "platforms": "WIN",
+        "full_price": 3999,
+        "hltb_single": 10
+    },
+    {
+        "id": 3,
+        "name": "Battlefield: Bad Company 2",
+        "image": "https://howlongtobeat.com/games/Bc2lowres.jpg?width=250",
+        "store_uscore": null,
+        "store_url": "https://www.ea.com/ru-ru/games/battlefield/battlefield-bad-company-2",
+        "hltb_url": "https://howlongtobeat.com/game/946",
+        "platforms": "WIN",
+        "full_price": null,
+        "hltb_single": 7
+    },
+    {
+        "id": 4,
+        "name": "Battlefield 3",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/1238820/header.jpg?t=1614945737",
+        "store_uscore": 67,
+        "store_url": "https://store.steampowered.com/app/1238820/Battlefield_3/",
+        "hltb_url": "https://howlongtobeat.com/game/941",
+        "platforms": "WIN",
+        "full_price": 3999,
+        "hltb_single": 6
+    },
+    {
+        "id": 5,
+        "name": "Battlefield 4",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/1238860/header.jpg?t=1641312061",
+        "store_uscore": 87,
+        "store_url": "https://store.steampowered.com/app/1238860/Battlefield_4/",
+        "hltb_url": "https://howlongtobeat.com/game/942",
+        "platforms": "WIN",
+        "full_price": 3999,
+        "hltb_single": 6
+    },
+    {
+        "id": 6,
+        "name": "Battlefield 1",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/1238840/header.jpg?t=1664070400",
+        "store_uscore": 86,
+        "store_url": "https://store.steampowered.com/app/1238840/Battlefield_1/",
+        "hltb_url": "https://howlongtobeat.com/game/38001",
+        "platforms": "WIN",
+        "full_price": 3999,
+        "hltb_single": 6
+    },
+    {
+        "id": 7,
+        "name": "Battlefield V",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/1238810/header.jpg?t=1664070673",
+        "store_uscore": 70,
+        "store_url": "https://store.steampowered.com/app/1238810/Battlefield_V/",
+        "hltb_url": "https://howlongtobeat.com/game/57352",
+        "platforms": "WIN",
+        "full_price": 4999,
+        "hltb_single": 6
+    },
+    {
+        "id": 8,
+        "name": "Call of Duty",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/2620/header.jpg?t=1691003894",
+        "store_uscore": 94,
+        "store_url": "https://store.steampowered.com/app/2620/Call_of_Duty_2003/",
+        "hltb_url": "https://howlongtobeat.com/game/1464",
+        "platforms": "WIN",
+        "full_price": 1999,
+        "hltb_single": 7
+    },
+    {
+        "id": 9,
+        "name": "Call of Duty 2",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/2630/header.jpg?t=1646762115",
+        "store_uscore": 93,
+        "store_url": "https://store.steampowered.com/app/2630/Call_of_Duty_2/",
+        "hltb_url": "https://howlongtobeat.com/game/1465",
+        "platforms": "WIN",
+        "full_price": 1999,
+        "hltb_single": 8
+    },
+    {
+        "id": 10,
+        "name": "Call of Duty 4: Modern Warfare",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/7940/header.jpg?t=1678298739",
+        "store_uscore": 93,
+        "store_url": "https://store.steampowered.com/app/7940/Call_of_Duty_4_Modern_Warfare_2007/",
+        "hltb_url": "https://howlongtobeat.com/game/1468",
+        "platforms": "WIN",
+        "full_price": 1999,
+        "hltb_single": 7
+    },
+    {
+        "id": 11,
+        "name": "Call of Duty: World at War",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/10090/header.jpg?t=1654830025",
+        "store_uscore": 92,
+        "store_url": "https://store.steampowered.com/app/10090/Call_of_Duty_World_at_War/",
+        "hltb_url": "https://howlongtobeat.com/game/1483",
+        "platforms": "WIN",
+        "full_price": 1999,
+        "hltb_single": 7
+    },
+    {
+        "id": 12,
+        "name": "Call of Duty: Modern Warfare 2",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/10180/header.jpg?t=1654809646",
+        "store_uscore": 93,
+        "store_url": "https://store.steampowered.com/app/10180/Call_of_Duty_Modern_Warfare_2_2009/",
+        "hltb_url": "https://howlongtobeat.com/game/1477",
+        "platforms": "WIN",
+        "full_price": 1999,
+        "hltb_single": 6
+    },
+    {
+        "id": 13,
+        "name": "Call of Duty: Black Ops",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/42700/header.jpg?t=1654809667",
+        "store_uscore": 91,
+        "store_url": "https://store.steampowered.com/app/42700/Call_of_Duty_Black_Ops/",
+        "hltb_url": "https://howlongtobeat.com/game/1471",
+        "platforms": "WIN",
+        "full_price": 3999,
+        "hltb_single": 7
+    },
+    {
+        "id": 14,
+        "name": "Call of Duty: Modern Warfare 3",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/115300/header.jpg?t=1692032509",
+        "store_uscore": 89,
+        "store_url": "https://store.steampowered.com/app/115300/Call_of_Duty_Modern_Warfare_3_2011/",
+        "hltb_url": "https://howlongtobeat.com/game/1478",
+        "platforms": "WIN",
+        "full_price": 3999,
+        "hltb_single": 6
+    },
+    {
+        "id": 15,
+        "name": "Call of Duty: Black Ops II",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/202970/header.jpg?t=1654830020",
+        "store_uscore": 86,
+        "store_url": "https://store.steampowered.com/app/202970/Call_of_Duty_Black_Ops_II/",
+        "hltb_url": "https://howlongtobeat.com/game/1472",
+        "platforms": "WIN",
+        "full_price": 4999,
+        "hltb_single": 7
+    },
+    {
+        "id": 16,
+        "name": "Call of Duty: Black Ops III",
+        "image": "https://cdn.akamai.steamstatic.com/steam/apps/311210/header.jpg?t=1646763462",
+        "store_uscore": 86,
+        "store_url": "https://store.steampowered.com/app/311210/Call_of_Duty_Black_Ops_III/",
+        "hltb_url": "https://howlongtobeat.com/game/27127",
+        "platforms": "WIN",
+        "full_price": 1499,
+        "hltb_single": 9
+    },
+    {
+        "id": 17,
+        "name": "Call of Duty: Ghosts",
+        "image": "https://cdn.akamai.steamstatic.com/steam/apps/209160/header.jpg?t=1654830036",
+        "store_uscore": 60,
+        "store_url": "https://store.steampowered.com/app/209160/Call_of_Duty_Ghosts/",
+        "hltb_url": "https://howlongtobeat.com/game/14322",
+        "platforms": "WIN",
+        "full_price": 4999,
+        "hltb_single": 6
+    },
+    {
+        "id": 18,
+        "name": "Call of Duty: Infinite Warfare",
+        "image": "https://cdn.akamai.steamstatic.com/steam/apps/292730/header.jpg?t=1646764561",
+        "store_uscore": 58,
+        "store_url": "https://store.steampowered.com/app/292730/Call_of_Duty_Infinite_Warfare/",
+        "hltb_url": "https://howlongtobeat.com/game/37101",
+        "platforms": "WIN",
+        "full_price": 2999,
+        "hltb_single": 7
+    },
+    {
+        "id": 19,
+        "name": "Call of Duty: WWII",
+        "image": "https://cdn.akamai.steamstatic.com/steam/apps/476600/header.jpg?t=1646764749",
+        "store_uscore": 68,
+        "store_url": "https://store.steampowered.com/app/476600/Call_of_Duty_WWII/",
+        "hltb_url": "https://howlongtobeat.com/game/46121",
+        "platforms": "WIN",
+        "full_price": 5999,
+        "hltb_single": 7
+    },
+    {
+        "id": 20,
+        "name": "Call of Duty: Advanced Warfare",
+        "image": "https://cdn.akamai.steamstatic.com/steam/apps/209650/header.jpg?t=1646762527",
+        "store_uscore": 61,
+        "store_url": "https://store.steampowered.com/app/209650/Call_of_Duty_Advanced_Warfare__Gold_Edition/",
+        "hltb_url": "https://howlongtobeat.com/game/18220",
+        "platforms": "WIN",
+        "full_price": 4999,
+        "hltb_single": 7
+    }
+]

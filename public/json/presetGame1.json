@@ -1,0 +1,57 @@
+[
+    {
+        "id": 0,
+        "name": "Stronghold Crusader 2",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/232890/header.jpg?t=1695725461",
+        "store_uscore": 72,
+        "store_url": "https://store.steampowered.com/app/232890/Stronghold_Crusader_2/",
+        "hltb_url": "",
+        "platforms": "WIN",
+        "full_price": 3999,
+        "hltb_single": 9
+    },
+    {
+        "id": 1,
+        "name": "Command & Conquer: Red Alert 3",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/17480/header.jpg?t=1615390553",
+        "store_uscore": 85,
+        "store_url": "https://store.steampowered.com/app/17480/Command__Conquer_Red_Alert_3/",
+        "hltb_url": "https://howlongtobeat.com/game/1842",
+        "platforms": "WIN",
+        "full_price": 1999,
+        "hltb_single": 21
+    },
+    {
+        "id": 2,
+        "name": "Company of Heroes - Legacy Edition",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/4560/header.jpg?t=1573488196",
+        "store_uscore": 93,
+        "store_url": "https://store.steampowered.com/app/4560/Company_of_Heroes__Legacy_Edition/",
+        "hltb_url": "https://howlongtobeat.com/game/1874",
+        "platforms": "WIN",
+        "full_price": 1999,
+        "hltb_single": 19
+    },
+    {
+        "id": 3,
+        "name": "Age of Mythology: Extended Edition",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/266840/header.jpg?t=1667261670",
+        "store_uscore": 92,
+        "store_url": "https://store.steampowered.com/app/266840/Age_of_Mythology_Extended_Edition/",
+        "hltb_url": "https://howlongtobeat.com/game/19455",
+        "platforms": "WIN",
+        "full_price": 2999,
+        "hltb_single": 28
+    },
+    {
+        "id": 4,
+        "name": "Command & Conquer 3: Tiberium Wars",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/24790/header.jpg?t=1615390726",
+        "store_uscore": 90,
+        "store_url": "https://store.steampowered.com/app/24790/Command__Conquer_3_Tiberium_Wars/",
+        "hltb_url": "https://howlongtobeat.com/game/1833",
+        "platforms": "WIN",
+        "full_price": 1499,
+        "hltb_single": 23
+    }
+]
