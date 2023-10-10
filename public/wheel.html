@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link rel="shortcut icon" href="#" />
+    <link rel="stylesheet" href="css/MainUI.css" />
+    <link rel="stylesheet" href="css/Map.css" />
+    <link rel="stylesheet" href="css/contextmenu.css" />
+    <link rel="stylesheet" href="css/rules.css" />
+    <link rel="stylesheet" href="css/Login.css" />
+    <link rel="stylesheet" href="css/wheel.css" />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+    <title>DPG</title>
+  </head>
+  <body style="height: auto">
+    <div class="loading-overlay">
+      <div class="loading-spinner"></div>
+    </div>
+    <div id="context-menu-container"></div>
+
+    <div id="noGamesModal" style="display: none">
+      <div id="noGamesModalScreen">
+        <button class=".closeButton" onclick="noGamesModal()">&times;</button>
+        <img src="img/sadface.svg" />
+        <p id="noGames">Игры не найдены</p>
+      </div>
+    </div>
+
+    <div id="diceModal" style="display: none">
+      <button class="closeButton" onclick="diceModal()">&times;</button>
+      <div id="diceContainer"><span id="diceSpan"></span></div>
+      <button id="rollDice" onclick="rollDice()">Кинуть</button>
+    </div>
+
+    <dialog class="mapModal" id="dialogMap">
+      <button class="closeButton" onclick="openDialog()">&times;</button>
+    </dialog>
+
+    <!--RENDER WHEEL-->
+    <div id="wheelSwitch">
+      <button id="gameButton">
+        <img src="img/gamepad.svg" draggable="false" />
+      </button>
+      <button id="itemButton">
+        <img src="img/item.svg" draggable="false" />
+      </button>
+    </div>
+
+
+    <div id="itemPage" style="display: none">
+  <div id="mainItemContainer">
+      <div id="itemImg">
+        <img id="itemImgSrc"
+          src="img/unnamed.png"
+        />
+      </div>
+      <div id="itemDataContainer">
+        <p style="margin-bottom: 10px; margin-top: 10px; text-align: center">
+          <span id="itemName" style="font-size: 30px"
+            ></span
+          >
+          <hr style="color: var(--color1)">
+        </p>
+        <div id="itemDescriptionContainer">
+          <div id="itemDescription"></div>
+          <div id="itemMisc"></div>
+        </div>
+      </div>
+  </div>
+
+  <div id="itemRollContainer">
+    <div id="itemRollTitleContainer">  
+    </div>
+    <div class="buttonBg">
+      <button class="rollButton" id="itemButtonRoll" onclick="rollItem()">Крутить</button>
+    </div>
+
+    <div id="resultItemListContainer">
+      <div id="resultItemListEntity">
+      </div>
+    </div>
+  </div>
+
+  <div id="itemSettingsContainer">
+    <input type="radio" id="allItems" name="itemList" value="allItems" oninput="possibleItems()">
+    <label for="allItems">Все предметы</label>
+  
+    <input type="radio" id="Buffs" name="itemList" value="Buffs" oninput="possibleItems()">
+    <label for="Buffs">Баффы</label>
+  
+    <input type="radio" id="Debuffs" name="itemList" value="Debuffs" oninput="possibleItems()">
+    <label for="Debuffs">Дебаффы</label>
+  
+    <input type="radio" id="Coin" name="itemList" value="Coin" oninput="possibleItems()">
+    <label for="Coin">Монетка</label>
+  
+    <input type="radio" id="Players" name="itemList" value="Players" oninput="possibleItems()">
+    <label for="Players">Участники</label>
+  
+    <input type="radio" id="customList" name="itemList" value="customList" oninput="possibleItems()">
+    <label for="customList">Свой список</label>
+  </div>
+  <div id="possibleItems"></div>
+    </div>
+
+    <div id="gamePage" style="display: grid">
+    <div id="mainGameContainer">
+      <div id="gameImg">
+        <img id="gameImgSrc"
+          src="img/unnamed.png"
+        />
+      </div>
+      <div id="gameDataContainer">
+        <p style="margin-bottom: 10px; margin-top: 10px; text-align: center">
+          <span id="gameName" style="font-size: 30px"
+            ></span
+          >
+          <hr style="color: var(--color1)">
+        </p>
+        <div id="gameDescriptionContainer">
+          <div id="gameDescription"></div>
+          <div id="gameMisc"></div>
+          <div id="gameHref">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="gameRollContainer">
+      <div id="gameRollTitleContainer">
+
+        
+      </div>
+      <div class="buttonBg"><button class="rollButton" onclick="openCase()">Крутить</button></div>
+
+      <div id="resultGameListContainer">
+        <div id="resultGameListEntity">
+        </div>
+      </div>
+    </div>
+
+    <div id="gameSettingsContainer">
+      <select id="gamePresetSelection">
+        <option class="gamePresetOption" value="0" selected>Случайная игра</option>
+        <option class="gamePresetOption" value="1">Лестница поноса</option>
+        <option class="gamePresetOption" value="2">Стратегическое отступление</option>
+        <option class="gamePresetOption" value="3">Через вселенные</option>
+        <option class="gamePresetOption" value="4">Вспоминки</option>
+        <option class="gamePresetOption" value="5">Японщина</option>
+        <option class="gamePresetOption" value="6">Игры поп-культа</option>
+        <option class="gamePresetOption" value="7">ВОЙНА</option>
+        <option class="gamePresetOption" value="8">БОЕВЫЕ ИСКУССТВА</option>
+        <option class="gamePresetOption" value="9">БАЛДЕЖНЫЙ OST</option>
+        <option class="gamePresetOption" value="10">Криминал</option>
+        <option class="gamePresetOption" value="11">Сос мыслом</option>
+        <option class="gamePresetOption" value="12">ПРЫЖКОВОЕ ДРОЧЕВО</option>
+        <option class="gamePresetOption" value="13">Неко</option>
+        <option class="gamePresetOption" value="14">Король ПИВА</option>
+        <option class="gamePresetOption" value="15">Сердце</option>
+      </select>
+      
+      <div class="dropdown">
+        <div class="dropdownButton" onclick="dropdownGenres()"><span>Жанры</span></div>
+        <div class="dropdown-content">
+          <label><input type="checkbox" value="Horror" class="checkbox">Horror</label>
+          <label><input type="checkbox" value="Psychological Horror" class="checkbox">Psychological Horror</label>
+          <label><input type="checkbox" value="Crime" class="checkbox">Crime</label>
+          <label><input type="checkbox" value="Assassin" class="checkbox">Assassin</label>
+          <label><input type="checkbox" value="Indie" class="checkbox">Indie</label>
+          <label><input type="checkbox" value="RPG" class="checkbox">RPG</label>
+          <label><input type="checkbox" value="Casual" class="checkbox">Casual</label>
+          <label><input type="checkbox" value="Simulation" class="checkbox">Simulation</label>
+          <label><input type="checkbox" value="Racing" class="checkbox">Racing</label>
+          <label><input type="checkbox" value="Multiplayer" class="checkbox">Multiplayer</label>
+          <label><input type="checkbox" value="Nudity" class="checkbox">Nudity</label>
+          <label><input type="checkbox" value="Puzzle" class="checkbox">Puzzle</label>
+          <label><input type="checkbox" value="Puzzle-Platformer" class="checkbox">Puzzle-Platformer</label>
+          <label><input type="checkbox" value="Point & Click" class="checkbox">Point &amp; Click</label>
+          <label><input type="checkbox" value="FPS" class="checkbox">FPS</label>
+          <label><input type="checkbox" value="Shooter" class="checkbox">Shooter</label>
+          <label><input type="checkbox" value="Platformer" class="checkbox">Platformer</label>
+          <label><input type="checkbox" value="3D Platformer" class="checkbox">3D Platformer</label>
+          <label><input type="checkbox" value="Rogue-like" class="checkbox">Roguelike</label>
+          <label><input type="checkbox" value="Anime" class="checkbox">Anime</label>
+          <label><input type="checkbox" value="Action" class="checkbox">Action RPG</label>
+          <label><input type="checkbox" value="JRPG" class="checkbox">JRPG</label>
+          <label><input type="checkbox" value="Tactical" class="checkbox">Tactical RPG</label>
+          <label><input type="checkbox" value="Turn-Based Strategy" class="checkbox">Turn-Based Strategy</label>
+          <label><input type="checkbox" value="Strategy" class="checkbox">Strategy</label>
+          <label><input type="checkbox" value="Strategy RPG" class="checkbox">Strategy RPG</label>
+        </div>
+      </div>
+
+      <div id="dateSettings">
+        <input type="date" id="beforeDate">
+        <input type="date" id="afterDate">
+      </div>
+
+      <div id="sliderSettings">
+        <span id="gameAmountRange">Количество игр: <span id="gameAmount">12</span></span>
+        <input type="number" id="gameAmountSlider" min="5" max="16" oninput="gameAmountSlider()"/>
+
+        <span id="gameCostRange">Цена: <span id="gameCostRangeMin">0</span> - <span id="gameCostRangeMax">10000</span></span>
+        <input type="number" id="gameCostMinRange" min="0" max="10000" step="50" oninput="gameCostSlider()"/>
+        <input type="number" id="gameCostMaxRange" min="0" max="10000" step="50" oninput="gameCostSlider()"/>
+
+        <span id="gameTimeRange">Время прохождения: <span id="gameTimeRangeMin">0</span> - <span id="gameTimeRangeMax">300</span></span>
+        <input type="number" id="gameTimeMinRange" min="0" max="300" step="1" oninput="gameTimeSlider()"/>
+        <input type="number" id="gameTimeMaxRange" min="0" max="300" step="1" oninput="gameTimeSlider()"/>
+
+        <span id="gameScoreRange">Оценка: <span id="gameScoreRangeMin">0</span> - <span id="gameScoreRangeMax">100</span></span>
+        <input type="number" id="gameScoreMinRange" min="0" max="100" step="1" oninput="gameScoreSlider()"/>
+        <input type="number" id="gameScoreMaxRange" min="0" max="100" step="1" oninput="gameScoreSlider()"/>
+      </div>
+    </div>
+    </div>
+
+    <div id="mainUI-container" style="display: grid"></div>
+    <div
+      id="timeContainer"
+      style="position: absolute; left: 540px; top: 20px"
+    ></div>
+
+  </body>
+  <script src="js/function.js"></script>
+  <script src="js/login.js"></script>
+  <script src="js/contextmenu.js"></script>
+  <script src="js/wheel.js"></script>
+  <script>
+    window.onload = function () {
+      loadUI();
+      dialogEvent();
+      loginhref();
+      startClock();
+      populateCurrentUserList();
+      containerSwitch();
+      loadSettings();
+      changeWindows();
+    };
+  </script>
+</html>

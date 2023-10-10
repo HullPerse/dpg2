@@ -1,0 +1,144 @@
+[
+    {
+        "id": 0,
+        "name": "The Elder Scrolls V: Skyrim Special Edition",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/489830/header.jpg?t=1650909796",
+        "store_uscore": 94,
+        "store_url": "https://store.steampowered.com/app/489830/The_Elder_Scrolls_V_Skyrim_Special_Edition/",
+        "hltb_url": "https://howlongtobeat.com/game/14996",
+        "platforms": "WIN",
+        "full_price": 3999,
+        "hltb_single": 26
+    },
+    {
+        "id": 1,
+        "name": "BioShock Infinite",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/8870/header.jpg?t=1602794480",
+        "store_uscore":     93,
+        "store_url": "https://store.steampowered.com/app/8870/BioShock_Infinite/",
+        "hltb_url": "https://howlongtobeat.com/game/1068",
+        "platforms": "WIN",
+        "full_price": 2999,
+        "hltb_single": 11
+    },
+    {
+        "id": 2,
+        "name": "Max Payne 3",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/204100/header.jpg?t=1695140100",
+        "store_uscore": 85,
+        "store_url": "https://store.steampowered.com/app/204100/Max_Payne_3/",
+        "hltb_url": "https://howlongtobeat.com/game/5739",
+        "platforms": "WIN",
+        "full_price": 1999,
+        "hltb_single": 10
+    },
+    {
+        "id": 3,
+        "name": "Undertale",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/391540/header.jpg?t=1579096091",
+        "store_uscore": 95,
+        "store_url": "https://store.steampowered.com/app/391540/Undertale/",
+        "hltb_url": "https://howlongtobeat.com/game/30385",
+        "platforms": "WIN",
+        "full_price": 999,
+        "hltb_single": 7
+    },
+    {
+        "id": 4,
+        "name": "Katana ZERO",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/460950/header.jpg?t=1666986801",
+        "store_uscore": 98,
+        "store_url": "https://store.steampowered.com/app/460950/Katana_ZERO/",
+        "hltb_url": "https://howlongtobeat.com/game/33020",
+        "platforms": "WIN",
+        "full_price": 1499,
+        "hltb_single": 4
+    },
+    {
+        "id": 5,
+        "name": "DOOM Eternal",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/782330/header.jpg?t=1693933695",
+        "store_uscore": 91,
+        "store_url": "https://store.steampowered.com/app/782330/DOOM_Eternal/",
+        "hltb_url": "https://howlongtobeat.com/game/57506",
+        "platforms": "WIN",
+        "full_price": 1999,
+        "hltb_single": 14
+    },
+    {
+        "id": 6,
+        "name": "RUINER",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/464060/header.jpg?t=1622220266",
+        "store_uscore": 90,
+        "store_url": "https://store.steampowered.com/app/464060/RUINER/",
+        "hltb_url": "https://howlongtobeat.com/game/45166",
+        "platforms": "WIN",
+        "full_price": 1999,
+        "hltb_single": 5
+    },
+    {
+        "id": 7,
+        "name": "Furi",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/423230/header.jpg?t=1694424434",
+        "store_uscore": 91,
+        "store_url": "https://store.steampowered.com/app/423230/Furi/",
+        "hltb_url": "https://howlongtobeat.com/game/30957",
+        "platforms": "WIN",
+        "full_price": 1999,
+        "hltb_single": 5
+    },
+    {
+        "id": 8,
+        "name": "Transistor",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/237930/header.jpg?t=1601337924",
+        "store_uscore": 94,
+        "store_url": "https://store.steampowered.com/app/237930/Transistor/",
+        "hltb_url": "https://howlongtobeat.com/game/17617",
+        "platforms": "WIN",
+        "full_price": 1999,
+        "hltb_single": 6
+    },
+    {
+        "id": 9,
+        "name": "Nier: Automata",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/524220/header.jpg?t=1696405478",
+        "store_uscore": 87,
+        "store_url": "https://store.steampowered.com/app/524220/NieRAutomata/",
+        "hltb_url": "https://howlongtobeat.com/game/38029",
+        "platforms": "WIN",
+        "full_price": 3999,
+        "hltb_single": 21
+    },
+    {
+        "id": 10,
+        "name": "Nier: Replicant",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/1113560/header.jpg?t=1696405494",
+        "store_uscore": 87,
+        "store_url": "https://store.steampowered.com/app/1113560/NieR_Replicant_ver122474487139/",
+        "hltb_url": "https://howlongtobeat.com/game/76406",
+        "platforms": "WIN",
+        "full_price": 5999,
+        "hltb_single": 19
+    },
+    {
+        "id": 11,
+        "name": "Broken Reality",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/757480/header.jpg?t=1560221864",
+        "store_uscore": 93,
+        "store_url": "https://store.steampowered.com/app/757480/Broken_Reality/",
+        "hltb_url": "https://howlongtobeat.com/game/66470",
+        "platforms": "WIN",
+        "full_price": 1499,
+        "hltb_single": 7
+    },
+    {
+        "id": 12,
+        "name": "Need for Speed™ Most Wanted",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/1262560/header.jpg?t=1605151411",
+        "store_uscore": null,
+        "hltb_url": "https://howlongtobeat.com/game/6477",
+        "platforms": "WIN",
+        "full_price": null,
+        "hltb_single": 20
+    }
+]

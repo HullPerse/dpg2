@@ -1,0 +1,233 @@
+[
+    {
+        "id": 0,
+        "name": "Divinity: Original Sin 2",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/435150/header.jpg?t=1668591196",
+        "store_uscore": 95,
+        "store_url": "https://store.steampowered.com/app/435150/Divinity_Original_Sin_2__Definitive_Edition/",
+        "hltb_url": "https://howlongtobeat.com/game/39525",
+        "platforms": "WIN",
+        "full_price": 4499,
+        "hltb_single": 59
+    },
+    {
+        "id": 1,
+        "name": "The Elder Scrolls V: Skyrim Special Edition",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/489830/header.jpg?t=1650909796",
+        "store_uscore": 94,
+        "store_url": "https://store.steampowered.com/app/489830/The_Elder_Scrolls_V_Skyrim_Special_Edition/",
+        "hltb_url": "https://howlongtobeat.com/game/14996",
+        "platforms": "WIN",
+        "full_price": 3999,
+        "hltb_single": 26
+    },
+    {
+        "id": 2,
+        "name": "Borderlands 2",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/49520/header.jpg?t=1693524237",
+        "store_uscore": 95,
+        "store_url": "https://store.steampowered.com/app/49520/Borderlands_2/",
+        "hltb_url": "https://howlongtobeat.com/game/1274",
+        "platforms": "WIN",
+        "full_price": 1999,
+        "hltb_single": 30
+    },
+    {
+        "id": 3,
+        "name": "The Witcher 3",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/292030/header_russian.jpg?t=1693590732",
+        "store_uscore": 96,
+        "store_url": "https://store.steampowered.com/app/292030/_3/",
+        "hltb_url": "https://howlongtobeat.com/game/10270",
+        "platforms": "WIN",
+        "full_price": 3999,
+        "hltb_single": 51
+    },
+    {
+        "id": 4,
+        "name": "Assassin's Creed: Odyssey",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/812140/header_russian.jpg?t=1692034673",
+        "store_uscore": 89,
+        "store_url": "https://store.steampowered.com/app/812140/Assassins_Creed_Odyssey/",
+        "hltb_url": "https://howlongtobeat.com/game/57503",
+        "platforms": "WIN",
+        "full_price": 5999,
+        "hltb_single": 45
+    },
+    {
+        "id": 5,
+        "name": "OMORI",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/1150690/header.jpg?t=1671584768",
+        "store_uscore": 97,
+        "store_url": "https://store.steampowered.com/app/1150690/OMORI/",
+        "hltb_url": "https://howlongtobeat.com/game/85624",
+        "platforms": "WIN",
+        "full_price": 1999,
+        "hltb_single": 21
+    },
+    {
+        "id": 6,
+        "name": "Final Fantasy XV",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/637650/header.jpg?t=1592962568",
+        "store_uscore": 83,
+        "store_url": "https://store.steampowered.com/app/637650/FINAL_FANTASY_XV_WINDOWS_EDITION/",
+        "hltb_url": "https://howlongtobeat.com/game/3537",
+        "platforms": "WIN",
+        "full_price": 3499,
+        "hltb_single": 28
+    },
+    {
+        "id": 7,
+        "name": "Dark Souls III",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/374320/header.jpg?t=1682651227",
+        "store_uscore": 94,
+        "store_url": "https://store.steampowered.com/app/374320/DARK_SOULS_III/",
+        "hltb_url": "https://howlongtobeat.com/game/26803",
+        "platforms": "WIN",
+        "full_price": 5999,
+        "hltb_single": 32
+    },
+    {
+        "id": 8,
+        "name": "Red Dead Redemption 2",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/1174180/header.jpg?t=1695140956",
+        "store_uscore": 90,
+        "store_url": "https://store.steampowered.com/app/1174180/Red_Dead_Redemption_2/",
+        "hltb_url": "https://howlongtobeat.com/game/27100",
+        "platforms": "WIN",
+        "full_price": 5999,
+        "hltb_single": 50
+    },
+    {
+        "id": 9,
+        "name": "Persona 5 Royal",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/1687950/header.jpg?t=1688115070",
+        "store_uscore": 90,
+        "store_url": "https://store.steampowered.com/app/1174180/Red_Dead_Redemption_2/",
+        "hltb_url": "https://howlongtobeat.com/game/66630",
+        "platforms": "WIN",
+        "full_price": 5999,
+        "hltb_single": 101
+    },
+    {
+        "id": 10,
+        "name": "Forza Horizon 5",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/1551360/header.jpg?t=1694801571",
+        "store_uscore": 88,
+        "store_url": "https://store.steampowered.com/app/1551360/Forza_Horizon_5/",
+        "hltb_url": "https://howlongtobeat.com/game/93948",
+        "platforms": "WIN",
+        "full_price": 5999,
+        "hltb_single": 20
+    },
+    {
+        "id": 11,
+        "name": "Monster Hunter: World",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/582010/header.jpg?t=1695662238",
+        "store_uscore": 87,
+        "store_url": "https://store.steampowered.com/app/582010/Monster_Hunter_World/",
+        "hltb_url": "https://howlongtobeat.com/game/52493",
+        "platforms": "WIN",
+        "full_price": 2999,
+        "hltb_single": 47
+    },
+    {
+        "id": 12,
+        "name": "Baldur's Gate: Enhanced Edition",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/228280/header.jpg?t=1695399579",
+        "store_uscore": 91,
+        "store_url": "https://store.steampowered.com/app/228280/Baldurs_Gate_Enhanced_Edition/",
+        "hltb_url": "https://howlongtobeat.com/game/814",
+        "platforms": "WIN",
+        "full_price": 1999,
+        "hltb_single": 30
+    },
+    {
+        "id": 13,
+        "name": "Darkest Dungeon",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/262060/header.jpg?t=1684008862",
+        "store_uscore": 91,
+        "store_url": "https://store.steampowered.com/app/262060/Darkest_Dungeon/",
+        "hltb_url": "https://howlongtobeat.com/game/22535",
+        "platforms": "WIN",
+        "full_price": 2499,
+        "hltb_single": 57
+    },
+    {
+        "id": 14,
+        "name": "Dragon Age: Origins",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/47810/header.jpg?t=1615244558",
+        "store_uscore": 89,
+        "store_url": "https://store.steampowered.com/app/47810/Dragon_Age_Origins__Ultimate_Edition/",
+        "hltb_url": "https://howlongtobeat.com/game/2760",
+        "platforms": "WIN",
+        "full_price": 2999,
+        "hltb_single": 40
+    },
+    {
+        "id": 15,
+        "name": "Hollow Knight",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/367520/header.jpg?t=1695270428",
+        "store_uscore": 97,
+        "store_url": "https://store.steampowered.com/app/367520/Hollow_Knight/",
+        "hltb_url": "https://howlongtobeat.com/game/26286",
+        "platforms": "WIN",
+        "full_price": 1499,
+        "hltb_single": 27
+    },
+    {
+        "id": 16,
+        "name": "XCOM: Enemy Unknown",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/200510/header.jpg?t=1587584126",
+        "store_uscore": 94,
+        "store_url": "https://store.steampowered.com/app/200510/XCOM_Enemy_Unknown/",
+        "hltb_url": "https://howlongtobeat.com/game/11397",
+        "platforms": "WIN",
+        "full_price": 2999,
+        "hltb_single": 26
+    },
+    {
+        "id": 17,
+        "name": "侠客风云传前传(Tale of Wuxia:The Pre-Sequel)",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/650760/header.jpg?t=1676508384",
+        "store_uscore": 77,
+        "store_url": "https://store.steampowered.com/app/650760/Tale_of_WuxiaThe_PreSequel/",
+        "hltb_url": "https://howlongtobeat.com/game/69300",
+        "platforms": "WIN",
+        "full_price": 1699,
+        "hltb_single": 56
+    },
+    {
+        "id": 18,
+        "name": "Neverwinter Nights: Enhanced Edition",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/704450/header.jpg?t=1608058656",
+        "store_uscore": 89,
+        "store_url": "https://store.steampowered.com/app/704450/Neverwinter_Nights_Enhanced_Edition/",
+        "hltb_url": "https://howlongtobeat.com/game/54495",
+        "platforms": "WIN",
+        "full_price": 1999,
+        "hltb_single": 43
+    },
+    {
+        "id": 19,
+        "name": "Metal Gear Solid V: The Phantom Pain",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/287700/header.jpg?t=1690416673",
+        "store_uscore": 91,
+        "store_url": "https://store.steampowered.com/app/287700/METAL_GEAR_SOLID_V_THE_PHANTOM_PAIN/",
+        "hltb_url": "https://howlongtobeat.com/game/5918",
+        "platforms": "WIN",
+        "full_price": 1999,
+        "hltb_single": 46
+    },
+    {
+        "id": 20,
+        "name": "DRAGON QUEST® XI S: Echoes of an Elusive Age™ - Definitive Edition",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/1295510/header_russian.jpg?t=1689350505",
+        "store_uscore": 93,
+        "store_url": "https://store.steampowered.com/app/1295510/DRAGON_QUEST_XI_S_Echoes_of_an_Elusive_Age__Definitive_Edition/",
+        "hltb_url": "https://howlongtobeat.com/game/69743",
+        "platforms": "WIN",
+        "full_price": 3999,
+        "hltb_single": 58
+    }
+]

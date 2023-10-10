@@ -1,0 +1,112 @@
+[
+    {
+        "id": 0,
+        "name": "Magicat",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/656970/header.jpg?t=1694493777",
+        "store_uscore": 92,
+        "store_url": "https://store.steampowered.com/app/656970/MagiCat/",
+        "hltb_url": "https://howlongtobeat.com/game/51282",
+        "platforms": "WIN",
+        "full_price": 499,
+        "hltb_single": 7
+    },
+    {
+        "id": 1,
+        "name": "Cat quest",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/593280/header.jpg?t=1674139164",
+        "store_uscore": 95,
+        "store_url": "https://store.steampowered.com/app/593280/Cat_Quest/",
+        "hltb_url": "https://howlongtobeat.com/game/48142",
+        "platforms": "WIN",
+        "full_price": 1299,
+        "hltb_single": 6
+    },
+    {
+        "id": 2,
+        "name": "Cat Quest II",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/914710/header.jpg?t=1686909532",
+        "store_uscore": 95,
+        "store_url": "https://store.steampowered.com/app/914710/Cat_Quest_II/",
+        "hltb_url": "https://howlongtobeat.com/game/70915",
+        "platforms": "WIN",
+        "full_price": 1499,
+        "hltb_single": 8
+    },
+    {
+        "id": 3,
+        "name": "Catlateral Damage",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/329860/header.jpg?t=1666983328",
+        "store_uscore": 89,
+        "store_url": "https://store.steampowered.com/app/329860/Catlateral_Damage/",
+        "hltb_url": "https://howlongtobeat.com/game/110633",
+        "platforms": "WIN",
+        "full_price": 999,
+        "hltb_single": 5
+    },
+    {
+        "id": 4,
+        "name": "Super phantom cat",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/988100/header_russian.jpg?t=1568775928",
+        "store_uscore": 77,
+        "store_url": "https://store.steampowered.com/app/988100/Super_Phantom_Cat/",
+        "hltb_url": "https://howlongtobeat.com/game/57766",
+        "platforms": "WIN",
+        "full_price": 499,
+        "hltb_single": 4
+    },
+    {
+        "id": 5,
+        "name": "Nine noir lives",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/914890/header.jpg?t=1670340575",
+        "store_uscore": 85,
+        "store_url": "https://store.steampowered.com/app/914890/Nine_Noir_Lives/",
+        "hltb_url": "https://howlongtobeat.com/game/92902",
+        "platforms": "WIN",
+        "full_price": 1999,
+        "hltb_single": 11
+    },
+    {
+        "id": 6,
+        "name": "Super catboy",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/1376910/header.jpg?t=1692048051",
+        "store_uscore": 81,
+        "store_url": "https://store.steampowered.com/app/1376910/Super_Catboy/",
+        "hltb_url": "https://howlongtobeat.com/game/132088",
+        "platforms": "WIN",
+        "full_price": 999,
+        "hltb_single": 3
+    },
+    {
+        "id": 7,
+        "name": "Cats Organized Neatly",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/1369340/header.jpg?t=1688012292",
+        "store_uscore": 98,
+        "store_url": "https://store.steampowered.com/app/1369340/Cats_Organized_Neatly/",
+        "hltb_url": "https://howlongtobeat.com/game/83991",
+        "platforms": "WIN",
+        "full_price": 299,
+        "hltb_single": 2
+    },
+    {
+        "id": 8,
+        "name": "A Building Full of Cats",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/1969080/header.jpg?t=1691282193",
+        "store_uscore": 98,
+        "store_url": "https://store.steampowered.com/app/1969080/A_Building_Full_of_Cats/",
+        "hltb_url": "https://howlongtobeat.com/game/110474",
+        "platforms": "WIN",
+        "full_price": 199,
+        "hltb_single": 0.60
+    },
+    {
+        "id": 9,
+        "name": "Night in the Woods",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/481510/header.jpg?t=1667408558",
+        "store_uscore": 94,
+        "store_url": "https://store.steampowered.com/app/481510/Night_in_the_Woods/",
+        "hltb_url": "https://howlongtobeat.com/game/20078",
+        "platforms": "WIN",
+        "full_price": 1999,
+        "hltb_single": 8
+    }
+]

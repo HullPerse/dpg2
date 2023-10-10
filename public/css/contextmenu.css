@@ -1,0 +1,32 @@
+.contextmenu {
+  display: none;
+  position: absolute;
+  width: 200px;
+  margin: 0;
+  padding: 0;
+  background: var(--color1);
+  border-radius: 10px;
+  overflow: hidden;
+  z-index: 999999;
+}
+
+.contextmenu li {
+  border-left: 3px solid transparent;
+  transition: ease 0.2s;
+}
+
+.contextmenu li a {
+  display: block;
+  padding: 10px;
+  color: #b0bec5;
+  text-decoration: none;
+}
+
+.contextmenu li:hover {
+  background: var(--primary-accent);
+  border-left: 3px solid var(--secondary-accent);
+}
+
+.contextmenu li:hover a {
+  color: white;
+}

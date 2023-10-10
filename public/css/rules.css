@@ -1,0 +1,53 @@
+#ruleDescription {
+  position: absolute;
+  display: grid;
+  left: 20px;
+  top: 50px;
+  height: auto;
+  width: 500px;
+  border-radius: 20px;
+  border: 2px solid var(--color1);
+  text-align: justify;
+  padding: 30px;
+  color: #edeae2;
+}
+#mainRules {
+  position: absolute;
+  display: grid;
+  left: 650px;
+  top: 50px;
+  height: auto;
+  width: 1130px;
+  border-radius: 20px;
+  border: 2px solid var(--color1);
+  text-align: justify;
+  padding: 30px;
+  color: #edeae2;
+}
+
+#mainRulesText {
+  position: absolute;
+  font-size: 48px;
+  top: -35px;
+  left: 10px;
+}
+
+#first-rule {
+  position: absolute;
+  font-size: 48px;
+  top: -35px;
+  left: 10px;
+}
+
+#second-rule {
+  font-size: 24px;
+  transform: translateY(-200px);
+}
+
+#ruleDescription p,
+#mainRules p {
+  transform: translateY(5px);
+  font-size: 20px;
+  margin: -20px;
+  padding-top: 50px;
+}
