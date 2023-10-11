@@ -140,5 +140,16 @@
         "platforms": "WIN",
         "full_price": null,
         "hltb_single": 20
+    },
+    {
+        "id": 13,
+        "name": "Umurangi Generation",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/1223500/header.jpg?t=1683513755",
+        "store_uscore": null,
+        "store_url": "https://store.steampowered.com/app/1223500/Umurangi_Generation/",
+        "hltb_url": "https://howlongtobeat.com/game/78648",
+        "platforms": "WIN",
+        "full_price": 1499,
+        "hltb_single": 2
     }
 ]

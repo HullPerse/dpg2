@@ -412,7 +412,17 @@ function getPresetGame(i, presetArray) {
       resultGameListImgSrc.setAttribute("loading", "lazy");
       resultGameListImg.appendChild(resultGameListImgSrc);
 
+      
+
       resultGameListName.innerText = allData.name;
+      mainGameName.innerText = presetArray[i].name;
+
+
+      if(resultGameListName.innerText == mainGameName.innerText) {
+        resultGameListImg.style.borderColor = "yellow";
+        resultGameListName.style.color = "yellow";
+      }
+
 
       resultGameListImgSrc.addEventListener("click",() => {
 
@@ -745,6 +755,7 @@ function rollItem() {
         resultItemListImg.appendChild(resultItemListImgSrc);
   
         resultItemListName.innerText = eachItem.name;
+        
         
         resultItemListImgSrc.addEventListener("click", () => {
           itemName.innerText = eachItem.name;
