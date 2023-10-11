@@ -436,6 +436,18 @@ function getPresetGame(i, presetArray) {
         resultGameListName.style.color = "yellow";
       }
 
+      resultGameListImgSrc.addEventListener("mouseover", () => {
+        resultGameListImg.style.borderColor = "var(--primary-accent)";
+      });
+
+      resultGameListImgSrc.addEventListener("mouseout", () => {
+        if(resultGameListName.innerText == mainGameName.innerText) {
+          resultGameListImg.style.borderColor = "yellow";
+        } else {
+        resultGameListImg.style.borderColor = "var(--color1)";
+        }
+      });
+
 
       resultGameListImgSrc.addEventListener("click",() => {
 
@@ -749,7 +761,7 @@ function rollItem() {
     itemMisc.innerText = "";
     
     if(item) {
-      rolledArray.forEach((arrayItem) => {
+      rolledArray.forEach((arrayItem, index) => {
         const eachItem = itemData.Items.find((item) => item.name == arrayItem);
         if(eachItem) {
 
@@ -766,15 +778,17 @@ function rollItem() {
         resultItemListImgSrc.src = `img/items/${eachItem.id}.png`;
         resultItemListImgSrc.setAttribute("loading", "lazy");
         resultItemListImg.appendChild(resultItemListImgSrc);
+
+        resultItemListImg
   
         resultItemListName.innerText = eachItem.name;
-        
-        
+
         resultItemListImgSrc.addEventListener("click", () => {
           itemName.innerText = eachItem.name;
           itemImgSrc.src = `img/items/${eachItem.id}.png`;
           itemDescription.innerText = eachItem.description;
           itemMisc.innerHTML = `
+          <hr style="color: var(--color1)">
           <p>Тип:<span id="itemType"> ${eachItem.type}</span></p>
           <p>Заряды:<span id="itemAmount"> ${eachItem.amount}</span></p>
           `;
@@ -796,10 +810,24 @@ function rollItem() {
 
       resultItemListEntity.appendChild(resultItemListImg);
       resultItemListEntity.appendChild(resultItemListName);
+
+      if (index == 3) {
+        resultItemListImg.style.borderColor = "yellow";
+        resultItemListName.style.color = "yellow";
+    }
+    resultItemListImgSrc.addEventListener("mouseover", () => {
+      resultItemListImg.style.borderColor = "var(--primary-accent)";
+    });
+
+    resultItemListImgSrc.addEventListener("mouseout", () => {
+      if(index == 3) {
+        resultItemListImg.style.borderColor = "yellow";
+      } else {
+      resultItemListImg.style.borderColor = "var(--color1)";
+      }
+    });
   }
 });
-
-
       itemName.innerText = item.name;
 
       itemImgSrc.src = `img/items/${item.id}.png`;
