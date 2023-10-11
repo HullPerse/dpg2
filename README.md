@@ -3,9 +3,8 @@ HPG inspired app. "Tabletop" game for friends
 
 Second version if it (First one was excel version)
 
-App has 2 users premade:
-1. HullPerse
-2. Ahmed
+App has 1 users premade:
+1. hullperse
 
 User login and creation:
 
