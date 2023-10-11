@@ -3,6 +3,9 @@ HPG inspired app. "Tabletop" game for friends
 
 Second version if it (First one was excel version)
 
+There is already 2 users to test things our:
+1. HullPerse
+2. Ahmed
 
 User login and creation:
 
