@@ -51,6 +51,7 @@ function loadSettings() {
   selectedItemPreset.forEach(preset => {
     preset.checked = stdSettings.tagsValue;
   });
+
 }
 
 function openCase() {
@@ -209,6 +210,18 @@ function insertGame(i, randomArray) {
         resultGameListImg.style.borderColor = "yellow";
         resultGameListName.style.color = "yellow";
       }
+
+      resultGameListImgSrc.addEventListener("mouseover", () => {
+        resultGameListImg.style.borderColor = "var(--primary-accent)";
+      });
+
+      resultGameListImgSrc.addEventListener("mouseout", () => {
+        if(resultGameListName.innerText == mainGameName.innerText) {
+          resultGameListImg.style.borderColor = "yellow";
+        } else {
+        resultGameListImg.style.borderColor = "var(--color1)";
+        }
+      });
 
       resultGameListImgSrc.addEventListener("click",() => {
 
