@@ -226,7 +226,7 @@
   grid-template-rows: repeat(3, 60px);
   grid-row-gap: 5px;
   min-height: 400px;
-  max-height: 750px;
+  max-height: 550px;
   width: 450px;
   left: 15px;
   top: 65px;
