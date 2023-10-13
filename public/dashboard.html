@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="ru">
+  <head>
+    <link rel="shortcut icon" href="#" />
+    <link rel="stylesheet" href="css/MainUI.css" />
+    <link rel="stylesheet" href="css/Map.css" />
+    <link rel="stylesheet" href="css/Login.css" />
+    <title>Панель управления</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
+  </head>
+  <body>
+    <div class="loading-overlay">
+      <div class="loading-spinner"></div>
+    </div>
+    <div id="context-menu-container"></div>
+
+    <dialog class="mapModal" id="dialogDice">
+      <button class="closeButton" onclick="openDialog()">&times;</button>
+    </dialog>
+
+    <div id="diceModal" style="display: none">
+      <button class="closeButton" onclick="diceModal()">&times;</button>
+      <div id="diceContainer"><span id="diceSpan"></span></div>
+      <button id="rollDice" onclick="rollDice()">Кинуть</button>
+    </div>
+
+    <dialog class="mapModal" id="dialogMap">
+      <button class="closeButton" onclick="openDialog()">&times;</button>
+    </dialog>
+
+    <!--MainUI-->
+    <div id="mainUI-container" style="display: grid"></div>
+    <div id="timeContainer"></div>
+    <script src="js/function.js"></script>
+    <script src="js/login.js"></script>
+    <script src="js/contextmenu.js"></script>
+    <script>
+      window.onload = function () {
+        loadUI();
+        dialogEvent();
+        loginhref();
+        populateCurrentUserList();
+      };
+    </script>
+  </body>
+</html>

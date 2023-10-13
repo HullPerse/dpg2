@@ -576,3 +576,12 @@ function openUserModal() {
     }
 }
 
+
+function goToDashboard() {
+    var path = location.pathname;
+    var inventoryUser = path.slice(1);
+
+    if(inventoryUser == "hullperse") {
+        window.location.href = "dashboard";
+    }
+}

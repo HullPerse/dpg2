@@ -30,7 +30,7 @@
 #user-options {
   position: absolute;
   display: grid;
-  grid-template-columns: repeat(3, 50px);
+  grid-template-columns: repeat(4, 50px);
   grid-column-gap: 15px;
   left: 20px;
   top: 360px;

@@ -137,7 +137,8 @@ const pageToIndexMap = {
   "map": 1,
   [currentUser]: 2,
   "wheel": 3,
-  "rules": 5
+  "rules": 5,
+  "dashboard": 2
 };
 
 if (page in pageToIndexMap) {
