@@ -1,0 +1,134 @@
+[
+    {
+        "id": 0,
+        "name": "Visage",
+        "image": "https://cdn.akamai.steamstatic.com/steam/apps/594330/header.jpg?t=1607559678",
+        "store_uscore": 87,
+        "store_url": "https://store.steampowered.com/app/594330/Visage/",
+        "hltb_url": "https://howlongtobeat.com/game/51108",
+        "platforms": "WIN",
+        "full_price": 3499,
+        "hltb_single": 9
+    },
+    {
+        "id": 1,
+        "name": "Alien: Isolation",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/214490/header.jpg?t=1668768027",
+        "store_uscore": 92,
+        "store_url": "https://store.steampowered.com/app/214490/Alien_Isolation/",
+        "hltb_url": "https://howlongtobeat.com/game/16638",
+        "platforms": "WIN",
+        "full_price": 1999,
+        "hltb_single": 18
+    },
+    {
+        "id": 2,
+        "name": "Amnesia: The Dark Descent",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/57300/header.jpg?t=1685699016",
+        "store_uscore": 95,
+        "store_url": "https://store.steampowered.com/app/57300/Amnesia_The_Dark_Descent/",
+        "hltb_url": "https://howlongtobeat.com/game/440",
+        "platforms": "WIN",
+        "full_price": 1999,
+        "hltb_single": 8
+    },
+    {
+        "id": 3,
+        "name": "Cry of Fear",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/223710/header.jpg?t=1643567513",
+        "store_uscore": 87,
+        "store_url": "https://store.steampowered.com/app/223710/Cry_of_Fear/",
+        "hltb_url": "https://howlongtobeat.com/game/2064",
+        "platforms": "WIN",
+        "full_price": 0,
+        "hltb_single": 8
+    },
+    {
+        "id": 4,
+        "name": "Darkwood",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/274520/header.jpg?t=1687958858",
+        "store_uscore": 97,
+        "store_url": "https://store.steampowered.com/app/274520/Darkwood/",
+        "hltb_url": "https://howlongtobeat.com/game/20102",
+        "platforms": "WIN",
+        "full_price": 1499,
+        "hltb_single": 18
+    },
+    {
+        "id": 5,
+        "name": "F.E.A.R.",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/21090/header.jpg?t=1681232225",
+        "store_uscore": null,
+        "store_url": "https://store.steampowered.com/app/21090/FEAR/",
+        "hltb_url": "https://howlongtobeat.com/game/3293",
+        "platforms": "WIN",
+        "full_price": null,
+        "hltb_single": 8
+    },
+    {
+        "id": 6,
+        "name": "Monstrum",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/296710/header.jpg?t=1667201785",
+        "store_uscore": 92,
+        "store_url": "https://store.steampowered.com/app/296710/Monstrum/",
+        "hltb_url": "https://howlongtobeat.com/game/26953",
+        "platforms": "WIN",
+        "full_price": 1799,
+        "hltb_single": 5
+    },
+    {
+        "id": 7,
+        "name": "SILENT HILL 2",
+        "image": "https://howlongtobeat.com/games/250px-Silent_Hill_2.jpg?width=250",
+        "store_uscore": null,
+        "store_url": "magnet:?xt=urn:btih:B54C007BBE7113ECD34A9FEF2A928AAB2892A9BA&tr=http%3A%2F%2Fbt3.t-ru.org%2Fann%3Fmagnet&dn=Silent%20Hill%202%3A%20Director%27s%20Cut%20%5BP%5D%20%5BRUS%20%2B%20ENG%20%2B%205%20%2F%20ENG%5D%20(2001)%20(1.0)%20%5BNew%20Edition%3B%20Enhanced%20Edition%2C%20Update%209%20(Alt)%2C%20Mod%5D",
+        "hltb_url": "https://howlongtobeat.com/game/8523",
+        "platforms": "WIN",
+        "full_price": null,
+        "hltb_single": 8
+    },
+    {
+        "id": 8,
+        "name": "Blair Witch",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/1092660/header.jpg?t=1684147952",
+        "store_uscore": 77,
+        "store_url": "https://store.steampowered.com/app/1092660/Blair_Witch/",
+        "hltb_url": "https://howlongtobeat.com/game/68319",
+        "platforms": "WIN",
+        "full_price": 2999,
+        "hltb_single": 5
+    },
+    {
+        "id": 9,
+        "name": "The Evil Within 2",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/601430/header.jpg?t=1569959193",
+        "store_uscore": 92,
+        "store_url": "https://store.steampowered.com/app/601430/The_Evil_Within_2/",
+        "hltb_url": "https://howlongtobeat.com/game/46568",
+        "platforms": "WIN",
+        "full_price": 3999,
+        "hltb_single": 13
+    },
+    {
+        "id": 10,
+        "name": "The Beast Inside",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/792300/header.jpg?t=1669227434",
+        "store_uscore": 83,
+        "store_url": "https://store.steampowered.com/app/792300/The_Beast_Inside/",
+        "hltb_url": "https://howlongtobeat.com/game/71370",
+        "platforms": "WIN",
+        "full_price": 2499,
+        "hltb_single": 8
+    },
+    {
+        "id": 11,
+        "name": "Silver Chains",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/975470/header.jpg?t=1676464568",
+        "store_uscore": 74,
+        "store_url": "https://store.steampowered.com/app/975470/Silver_Chains/",
+        "hltb_url": "https://howlongtobeat.com/game/69462",
+        "platforms": "WIN",
+        "full_price": 2499,
+        "hltb_single": 3
+    }
+]

@@ -611,6 +611,61 @@ function loadUserTable() {
             userEvent.classList.add("tdEvent");
             dashboardTable.appendChild(userEvent);
 
+            const userColor = document.createElement("td");
+            userColor.textContent = user.color;
+            userColor.classList.add("tdMisc");
+            dashboardTable.appendChild(userColor);
+
+            const userIsPlaced = document.createElement("td");
+            userIsPlaced.textContent = user.isPlaced;
+            userIsPlaced.classList.add("tdMisc");
+            dashboardTable.appendChild(userIsPlaced);
+
+            const userxPos = document.createElement("td");
+            userxPos.textContent = user.xPos;
+            userxPos.classList.add("tdMisc");
+            dashboardTable.appendChild(userxPos);
+
+            const useryPos = document.createElement("td");
+            useryPos.textContent = user.yPos;
+            useryPos.classList.add("tdMisc");
+            dashboardTable.appendChild(useryPos);
+
+            const userItem1 = document.createElement("td");
+            userItem1.textContent = user.Item1;
+            userItem1.classList.add("tdMisc");
+            dashboardTable.appendChild(userItem1);
+            
+            const userItem2 = document.createElement("td");
+            userItem2.textContent = user.Item2;
+            userItem2.classList.add("tdMisc");
+            dashboardTable.appendChild(userItem2);
+
+            const userItem3 = document.createElement("td");
+            userItem3.textContent = user.Item3;
+            userItem3.classList.add("tdMisc");
+            dashboardTable.appendChild(userItem3);
+
+            const userItem4 = document.createElement("td");
+            userItem4.textContent = user.Item4;
+            userItem4.classList.add("tdMisc");
+            dashboardTable.appendChild(userItem4);
+
+            const userItem5 = document.createElement("td");
+            userItem5.textContent = user.Item5;
+            userItem5.classList.add("tdMisc");
+            dashboardTable.appendChild(userItem5);
+
+            const userItem6 = document.createElement("td");
+            userItem6.textContent = user.Item6;
+            userItem6.classList.add("tdMisc");
+            dashboardTable.appendChild(userItem6);
+
+            const userMoney = document.createElement("td");
+            userMoney.textContent = user.money;
+            userMoney.classList.add("tdMisc");
+            dashboardTable.appendChild(userMoney);
+
             mainUserTable.appendChild(dashboardTable);
         });
         const turnEventOn = document.getElementById("turnEventsOn");

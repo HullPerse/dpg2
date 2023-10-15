@@ -245,7 +245,7 @@ function showCurrentEvent() {
 
         closeButton.addEventListener("click", () => {
           const event = "none";
-          fetch(`/updateevents/${user.username}`, {
+          fetch(`/updateevents/${sessionStorage.getItem("Username")}`, {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -254,11 +254,11 @@ function showCurrentEvent() {
         })
         .then((response) => response.json())
         .then((data) => {
-            console.log("Events updated successfully for user:", user.username, data);
+            console.log("Events updated successfully for user:", sessionStorage.getItem("Username"), data);
             window.location.reload();
         })
         .catch((error) => {
-            console.error("Error updating events for user:", user.username, error);
+            console.error("Error updating events for user:", sessionStorage.getItem("Username"), error);
         });
         });
       }

@@ -1,8 +1,8 @@
 #userDashboardTable {
   position: absolute;
   display: grid;
-  left: 50px;
-  top: 50px;
+  left: 0px;
+  top: 100px;
   border-radius: 10px;
   border: 3px solid var(--color1);
   table-layout: fixed;
@@ -40,13 +40,17 @@ tbody td:hover {
 }
 
 .tdEvent {
-  width: 200px;
+  width: 120px;
+}
+
+.tdMisc {
+  width: 120px;
 }
 
 #userButtonsContainer {
   position: absolute;
-  left: 500px;
-  top: 135px;
+  left: 0px;
+  top: 10px;
   display: grid;
   grid-template-columns: 160px 160px;
   grid-gap: 40px;
