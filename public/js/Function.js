@@ -232,7 +232,7 @@ function showCurrentEvent() {
         halloweenImgContainer.classList.add("halloweenImgContainer");
         halloweenImgContainer.innerHTML = `
         <img src="img/pumpkin.png" draggable="false" />
-        <h3>БУУ... ВАС ПОСЕТИЛИ ЧЕРТИ!!!</h3>
+        <h3>БУУ... ВАС ПОСЕТИЛА ТЫКВА!!!</h3>
         <span>Вы можете пройти игру из пресета 'СЧАСТЛИВЫЙ БИЛЕТ'</span>
         <span>Если вы пройдете игру:</span>
         <span>Первым - получите предмет 'Пылесос'</span>
