@@ -1,7 +1,7 @@
 # dpg2
 HPG inspired app. "Tabletop" game for friends
 
-Second version if it (First one was excel version)
+Second version of it (First one was excel version)
 
 App has 1 users premade:
 1. hullperse
