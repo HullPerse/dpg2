@@ -381,6 +381,7 @@ function addGameModal() {
         gameCommentaryModal.value = "";
 
         const addGameStatus = document.getElementById("addGameStatus");
+        addGameStatus.innerHTML = "";
     
         let statusArray = ["", "В ПРОЦЕССЕ", "ПРОЙДЕНО", "ДРОПНУТО"];   
         
@@ -581,7 +582,87 @@ function goToDashboard() {
     var path = location.pathname;
     var inventoryUser = path.slice(1);
 
-    if(inventoryUser == "hullperse") {
+    if(inventoryUser == "hullperse" && sessionStorage.getItem("Username") == "hullperse") {
         window.location.href = "dashboard";
     }
+}
+
+function loadUserTable() {
+    fetch("/getusers")
+    .then((response) => response.json())
+    .then((userData) => {
+        userData.forEach((user) => {
+            const mainUserTable = document.getElementById("mainUserTable");
+
+            const dashboardTable = document.createElement("tr");
+
+            const userId = document.createElement("td");
+            userId.textContent = user.id;
+            userId.classList.add("tdId");
+            dashboardTable.appendChild(userId);
+
+            const username = document.createElement("td");
+            username.textContent = user.username;
+            username.classList.add("tdUsername");
+            dashboardTable.appendChild(username);
+
+            const userEvent = document.createElement("td");
+            userEvent.textContent = user.event;
+            userEvent.classList.add("tdEvent");
+            dashboardTable.appendChild(userEvent);
+
+            mainUserTable.appendChild(dashboardTable);
+        });
+        const turnEventOn = document.getElementById("turnEventsOn");
+        const turnEventOff = document.getElementById("turnEventsOff");
+
+        turnEventOn.addEventListener("click", () => {
+            userData.forEach((user) => {
+                if(user.event == "none") {
+                const event = "halloween";
+                fetch(`/updateevents/${user.username}`, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({ event }),
+                })
+                .then((response) => response.json())
+                .then((data) => {
+                    console.log("Events updated successfully for user:", user.username, data);
+                    window.location.reload();
+                })
+                .catch((error) => {
+                    console.error("Error updating events for user:", user.username, error);
+                });
+            } else {
+                console.log("event is already on");
+            }
+            });
+        });
+        turnEventOff.addEventListener("click", () => {
+            userData.forEach((user) => {
+                if(user.event == "halloween") {
+                const event = "none";
+                fetch(`/updateevents/${user.username}`, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({ event }),
+                })
+                .then((response) => response.json())
+                .then((data) => {
+                    console.log("Events updated successfully for user:", user.username, data);
+                    window.location.reload();
+                })
+                .catch((error) => {
+                    console.error("Error updating events for user:", user.username, error);
+                });
+            } else {
+                console.log("event is already off");
+            }
+            });
+        });
+    });
 }

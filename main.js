@@ -5,8 +5,8 @@ const fs = require("fs");
 const sqlite3 = require("sqlite3").verbose();
 const multer = require("multer");
 const upload = multer();
-const serverPort = process.env.PORT || 3000;;
-const dbPath = process.env.DB_PATH || "public/database/users.db";
+const serverPort = 3000;;
+const dbPath = "public/database/users.db";
 const db = new sqlite3.Database(dbPath);
 
 const httpServer = require("http").createServer(expressApp);
@@ -17,7 +17,7 @@ expressApp.use(express.static(path.join(__dirname, "public"), { extensions: ["ht
 expressApp.use(express.json());
 
 expressApp.post("/adduser", upload.single("avatar"), (req, res) => {
-    const { username, color, isPlaced, xPos, yPos, Item1, Item2, Item3, Item4, Item5, Item6, mapCell, money } = JSON.parse(req.body.user);
+    const { username, color, isPlaced, xPos, yPos, Item1, Item2, Item3, Item4, Item5, Item6, mapCell, money, event } = JSON.parse(req.body.user);
     const avatarData = req.file.buffer;
 
     if (!username) {
@@ -37,8 +37,8 @@ expressApp.post("/adduser", upload.single("avatar"), (req, res) => {
             return res.json({ success: false, message: "Такое имя пользователя уже занято" });
         }
 
-        const insertQuery = "INSERT INTO users (username, color, avatar, isPlaced, xPos, yPos, Item1, Item2, Item3, Item4, Item5, Item6, mapCell, money) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        db.run(insertQuery, [username.toLowerCase(), color, avatarData, isPlaced, xPos, yPos, Item1, Item2, Item3, Item4, Item5, Item6, mapCell, money], (err) => {
+        const insertQuery = "INSERT INTO users (username, color, avatar, isPlaced, xPos, yPos, Item1, Item2, Item3, Item4, Item5, Item6, mapCell, money, event) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        db.run(insertQuery, [username.toLowerCase(), color, avatarData, isPlaced, xPos, yPos, Item1, Item2, Item3, Item4, Item5, Item6, mapCell, money, event], (err) => {
             if (err) {
                 console.log("Error adding user", err);
                 return res.json({ success: false, message: "Ошибка при добавлении пользователя" });
@@ -163,6 +163,23 @@ expressApp.post("/updateposition/:userId", (req, res) => {
       return res.json({ success: true, message: "User items updated successfully" });
     });
   });
+
+  expressApp.post("/updateevents/:username", (req, res) => {
+    const username = req.params.username;
+    const { event } = req.body;
+  
+    const updateQuery = "UPDATE users SET event = ? WHERE username = ?";
+    db.run(updateQuery, [event, username], (err) => {
+      if (err) {
+        console.log("Error updating user events:", err);
+        return res.json({ success: false, message: "Error updating user events" });
+      }
+  
+      console.log("User events updated successfully");
+      return res.json({ success: true, message: "User events updated successfully" });
+    });
+  });
+
 
 expressApp.get("/getavatar/:userId", (req, res) => {
     const userId = req.params.userId;

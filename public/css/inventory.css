@@ -379,12 +379,13 @@
   max-width: 1550px;
   border-radius: 10px;
   border: 3px solid var(--color1);
+  background-color: var(--color1);
   table-layout: fixed;
   border-collapse: separate;
   justify-content: center;
   align-items: center;
   text-align: center;
-  background-color: var(--color1);
+  overflow-x: hidden;
 }
 
 #gameTableContainer tr {
@@ -417,7 +418,7 @@ tbody td:hover {
 }
 
 .tdCommentary {
-  max-width: 650px;
+  max-width: 200px;
 }
 
 #gameModal {

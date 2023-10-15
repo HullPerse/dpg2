@@ -5,6 +5,7 @@
     <link rel="stylesheet" href="css/MainUI.css" />
     <link rel="stylesheet" href="css/Map.css" />
     <link rel="stylesheet" href="css/Login.css" />
+    <link rel="stylesheet" href="css/Dashboard.css" />
     <title>Панель управления</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.12.1/jquery-ui.min.js"></script>
@@ -29,18 +30,36 @@
       <button class="closeButton" onclick="openDialog()">&times;</button>
     </dialog>
 
+    <!--DashBoard-->
+
+    <table id="userDashboardTable">
+      <thead class="userDashboardTr">
+        <td class="tdId">Айди</td>
+        <td class="tdUsername">Никнейм</td>
+        <td class="tdEvent">Ивент</td>
+      </thead>
+      <tbody id="mainUserTable" class="UserTableTr"></tbody>
+    </table>
+
+    <div id="userButtonsContainer">
+      <button id="turnEventsOn">ВКЛЮЧИТЬ</button>
+      <button id="turnEventsOff">ВЫКЛЮЧИТЬ</button>
+    </div>
+
     <!--MainUI-->
     <div id="mainUI-container" style="display: grid"></div>
     <div id="timeContainer"></div>
     <script src="js/function.js"></script>
     <script src="js/login.js"></script>
     <script src="js/contextmenu.js"></script>
+    <script src="js/inventory.js"></script>
     <script>
       window.onload = function () {
         loadUI();
         dialogEvent();
         loginhref();
         populateCurrentUserList();
+        loadUserTable();
       };
     </script>
   </body>

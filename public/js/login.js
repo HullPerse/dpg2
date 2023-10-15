@@ -312,7 +312,8 @@ function registerUser() {
       Item4: 0,
       Item5: 0,
       Item6: 0,
-      money: 0
+      money: 0,
+      event: "none"
   };
 
   const formData = new FormData();
