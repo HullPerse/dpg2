@@ -208,3 +208,60 @@ function diceModal() {
       mainUIicon[4].style.backgroundColor = "var(--shadow-color)";
   }
 }
+
+function showCurrentEvent() {
+  fetch("/getusers")
+  .then((response) => response.json())
+  .then((userData) => {
+    userData.forEach((user) => {
+      if(user.username == sessionStorage.getItem("Username") && user.event == "halloween") {
+        const body = document.querySelectorAll("body")[0];
+
+        const eventBg = document.createElement("div");
+        eventBg.classList.add("eventBackground");
+        
+        const eventContainer  = document.createElement("div");
+        eventContainer.classList.add("eventContainer");
+
+        const closeButton = document.createElement("button");
+        closeButton.classList.add("closeButton");
+        closeButton.innerHTML = "&times;";
+        eventContainer.appendChild(closeButton);
+
+        const halloweenImgContainer = document.createElement("div");
+        halloweenImgContainer.classList.add("halloweenImgContainer");
+        halloweenImgContainer.innerHTML = `
+        <img src="img/pumpkin.png" draggable="false" />
+        <h3>БУУ... ВАС ПОСЕТИЛИ ЧЕРТИ!!!</h3>
+        <span>Вы можете пройти игру из пресета 'СЧАСТЛИВЫЙ БИЛЕТ'</span>
+        <span>Если вы пройдете игру:</span>
+        <span>Первым - получите предмет 'Пылесос'</span>
+        <span>Не первым - получите 4 чубрика</span>
+        `;
+        eventContainer.appendChild(halloweenImgContainer);
+
+        body.appendChild(eventBg);
+        body.appendChild(eventContainer);
+
+        closeButton.addEventListener("click", () => {
+          const event = "none";
+          fetch(`/updateevents/${user.username}`, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ event }),
+        })
+        .then((response) => response.json())
+        .then((data) => {
+            console.log("Events updated successfully for user:", user.username, data);
+            window.location.reload();
+        })
+        .catch((error) => {
+            console.error("Error updating events for user:", user.username, error);
+        });
+        });
+      }
+    });
+  })
+}

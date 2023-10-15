@@ -210,3 +210,52 @@ title:not() {
 #colorPicker {
   position: absolute;
 }
+
+.eventBackground {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  height: 1430px;
+  width: 1920px;
+  background-color: var(--shadow-color);
+  z-index: 999px;
+}
+
+.eventContainer {
+  position: absolute;
+  display: grid;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  height: 630px;
+  width: 650px;
+  border-radius: 10px;
+  background-color: var(--color1);
+  overflow: hidden;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999px;
+}
+
+.halloweenImgContainer {
+  display: grid;
+  height: 350px;
+  width: 500px;
+  transform: translateY(-100px);
+  justify-content: center;
+  text-align: center;
+}
+
+.halloweenImgContainer img {
+  transform: translateX(130px);
+}
+
+.halloweenImgContainer h3 {
+  font-size: 30px;
+}
+
+.halloweenImgContainer span {
+  font-size: 20px;
+  white-space: nowrap;
+}
