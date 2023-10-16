@@ -666,7 +666,27 @@ function loadUserTable() {
             userMoney.classList.add("tdMisc");
             dashboardTable.appendChild(userMoney);
 
+            const settingButton = document.createElement("button");
+            settingButton.innerHTML = `<text>*</text>`;
+            settingButton.classList.add("gameSettings");
+            settingButton.style.display = "none";
+            dashboardTable.appendChild(settingButton);
+
+            mainUserTable.addEventListener("mouseenter", () => {
+                settingButton.style.display = "block";
+            });
+
+            mainUserTable.addEventListener("mouseleave", () => {
+                settingButton.style.display = "none";
+            });
+
+            settingButton.addEventListener("click", () => {
+                changeUserInfo(user.id, user.username, user.color, user.isPlaced, user.xPos, user.yPos, user.Item1, user.Item2, user.Item3, user.Item4, user.Item5, user.Item6, user.money, user.event);
+            });
+
             mainUserTable.appendChild(dashboardTable);
+
+
         });
         const turnEventOn = document.getElementById("turnEventsOn");
         const turnEventOff = document.getElementById("turnEventsOff");
@@ -720,4 +740,73 @@ function loadUserTable() {
             });
         });
     });
+}
+
+function changeUserInfo(id, username, color, isPlaced, xPos, yPos, Item1, Item2, Item3, Item4, Item5, Item6, money, event) {
+    const body = document.querySelectorAll("body")[0];
+    const dashboardModal = document.getElementById("userInfoModalContainer");
+    dashboardModal.style.display = "grid";
+
+    const userItemsText = document.createElement("a");
+    userItemsText.setAttribute("id", "userItems-text");
+    userItemsText.innerText = `ДПГ ➧ Панель управления ➧ ${username}「 ${id} 」`;
+    dashboardModal.appendChild(userItemsText);
+
+    const closeButton = document.createElement("button");
+    closeButton.classList.add("closeButton");
+    closeButton.innerText = "x";
+    dashboardModal.appendChild(closeButton);
+
+    const userColor = document.createElement("input");
+    userColor.setAttribute("id", "colorPickerDashboard");
+    userColor.setAttribute("type", "color");
+    userColor.value = color;
+
+    const userMoney = document.getElementById("userMoney");
+    const userIsPlaced = document.getElementById("userIsPlaced");
+    const userX = document.getElementById("userX");
+    const userY = document.getElementById("userY");
+    const userItem1 = document.getElementById("userItem1");
+    const userItem2 = document.getElementById("userItem2");
+    const userItem3 = document.getElementById("userItem3");
+    const userItem4 = document.getElementById("userItem4");
+    const userItem5 = document.getElementById("userItem5");
+    const userItem6 = document.getElementById("userItem6");
+
+    userMoney.value = money;
+    userIsPlaced.value = isPlaced;
+    userX.value = xPos;
+    userY.value = yPos;
+    userItem1.value = Item1;
+    userItem2.value = Item2;
+    userItem3.value = Item3;
+    userItem4.value = Item4;
+    userItem5.value = Item5;
+    userItem6.value = Item6;
+
+    closeButton.addEventListener("click", () => {
+        updateUserData(username, userColor.value, userMoney.value, userIsPlaced.value, userX.value, userY.value, userItem1.value, userItem2.value, userItem3.value, userItem4.value, userItem5.value, userItem6.value);
+        dashboardModal.style.display = "none";
+    });
+
+    dashboardModal.appendChild(userColor);
+
+    body.appendChild(dashboardModal);
+}
+
+function updateUserData(username, color, money, isPlaced, xPos, yPos, Item1, Item2, Item3, Item4, Item5, Item6) {
+
+    fetch(`/updateuserdashboard/${username}`, {
+            method: "POST",
+            headers : {
+                "Content-type": "application/json"
+            },
+            body: JSON.stringify({ color, money, isPlaced, xPos, yPos, Item1, Item2, Item3, Item4, Item5, Item6 } )
+    })
+    .then(response => response.json())
+        .then(data => {
+          console.log("Response from server:", data);
+          window.location.reload();
+        })
+        .catch(error => console.error("Error:", error));
 }

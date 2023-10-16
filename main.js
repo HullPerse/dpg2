@@ -37,7 +37,7 @@ expressApp.post("/adduser", upload.single("avatar"), (req, res) => {
             return res.json({ success: false, message: "Такое имя пользователя уже занято" });
         }
 
-        const insertQuery = "INSERT INTO users (username, color, avatar, isPlaced, xPos, yPos, Item1, Item2, Item3, Item4, Item5, Item6, mapCell, money, event) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        const insertQuery = "INSERT INTO users (username, color, avatar, isPlaced, xPos, yPos, Item1, Item2, Item3, Item4, Item5, Item6, mapCell, money, event) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
         db.run(insertQuery, [username.toLowerCase(), color, avatarData, isPlaced, xPos, yPos, Item1, Item2, Item3, Item4, Item5, Item6, mapCell, money, event], (err) => {
             if (err) {
                 console.log("Error adding user", err);
@@ -114,6 +114,21 @@ expressApp.post("/updateposition/:userId", (req, res) => {
   
       console.log("Game updated successfully");
       return res.json({ success: true, message: "Game updated successfully" });
+    });
+  });
+  expressApp.post("/updateuserdashboard/:username", (req, res) => {
+    const username = req.params.username;
+    const { color, money, isPlaced, xPos, yPos, Item1, Item2, Item3, Item4, Item5, Item6 } = req.body;
+  
+    const updateQuery = "UPDATE users SET color = ?, money = ?, isPlaced = ?, xPos = ?, yPos = ?, Item1 = ?, Item2 = ?, Item3 = ?, Item4 = ?, Item5 = ?, Item6 = ? WHERE username = ?";
+    db.run(updateQuery, [color, money, isPlaced, xPos, yPos, Item1, Item2, Item3, Item4, Item5, Item6, username], (err) => {
+      if (err) {
+        console.log("Error updating user position and isPlaced:", err);
+        return res.json({ success: false, message: "Error updating user position and isPlaced" });
+      }
+  
+      console.log("User position and isPlaced updated successfully");
+      return res.json({ success: true, message: "User position and isPlaced updated successfully" });
     });
   });
 
