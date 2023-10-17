@@ -393,3 +393,17 @@ function previewpfp() {
     console.log(selectedFile);
   }
 }
+
+function checkForLazyLoading() {
+  const image = document.querySelectorAll("img");
+
+  for(i = 0; i < image.length; i++) {
+    if(!image[i].getAttribute("loading")) {
+      image[i].setAttribute("loading", "lazy");
+    }
+    if(!image[i].getAttribute("draggable")) {
+      image[i].setAttribute("draggable", "false");
+    }
+  }
+}
+checkForLazyLoading();

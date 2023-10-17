@@ -88,7 +88,6 @@
   align-items: center;
   overflow: hidden;
   outline: transparent;
-  border: 2px solid var(--color2);
 }
 
 .user-items-img img {
@@ -101,7 +100,6 @@
 .user-items-text {
   height: 60px;
   width: 228px;
-  border: 2px solid var(--color2);
 }
 
 #roll-items {
