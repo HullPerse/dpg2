@@ -130,5 +130,16 @@
         "platforms": "WIN",
         "full_price": 2499,
         "hltb_single": 3
+    },
+    {
+        "id": 12,
+        "name": "Squirrel Stapler",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/975470/header.jpg?t=1676464568",
+        "store_uscore": 95,
+        "store_url": "https://store.steampowered.com/app/2535830/Squirrel_Stapler/",
+        "hltb_url": "https://howlongtobeat.com/game/107523",
+        "platforms": "WIN",
+        "full_price": 799,
+        "hltb_single": 1
     }
 ]

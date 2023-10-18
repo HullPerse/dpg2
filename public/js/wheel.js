@@ -210,7 +210,7 @@ function insertGame(i, randomArray) {
         });
   
         resultGameListImgSrc.addEventListener("mouseout", () => {
-          if(resultGameListName.innerText == mainGameName.innerText) {
+          if(resultGameListImg.getAttribute("id") == mainGameName.innerText) {
             resultGameListImg.style.borderColor = "#F0E27B";
           } else {
           resultGameListImg.style.borderColor = "var(--color1)";
@@ -230,7 +230,7 @@ function insertGame(i, randomArray) {
   
       gameMisc.innerHTML = `
       <p>Оценка:<span id="meta_uscore"> ${gameData[allData].igdb_score}</span></p>
-      <p>Стоимость:<span id="full_price"> ${parseInt(gameData[allData].full_price / 100) * 40}</span>₽</p>
+      <p>Стоимость:<span id="full_price"> ${parseInt(gameData[allData].full_price / 100) * 40}</span> ₽</p>
       <p>Жанр:<span id="genres"> ${gameData[allData].genres}</span></p>
       <p>Теги:<span id="tags"> ${gameData[allData].tags}</span></p>
       <p>Платформа:<span id="platforms"> ${gameData[allData].platforms}</span></p>
@@ -308,7 +308,7 @@ function insertGame(i, randomArray) {
 
           gameMisc.innerHTML = `
           <p>Оценка:<span id="meta_uscore"> ${game.igdb_score}</span></p>
-          <p>Стоимость:<span id="full_price"> ${parseInt((game.full_price / 100) * 40)} ₽</span></p>
+          <p>Стоимость:<span id="full_price"> ${parseInt(game.full_price / 100) * 40}</span> ₽</p>
           <p>Жанр:<span id="genres"> ${game.genres}</span></p>
           <p>Теги:<span id="tags"> ${game.tags}</span></p>
           <p>Платформа:<span id="platforms"> ${game.platforms}</span></p>
@@ -472,17 +472,18 @@ function getPresetGame(i, presetArray) {
       resultGameListImg.appendChild(resultGameListImgSrc);
 
       resultGameListName.innerText = allData.name;
-      mainGameName.innerText = presetArray[i].name;
+      mainGameName.innerText = allData.name;
 
       resultGameListImgSrc.addEventListener("mouseover", () => {
         resultGameListImg.style.borderColor = "var(--primary-accent)";
       });
 
       resultGameListImgSrc.addEventListener("mouseout", () => {
-        if(resultGameListName.innerText == mainGameName.innerText) {
+      
+        if (resultGameListImg.getAttribute("id") == mainGameName.innerText) {
           resultGameListImg.style.borderColor = "#F0E27B";
         } else {
-        resultGameListImg.style.borderColor = "var(--color1)";
+          resultGameListImg.style.borderColor = "var(--color1)";
         }
       });
 
@@ -493,10 +494,8 @@ function getPresetGame(i, presetArray) {
       gameName.innerText = allData.name;
 
     gameMisc.innerHTML = `
-    <p>Оценка:<span id="meta_uscore"> ${allData.igdb_score}</span></p>
-    <p>Стоимость:<span id="full_price"> ${parseInt(allData.full_price / 100) * 40}</span>₽</p>
-    <p>Жанр:<span id="genres"> ${allData.genres}</span></p>
-    <p>Теги:<span id="tags"> ${allData.tags}</span></p>
+    <p>Оценка:<span id="meta_uscore"> ${allData.store_uscore}</span></p>
+    <p>Стоимость:<span id="full_price"> ${parseInt(allData.full_price)}</span> ₽</p>
     <p>Платформа:<span id="platforms"> ${allData.platforms}</span></p>
     <p>Время прохождения:<span id="hltb_single"> ${allData.hltb_single}</span> часов</p>
     `;
@@ -550,6 +549,7 @@ const maxRolls = 30;
   if(game) {
     const resultGameListImg = document.querySelectorAll(".resultGameListImg");
     const resultGameListName = document.querySelectorAll(".resultGameListName");
+    const resultGameListImgSrc = document.querySelectorAll(".resultGameListImgSrc");
 
     for(i = 0; i < resultGameListImg.length; i++) {
       if(resultGameListImg[i].getAttribute("id") == mainGameName.innerText) {
@@ -565,13 +565,13 @@ gameImgSrc.src = game.image;
 gameName.innerText = `${game.name}`;
 
 gameMisc.innerHTML = `
-<p>Оценка:<span id="meta_uscore"> ${game.igdb_score}</span></p>
-<p>Стоимость:<span id="full_price"> ${parseInt(game.full_price / 100) * 40}  ₽</span></p>
+<p>Оценка:<span id="meta_uscore"> ${game.store_uscore}</span></p>
+<p>Стоимость:<span id="full_price"> ${parseInt(game.full_price)}</span> ₽</p>
 <p>Платформа:<span id="platforms"> ${game.platforms}</span></p>
 <p>Время прохождения:<span id="hltb_single"> ${game.hltb_single}</span> часов</p>
 `;
 
-if(game.igdb_score == null) {
+if(game.store_uscore == null) {
 document.getElementById("meta_uscore").innerText  = " ???";
 }
 if(game.full_price == null) {
