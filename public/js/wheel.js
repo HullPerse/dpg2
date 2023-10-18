@@ -734,9 +734,7 @@ function rollItemAnimation() {
   const itemImgSrc = document.getElementById("itemImgSrc");
   const itemName = document.getElementById("itemName");
   const itemDescription = document.getElementById("itemDescription");
-  const selectedItemPreset = document.querySelector('input[name="itemList"]:checked');
   const possibleItemListName = document.querySelectorAll(".possibleItemListName");
-
 
   const maxRolls = 30;
   let rolls = 0;
