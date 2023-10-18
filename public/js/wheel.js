@@ -443,7 +443,10 @@ function getPresetGame(i, presetArray) {
       const resultGameListImgSrc = document.createElement("img");
 
       resultGameListImg.classList.add("resultGameListImg");
-      resultGameListName.classList.add(".resultGameListName");
+      resultGameListName.classList.add("resultGameListName");
+
+      resultGameListImg.setAttribute("id", `${allData.name}`);
+      resultGameListName.setAttribute("id", `${allData.name}`);
 
       resultGameListName.style.paddingLeft = "5px";
 
@@ -451,17 +454,8 @@ function getPresetGame(i, presetArray) {
       resultGameListImgSrc.setAttribute("loading", "lazy");
       resultGameListImg.appendChild(resultGameListImgSrc);
 
-      
-
       resultGameListName.innerText = allData.name;
       mainGameName.innerText = presetArray[i].name;
-
-
-      if(resultGameListName.innerText == mainGameName.innerText) {
-        resultGameListImg.style.borderColor = "#F0E27B";
-        resultGameListName.style.color = "#F0E27B";
-
-      }
 
       resultGameListImgSrc.addEventListener("mouseover", () => {
         resultGameListImg.style.borderColor = "var(--primary-accent)";
@@ -519,6 +513,34 @@ function getPresetGame(i, presetArray) {
       resultGameListEntity.appendChild(resultGameListImg);
       resultGameListEntity.appendChild(resultGameListName);
 });
+
+const maxRolls = 30;
+      let rolls = 0;
+
+      function displayRandomGame() {
+        const randomResult = Math.floor(Math.random() * presetArray.length);
+  
+
+        mainGameName.innerText = presetArray[randomResult].name;
+        gameName.innerText = mainGameName.innerText;
+        gameImgSrc.src == presetArray[randomResult].image;
+
+        rolls++;
+
+        if (rolls < maxRolls) {
+          setTimeout(displayRandomGame, 300);
+        } else {
+
+          const resultGameListImg = document.querySelectorAll(".resultGameListImg");
+          const resultGameListName = document.querySelectorAll(".resultGameListName");
+
+          for(i = 0; i < resultGameListImg.length; i++) {
+            if(resultGameListImg[i].getAttribute("id") == mainGameName.innerText) {
+              resultGameListImg[i].style.borderColor = '#F0E27B';
+              resultGameListName[i].innerHTML = resultGameListName[i].innerText + "     &starf;";
+              resultGameListName[i].style.color = '#F0E27B';
+            }
+          }
 
     mainGameName.innerText = presetArray[i].name;
 
@@ -585,6 +607,9 @@ function getPresetGame(i, presetArray) {
         window.open("https://howlongtobeat.com/", "_blank");
       }
     });
+  }
+}
+displayRandomGame();
 }
 
 function changeWindows() {
