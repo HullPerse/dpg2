@@ -266,6 +266,11 @@ function insertGame(i, randomArray) {
 
       function displayRandomGame() {
         const randomResult = Math.floor(Math.random() * randomArray.length);
+
+        gameImgSrc.src = "img/unnamed.png";
+        gameMisc.innerText = "";
+        gameHref.innerHTML = ``;
+        gameDescription.innerHTML = ``;
   
 
         mainGameName.innerText = gameData[randomArray[randomResult]].name;
@@ -411,6 +416,17 @@ function gameScoreSlider() {
 }
 
 function getPresetArray(presetValue, presetArray) {
+  const gameMisc = document.getElementById("gameMisc");
+  const gameHref = document.getElementById("gameHref");
+  const gameDescription = document.getElementById("gameDescription");
+  const gameImgSrc = document.getElementById("gameImgSrc");
+
+  gameImgSrc.src = "img/unnamed.png";
+  gameMisc.innerText = "";
+  gameHref.innerHTML = ``;
+  gameDescription.innerHTML = ``;
+
+
   fetch(`json/presetGame${presetValue}.json`)
   .then((response) => response.json())
   .then((gameData) => {
@@ -428,7 +444,8 @@ function getPresetGame(i, presetArray) {
   const gameImgSrc = document.getElementById("gameImgSrc");
   const gameName = document.getElementById("gameName");
   const gameMisc = document.getElementById("gameMisc");
-  const gameHref = document.getElementById("gameHref");
+  const gameHref = document.getElementById("gameHref");  
+  const gameDescription = document.getElementById("gameDescription");
 
   const mainGameName = document.getElementById("gameRollTitleContainer");
   const resultGameListEntity = document.getElementById("resultGameListEntity");
@@ -475,12 +492,6 @@ function getPresetGame(i, presetArray) {
       gameImgSrc.src = allData.image;
       gameName.innerText = allData.name;
 
-
-    gameDescription.innerHTML = `
-    <p>${allData.description}</p>
-    <hr style="color: var(--color1)">
-    `;
-
     gameMisc.innerHTML = `
     <p>Оценка:<span id="meta_uscore"> ${allData.igdb_score}</span></p>
     <p>Стоимость:<span id="full_price"> ${parseInt(allData.full_price / 100) * 40}</span>₽</p>
@@ -519,98 +530,95 @@ const maxRolls = 30;
 
       function displayRandomGame() {
         const randomResult = Math.floor(Math.random() * presetArray.length);
-  
+
+      
+        gameImgSrc.src = "img/unnamed.png";
+        gameMisc.innerText = "";
+        gameHref.innerHTML = ``;
+        gameDescription.innerHTML = ``;
 
         mainGameName.innerText = presetArray[randomResult].name;
         gameName.innerText = mainGameName.innerText;
-        gameImgSrc.src == presetArray[randomResult].image;
 
         rolls++;
 
         if (rolls < maxRolls) {
           setTimeout(displayRandomGame, 300);
         } else {
+  const game = presetArray.find((game) => game.name == mainGameName.innerText)
 
-          const resultGameListImg = document.querySelectorAll(".resultGameListImg");
-          const resultGameListName = document.querySelectorAll(".resultGameListName");
+  if(game) {
+    const resultGameListImg = document.querySelectorAll(".resultGameListImg");
+    const resultGameListName = document.querySelectorAll(".resultGameListName");
 
-          for(i = 0; i < resultGameListImg.length; i++) {
-            if(resultGameListImg[i].getAttribute("id") == mainGameName.innerText) {
-              resultGameListImg[i].style.borderColor = '#F0E27B';
-              resultGameListName[i].innerHTML = resultGameListName[i].innerText + "     &starf;";
-              resultGameListName[i].style.color = '#F0E27B';
-            }
-          }
-
-    mainGameName.innerText = presetArray[i].name;
-
-    gameImgSrc.src = presetArray[i].image;
-    gameName.innerText = `${presetArray[i].name}`;
-
-
-    gameDescription.innerHTML = `
-    <p>${presetArray[i].description}</p>
-    <hr style="color: var(--color1)">
-    `;
-
-    gameMisc.innerHTML = `
-    <p>Оценка:<span id="meta_uscore"> ${presetArray[i].igdb_score}</span></p>
-    <p>Стоимость:<span id="full_price"> ${parseInt(presetArray[i].full_price / 100) * 40}  ₽</span></p>
-    <p>Жанр:<span id="genres"> ${presetArray[i].genres}</span></p>
-    <p>Теги:<span id="tags"> ${presetArray[i].tags}</span></p>
-    <p>Платформа:<span id="platforms"> ${presetArray[i].platforms}</span></p>
-    <p>Время прохождения:<span id="hltb_single"> ${presetArray[i].hltb_single}</span> часов</p>
-    `;
-
-    if(presetArray[i].igdb_score == null) {
-      document.getElementById("meta_uscore").innerText  = " ???";
-    }
-    if(presetArray[i].full_price == null) {
-      document.getElementById("full_price").innerText  = " ???";
-    }
-    if(presetArray[i].genres == null) {
-      document.getElementById("genres").innerText  = " ???";
-    }
-    if(presetArray[i].platforms == null) {
-      document.getElementById("platforms").innerText  = " ???";
-    }
-    if(presetArray[i].hltb_single == null) {
-      document.getElementById("hltb_single").innerText  = " ???";
-    }
-
-    const steamHref = document.createElement("div");
-    const hltbHref = document.createElement("div");
-
-    steamHref.classList.add("steamHref");
-    hltbHref.classList.add("hltbHref");
-
-    steamHref.innerHTML = "<span>STEAM</span>";
-    hltbHref.innerHTML = "<span>HLTB</span>";
-
-    gameHref.appendChild(steamHref);
-    gameHref.appendChild(hltbHref);
-
-      steamHref.addEventListener("click", () => {
-        const currentGame = presetArray.find((game) => game.name == gameName.innerText);
-        if (currentGame.store_url) {
-        window.open(currentGame.store_url, "_blank");
-      } else {
-        window.open("https://store.steampowered.com", "_blank");
+    for(i = 0; i < resultGameListImg.length; i++) {
+      if(resultGameListImg[i].getAttribute("id") == mainGameName.innerText) {
+        resultGameListImg[i].style.borderColor = '#F0E27B';
+        resultGameListName[i].innerHTML = resultGameListName[i].innerText + "     &starf;";
+        resultGameListName[i].style.color = '#F0E27B';
       }
-    });
-  
-      hltbHref.addEventListener("click", () => {
-        const currentGame = presetArray.find((game) => game.name == gameName.innerText);
-        if (currentGame.hltb_url) {
-        window.open(currentGame.hltb_url, "_blank");
-      } else {
-        window.open("https://howlongtobeat.com/", "_blank");
-      }
-    });
-  }
+    }
+
+mainGameName.innerText = game.name;
+
+gameImgSrc.src = game.image;
+gameName.innerText = `${game.name}`;
+
+gameMisc.innerHTML = `
+<p>Оценка:<span id="meta_uscore"> ${game.igdb_score}</span></p>
+<p>Стоимость:<span id="full_price"> ${parseInt(game.full_price / 100) * 40}  ₽</span></p>
+<p>Платформа:<span id="platforms"> ${game.platforms}</span></p>
+<p>Время прохождения:<span id="hltb_single"> ${game.hltb_single}</span> часов</p>
+`;
+
+if(game.igdb_score == null) {
+document.getElementById("meta_uscore").innerText  = " ???";
 }
+if(game.full_price == null) {
+document.getElementById("full_price").innerText  = " ???";
+}
+if(game.platforms == null) {
+document.getElementById("platforms").innerText  = " ???";
+}
+if(game.hltb_single == null) {
+document.getElementById("hltb_single").innerText  = " ???";
+}
+
+const steamHref = document.createElement("div");
+const hltbHref = document.createElement("div");
+
+steamHref.classList.add("steamHref");
+hltbHref.classList.add("hltbHref");
+
+steamHref.innerHTML = "<span>STEAM</span>";
+hltbHref.innerHTML = "<span>HLTB</span>";
+
+gameHref.appendChild(steamHref);
+gameHref.appendChild(hltbHref);
+
+steamHref.addEventListener("click", () => {
+  if (game.store_url) {
+  window.open(game.store_url, "_blank");
+} else {
+  window.open("https://store.steampowered.com", "_blank");
+}
+});
+
+hltbHref.addEventListener("click", () => {
+  if (game.hltb_url) {
+  window.open(game.hltb_url, "_blank");
+} else {
+  window.open("https://howlongtobeat.com/", "_blank");
+}
+});
+  }
+    }
+  }
 displayRandomGame();
 }
+
+
+
 
 function changeWindows() {
   const gamePage = document.getElementById("gamePage");
