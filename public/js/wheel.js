@@ -729,6 +729,52 @@ function possibleItems() {
   });
 }
 
+function rollItemAnimation() {
+  const itemRollTitleContainer = document.getElementById("itemRollTitleContainer");
+  const itemImgSrc = document.getElementById("itemImgSrc");
+  const itemName = document.getElementById("itemName");
+  const itemDescription = document.getElementById("itemDescription");
+  const selectedItemPreset = document.querySelector('input[name="itemList"]:checked');
+  const possibleItemListName = document.querySelectorAll(".possibleItemListName");
+
+
+  const maxRolls = 30;
+  let rolls = 0;
+  let animationArray = [];
+
+  fetch("json/items.json")
+    .then((response) => response.json())
+    .then((itemData) => {
+      for(i = 0; i < possibleItemListName.length; i++) {
+          animationArray.push(possibleItemListName[i].innerText);
+      }
+
+      function displayRandomItem() {
+        const randomResult = Math.floor(Math.random() * animationArray.length);
+
+        const item = itemData.Items.find((item) => item.name == animationArray[randomResult]);
+
+        if(item) {
+          itemRollTitleContainer.innerText = item.name;
+          itemName.innerText = itemRollTitleContainer.innerText;
+          itemDescription.innerText = item.description;
+          itemImgSrc.src = `./img/items/${item.id}.png`;
+
+          rolls++;
+  
+          if (rolls < maxRolls) {
+            setTimeout(displayRandomItem, 160);
+          } else {
+            rollItem();
+          }
+        } else {
+          rollItem()
+        }
+        }
+      displayRandomItem();
+    });
+}
+
 function rollItem() {
   const itemRollTitleContainer = document.getElementById("itemRollTitleContainer");
   const itemImgSrc = document.getElementById("itemImgSrc");
