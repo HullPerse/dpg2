@@ -175,11 +175,8 @@ function insertGame(i, randomArray) {
   const gameDescription = document.getElementById("gameDescription");
   const gameMisc = document.getElementById("gameMisc");
   const gameHref = document.getElementById("gameHref");
-
   const mainGameName = document.getElementById("gameRollTitleContainer");
   const resultGameListEntity = document.getElementById("resultGameListEntity");
-
-
 
   resultGameListEntity.innerHTML = "";
   gameHref.innerHTML = "";
@@ -188,155 +185,168 @@ function insertGame(i, randomArray) {
     .then((response) => response.json())
     .then((gameData) => {
 
-    randomArray.forEach((allData) => {
-      const resultGameListImg = document.createElement("div");
-      const resultGameListName = document.createElement("div");
-      const resultGameListImgSrc = document.createElement("img");
-
-      resultGameListImg.classList.add("resultGameListImg");
-      resultGameListName.classList.add("resultGameListName");
-
-      resultGameListName.style.paddingLeft = "5px";
-
-      resultGameListImgSrc.src = gameData[allData].image;
-      resultGameListImgSrc.setAttribute("loading", "lazy");
-      resultGameListImg.appendChild(resultGameListImgSrc);
-
-      resultGameListName.innerText = gameData[allData].name;
-      mainGameName.innerText = gameData[i].name;
-
-
-      if(resultGameListName.innerText == mainGameName.innerText) {
-        resultGameListImg.style.borderColor = "yellow";
-        resultGameListName.style.color = "yellow";
+      randomArray.forEach((allData) => {
+        const resultGameListImg = document.createElement("div");
+        const resultGameListName = document.createElement("div");
+        const resultGameListImgSrc = document.createElement("img");
+  
+        resultGameListImg.classList.add("resultGameListImg");
+        resultGameListName.classList.add("resultGameListName");
+  
+        resultGameListName.style.paddingLeft = "5px";
+  
+        resultGameListImgSrc.src = gameData[allData].image;
+        resultGameListImgSrc.setAttribute("loading", "lazy");
+        resultGameListImg.appendChild(resultGameListImgSrc);
+  
+        resultGameListName.innerText = gameData[allData].name;
+        mainGameName.innerText = gameData[i].name;
+  
+        resultGameListImgSrc.addEventListener("mouseover", () => {
+          resultGameListImg.style.borderColor = "var(--primary-accent)";
+        });
+  
+        resultGameListImgSrc.addEventListener("mouseout", () => {
+          if(resultGameListName.innerText == mainGameName.innerText) {
+            resultGameListImg.style.borderColor = "yellow";
+          } else {
+          resultGameListImg.style.borderColor = "var(--color1)";
+          }
+        });
+  
+        resultGameListImgSrc.addEventListener("click",() => {
+  
+        gameImgSrc.src = gameData[allData].image;
+        gameName.innerText = gameData[allData].name;
+  
+  
+      gameDescription.innerHTML = `
+      <p>${gameData[allData].description}</p>
+      <hr style="color: var(--color1)">
+      `;
+  
+      gameMisc.innerHTML = `
+      <p>Оценка:<span id="meta_uscore"> ${gameData[allData].igdb_score}</span></p>
+      <p>Стоимость:<span id="full_price"> ${parseInt(gameData[allData].full_price / 100) * 40}</span>₽</p>
+      <p>Жанр:<span id="genres"> ${gameData[allData].genres}</span></p>
+      <p>Теги:<span id="tags"> ${gameData[allData].tags}</span></p>
+      <p>Платформа:<span id="platforms"> ${gameData[allData].platforms}</span></p>
+      <p>Время прохождения:<span id="hltb_single"> ${gameData[allData].hltb_single}</span> часов</p>
+      `;
+  
+      if(gameData[allData].igdb_score == null) {
+        document.getElementById("meta_uscore").innerText  = " ???";
       }
-
-      resultGameListImgSrc.addEventListener("mouseover", () => {
-        resultGameListImg.style.borderColor = "var(--primary-accent)";
-      });
-
-      resultGameListImgSrc.addEventListener("mouseout", () => {
-        if(resultGameListName.innerText == mainGameName.innerText) {
-          resultGameListImg.style.borderColor = "yellow";
-        } else {
-        resultGameListImg.style.borderColor = "var(--color1)";
-        }
-      });
-
-      resultGameListImgSrc.addEventListener("click",() => {
-
-      gameImgSrc.src = gameData[allData].image;
-      gameName.innerText = gameData[allData].name;
-
-
-    gameDescription.innerHTML = `
-    <p>${gameData[allData].description}</p>
-    <hr style="color: var(--color1)">
-    `;
-
-    gameMisc.innerHTML = `
-    <p>Оценка:<span id="meta_uscore"> ${gameData[allData].igdb_score}</span></p>
-    <p>Стоимость:<span id="full_price"> ${parseInt(gameData[allData].full_price / 100) * 40}</span>₽</p>
-    <p>Жанр:<span id="genres"> ${gameData[allData].genres}</span></p>
-    <p>Теги:<span id="tags"> ${gameData[allData].tags}</span></p>
-    <p>Платформа:<span id="platforms"> ${gameData[allData].platforms}</span></p>
-    <p>Время прохождения:<span id="hltb_single"> ${gameData[allData].hltb_single}</span> часов</p>
-    `;
-
-    if(gameData[allData].igdb_score == null) {
-      document.getElementById("meta_uscore").innerText  = " ???";
-    }
-    if(gameData[allData].full_price == null) {
-      document.getElementById("full_price").innerText  = " ???";
-    }
-    if(gameData[allData].genres == null) {
-      document.getElementById("genres").innerText  = " ???";
-    }
-    if(gameData[allData].tags == null) {
-      document.getElementById("tags").innerText  = " ???";
-    }
-    if(gameData[allData].platforms == null) {
-      document.getElementById("platforms").innerText  = " ???";
-    }
-    if(gameData[allData].hltb_single == null) {
-      document.getElementById("hltb_single").innerText  = " ???";
-    }
-  });
-
-      resultGameListEntity.appendChild(resultGameListImg);
-      resultGameListEntity.appendChild(resultGameListName);
-    });
-
-
-
-    gameImgSrc.src = gameData[i].image;
-    gameName.innerText = `${gameData[i].name}`;
-
-
-    gameDescription.innerHTML = `
-    <p>${gameData[i].description}</p>
-    <hr style="color: var(--color1)">
-    `;
-
-    gameMisc.innerHTML = `
-    <p>Оценка:<span id="meta_uscore"> ${gameData[i].igdb_score}</span></p>
-    <p>Стоимость:<span id="full_price"> ${parseInt((gameData[i].full_price / 100) * 40)} ₽</span></p>
-    <p>Жанр:<span id="genres"> ${gameData[i].genres}</span></p>
-    <p>Теги:<span id="tags"> ${gameData[i].tags}</span></p>
-    <p>Платформа:<span id="platforms"> ${gameData[i].platforms}</span></p>
-    <p>Время прохождения:<span id="hltb_single"> ${gameData[i].hltb_single}</span> часов</p>
-    `;
-
-    if(gameData[i].igdb_score == null) {
-      document.getElementById("meta_uscore").innerText  = " ???";
-    }
-    if(gameData[i].full_price == null) {
-      document.getElementById("full_price").innerText  = " ???";
-    }
-    if(gameData[i].genres == null) {
-      document.getElementById("genres").innerText  = " ???";
-    }
-    if(gameData[i].tags == null) {
-      document.getElementById("tags").innerText  = " ???";
-    }
-    if(gameData[i].platforms == null) {
-      document.getElementById("platforms").innerText  = " ???";
-    }
-    if(gameData[i].hltb_single == null) {
-      document.getElementById("hltb_single").innerText  = " ???";
-    }
-
-    const steamHref = document.createElement("div");
-    const hltbHref = document.createElement("div");
-
-    steamHref.classList.add("steamHref");
-    hltbHref.classList.add("hltbHref");
-
-    steamHref.innerHTML = "<span>STEAM</span>";
-    hltbHref.innerHTML = "<span>HLTB</span>";
-
-    gameHref.appendChild(steamHref);
-    gameHref.appendChild(hltbHref);
-
-      steamHref.addEventListener("click", () => {
-        const currentGame = gameData.find((game) => game.name == gameName.innerText);
-        if (currentGame.store_url) {
-        window.open(currentGame.store_url, "_blank");
-      } else {
-        window.open("https://store.steampowered.com", "_blank");
+      if(gameData[allData].full_price == null) {
+        document.getElementById("full_price").innerText  = " ???";
+      }
+      if(gameData[allData].genres == null) {
+        document.getElementById("genres").innerText  = " ???";
+      }
+      if(gameData[allData].tags == null) {
+        document.getElementById("tags").innerText  = " ???";
+      }
+      if(gameData[allData].platforms == null) {
+        document.getElementById("platforms").innerText  = " ???";
+      }
+      if(gameData[allData].hltb_single == null) {
+        document.getElementById("hltb_single").innerText  = " ???";
       }
     });
   
-      hltbHref.addEventListener("click", () => {
-        const currentGame = gameData.find((game) => game.name == gameName.innerText);
-        if (currentGame.hltb_url) {
-        window.open(currentGame.hltb_url, "_blank");
-      } else {
-        window.open("https://howlongtobeat.com/", "_blank");
+        resultGameListEntity.appendChild(resultGameListImg);
+        resultGameListEntity.appendChild(resultGameListName);
+      });
+
+      const maxRolls = 30;
+      let rolls = 0;
+
+      function displayRandomGame() {
+        const randomResult = Math.floor(Math.random() * randomArray.length);
+
+        mainGameName.innerText = gameData[randomArray[randomResult]].name;
+        gameName.innerText = mainGameName.innerText;
+        gameImgSrc.src == gameData[randomArray[randomResult]].image;
+        gameImgSrc.style.visibility = "hidden";
+
+        rolls++;
+
+        if (rolls < maxRolls) {
+          setTimeout(displayRandomGame, 300);
+        } else {
+          const game = gameData.find((game) => game.name == mainGameName.innerText)
+
+          if(game) {
+            gameImgSrc.style.visibility = "visible";
+            gameImgSrc.src = game.image;
+
+            gameDescription.innerHTML = `
+            <p>${game.description}</p>
+            <hr style="color: var(--color1)">
+            `;
+
+          gameMisc.innerHTML = `
+          <p>Оценка:<span id="meta_uscore"> ${game.igdb_score}</span></p>
+          <p>Стоимость:<span id="full_price"> ${parseInt((game.full_price / 100) * 40)} ₽</span></p>
+          <p>Жанр:<span id="genres"> ${game.genres}</span></p>
+          <p>Теги:<span id="tags"> ${game.tags}</span></p>
+          <p>Платформа:<span id="platforms"> ${game.platforms}</span></p>
+          <p>Время прохождения:<span id="hltb_single"> ${game.hltb_single}</span> часов</p>
+          `;
+
+          if(game.igdb_score == null) {
+            document.getElementById("meta_uscore").innerText  = " ???";
+          }
+          if(game.full_price == null) {
+            document.getElementById("full_price").innerText  = " ???";
+          }
+          if(game.genres == null) {
+            document.getElementById("genres").innerText  = " ???";
+          }
+          if(game.tags == null) {
+            document.getElementById("tags").innerText  = " ???";
+          }
+          if(game.platforms == null) {
+            document.getElementById("platforms").innerText  = " ???";
+          }
+          if(game.hltb_single == null) {
+            document.getElementById("hltb_single").innerText  = " ???";
+          }
+      
+          const steamHref = document.createElement("div");
+          const hltbHref = document.createElement("div");
+      
+          steamHref.classList.add("steamHref");
+          hltbHref.classList.add("hltbHref");
+      
+          steamHref.innerHTML = "<span>STEAM</span>";
+          hltbHref.innerHTML = "<span>HLTB</span>";
+      
+          gameHref.appendChild(steamHref);
+          gameHref.appendChild(hltbHref);
+      
+            steamHref.addEventListener("click", () => {
+              if (game.store_url) {
+              window.open(game.store_url, "_blank");
+            } else {
+              window.open("https://store.steampowered.com", "_blank");
+            }
+          });
+        
+            hltbHref.addEventListener("click", () => {
+              if (game.hltb_url) {
+              window.open(game.hltb_url, "_blank");
+            } else {
+              window.open("https://howlongtobeat.com/", "_blank");
+            }
+          });
+          }     
+        }
       }
+      displayRandomGame();
     });
-  });
-}
+  }
+
 
 function dropdownGenres(){
   const dropdownContent = document.querySelector(".dropdown-content");
