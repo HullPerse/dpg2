@@ -1,5 +1,5 @@
 # dpg2
-HPG inspired app. "Tabletop" game for friends
+HPG inspired app. "Tabletop" game for a group of friends or w/e
 
 Second version of it (First one was excel version)
 
