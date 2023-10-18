@@ -192,6 +192,9 @@ function insertGame(i, randomArray) {
   
         resultGameListImg.classList.add("resultGameListImg");
         resultGameListName.classList.add("resultGameListName");
+
+        resultGameListImg.setAttribute("id", `${gameData[allData].name}`);
+        resultGameListName.setAttribute("id", `${gameData[allData].name}`);
   
         resultGameListName.style.paddingLeft = "5px";
   
@@ -208,7 +211,7 @@ function insertGame(i, randomArray) {
   
         resultGameListImgSrc.addEventListener("mouseout", () => {
           if(resultGameListName.innerText == mainGameName.innerText) {
-            resultGameListImg.style.borderColor = "yellow";
+            resultGameListImg.style.borderColor = "#F0E27B";
           } else {
           resultGameListImg.style.borderColor = "var(--color1)";
           }
@@ -263,6 +266,7 @@ function insertGame(i, randomArray) {
 
       function displayRandomGame() {
         const randomResult = Math.floor(Math.random() * randomArray.length);
+  
 
         mainGameName.innerText = gameData[randomArray[randomResult]].name;
         gameName.innerText = mainGameName.innerText;
@@ -276,7 +280,19 @@ function insertGame(i, randomArray) {
         } else {
           const game = gameData.find((game) => game.name == mainGameName.innerText)
 
+
           if(game) {
+            const resultGameListImg = document.querySelectorAll(".resultGameListImg");
+            const resultGameListName = document.querySelectorAll(".resultGameListName");
+
+            for(i = 0; i < resultGameListImg.length; i++) {
+              if(resultGameListImg[i].getAttribute("id") == gameName.innerText) {
+                resultGameListImg[i].style.borderColor = '#F0E27B';
+                resultGameListName[i].style.color = '#F0E27B';
+                resultGameListName[i].innerHTML = resultGameListName[i].innerText + "     &starf;";
+              }
+            }
+
             gameImgSrc.style.visibility = "visible";
             gameImgSrc.src = game.image;
 
@@ -442,8 +458,9 @@ function getPresetGame(i, presetArray) {
 
 
       if(resultGameListName.innerText == mainGameName.innerText) {
-        resultGameListImg.style.borderColor = "yellow";
-        resultGameListName.style.color = "yellow";
+        resultGameListImg.style.borderColor = "#F0E27B";
+        resultGameListName.style.color = "#F0E27B";
+
       }
 
       resultGameListImgSrc.addEventListener("mouseover", () => {
@@ -452,7 +469,7 @@ function getPresetGame(i, presetArray) {
 
       resultGameListImgSrc.addEventListener("mouseout", () => {
         if(resultGameListName.innerText == mainGameName.innerText) {
-          resultGameListImg.style.borderColor = "yellow";
+          resultGameListImg.style.borderColor = "#F0E27B";
         } else {
         resultGameListImg.style.borderColor = "var(--color1)";
         }
@@ -866,8 +883,9 @@ function rollItem() {
       resultItemListEntity.appendChild(resultItemListName);
 
       if (index == 3) {
-        resultItemListImg.style.borderColor = "yellow";
-        resultItemListName.style.color = "yellow";
+        resultItemListImg.style.borderColor = "#F0E27B";
+        resultItemListName.style.color = "#F0E27B";
+        resultItemListName.innerHTML = resultItemListName.innerText + "     &starf;"
     }
     resultItemListImgSrc.addEventListener("mouseover", () => {
       resultItemListImg.style.borderColor = "var(--primary-accent)";
@@ -875,7 +893,7 @@ function rollItem() {
 
     resultItemListImgSrc.addEventListener("mouseout", () => {
       if(index == 3) {
-        resultItemListImg.style.borderColor = "yellow";
+        resultItemListImg.style.borderColor = "#F0E27B";
       } else {
       resultItemListImg.style.borderColor = "var(--color1)";
       }
