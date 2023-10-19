@@ -323,21 +323,91 @@ function readAndSendJson(filePath, response) {
     });
 }
 
+
 expressApp.get("/socket.io/socket.io.js", (req, res) => {
     res.sendFile(path.join(__dirname, "/node_modules/socket.io/client-dist/socket.io.js"));
   });
 
+  const { Client } = require('discord-rpc');
+  const clientId = '1164429222345965668';
+  const rpc = new Client({ transport: 'ipc' });
+
+  const cookieParser = require('cookie-parser');
+
+  expressApp.use(cookieParser());
+
+  expressApp.get('/get-username', (req, res) => {
+    const username = req.cookies.username;
+    if (username) {
+      res.send(`Username: ${username}`);
+    } else {
+      res.send('Username not found.');
+    }
+  });
+
+  fetch('http://localhost:3000/get-username')
+  .then((response) => response.text())
+  .then((data) => {
+    console.log(data);
+  })
+  .catch((error) => {
+    console.error(error);
+  });
+  
+  rpc.login({ clientId }).catch(console.error);
+
   io.on("connection", (socket) => {
     console.log("A user connected");
   
-    socket.on("move", (data) => {
-        io.emit("move", data);
-      });
+    const cookies = socket.handshake.headers.cookie;
+    const usernameMatch = cookies.match(/username=([^;]*)/);
+    const username = usernameMatch ? usernameMatch[1] : "Unknown";
 
+    const mapCellMatch = cookies.match(/mapCell=([^;]*)/);
+    const cell = mapCellMatch ? mapCellMatch[1] : "1";
+  
+    function getUserAvatar(username, callback) {
+      db.get("SELECT avatar FROM users WHERE username = ?", username, (err, row) => {
+        if (err) {
+          console.error(err.message);
+          callback(null);
+        } else {
+          callback(row ? row.avatar : null);
+        }
+      });
+    }
+  
+    getUserAvatar(username, (avatarData) => {
+      rpc.setActivity({
+        details: `Username: ${username}`,
+        state: `Map Cell: ${cell}`,
+        startTimestamp: Date.now(),
+        largeImageText: 'DPG',
+        largeImageURL: `data:image/gif;base64,${avatarData.toString('base64')}`,
+      });
+    });
+  
+    socket.on("move", (data) => {
+      io.emit("move", data);
+    });
+  
     socket.on("disconnect", () => {
       console.log("A user disconnected");
+      rpc.clearActivity();
     });
   });
+
+  // io.on("connection", (socket) => {
+  //   console.log("A user connected");
+  
+  //   socket.on("move", (data) => {
+  //       io.emit("move", data);
+  //     });
+
+  //   socket.on("disconnect", () => {
+  //     console.log("A user disconnected");
+  //   });
+  // });
 
   httpServer.listen(serverPort, () => {
     console.log(`Server running on port ${serverPort}`);

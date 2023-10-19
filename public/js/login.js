@@ -62,6 +62,10 @@ function populateCurrentUserList() {
         sessionStorage.setItem("item4", user.Item4);
         sessionStorage.setItem("item5", user.Item5);
         sessionStorage.setItem("item6", user.Item6);
+
+        document.cookie = `username=${sessionStorage.getItem("Username")}; path=/`;
+        document.cookie = `mapCell=${sessionStorage.getItem("mapCell")}; path=/`;
+
         fullUserList = fullUsersData;
         getUserAvatar(user.id);
         if(window.location.href == "http://" + window.location.host + "/map") {
