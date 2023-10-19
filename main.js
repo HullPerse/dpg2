@@ -377,13 +377,12 @@ expressApp.get("/socket.io/socket.io.js", (req, res) => {
       });
     }
   
-    getUserAvatar(username, (avatarData) => {
+    getUserAvatar(username, (avatarURL) => {
       rpc.setActivity({
-        details: `Username: ${username}`,
-        state: `Map Cell: ${cell}`,
-        startTimestamp: Date.now(),
+        details: `Пользователь: ${username}`,
+        state: `Клетка: ${cell}`,
         largeImageText: 'DPG',
-        largeImageURL: `data:image/gif;base64,${avatarData.toString('base64')}`,
+        largeImageKey: 'dpg'
       });
     });
   
@@ -396,18 +395,6 @@ expressApp.get("/socket.io/socket.io.js", (req, res) => {
       rpc.clearActivity();
     });
   });
-
-  // io.on("connection", (socket) => {
-  //   console.log("A user connected");
-  
-  //   socket.on("move", (data) => {
-  //       io.emit("move", data);
-  //     });
-
-  //   socket.on("disconnect", () => {
-  //     console.log("A user disconnected");
-  //   });
-  // });
 
   httpServer.listen(serverPort, () => {
     console.log(`Server running on port ${serverPort}`);
