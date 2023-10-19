@@ -209,7 +209,7 @@ function itemSelection() {
         if (user) {
             for (let i = 0; i < itemListSelection.length; i++) {
             itemListSelection[i].innerHTML = '';
-
+            
             fullItemList.forEach((item) => {
                 const itemOption = document.createElement("option");
                 itemOption.value = item.id;
