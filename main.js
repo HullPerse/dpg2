@@ -357,6 +357,7 @@ expressApp.get("/socket.io/socket.io.js", (req, res) => {
   rpc.login({ clientId }).catch(console.error);
 
   io.on("connection", (socket) => {
+    rpc.clearActivity();
     console.log("A user connected");
   
     const cookies = socket.handshake.headers.cookie;
@@ -368,7 +369,7 @@ expressApp.get("/socket.io/socket.io.js", (req, res) => {
     const cell = mapCellMatch ? mapCellMatch[1] : "0";
 
     const pageMatch = cookies.match(/page=([^;]*)/);
-    const page = pageMatch ? pageMatch[1] : "Авторизация";
+    const page = pageMatch ? decodeURIComponent(pageMatch[1]) : "Авторизация";
 
       rpc.setActivity({
         details: `${username}`,

@@ -63,12 +63,11 @@ function populateCurrentUserList() {
         sessionStorage.setItem("item5", user.Item5);
         sessionStorage.setItem("item6", user.Item6);
 
-        const path = location.pathname;
-        const slicedPage = path.slice(1);
-        
+        document.cookie = `page=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/`;
+
         document.cookie = `username=${sessionStorage.getItem("Username")}; path=/`;
         document.cookie = `mapCell=${sessionStorage.getItem("mapCell")}; path=/`;
-        document.cookie = `page=${slicedPage}; path=/`;
+        document.cookie = `page=${encodeURIComponent(document.title)}; path=/`;
 
         fullUserList = fullUsersData;
         getUserAvatar(user.id);

@@ -810,3 +810,10 @@ function updateUserData(username, color, money, isPlaced, xPos, yPos, Item1, Ite
         })
         .catch(error => console.error("Error:", error));
 }
+
+function inventoryTitle() {
+    var path = location.pathname;
+    var inventoryUser = path.slice(1);
+
+    document.title = `Инвентарь ${inventoryUser}`;
+}
