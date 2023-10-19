@@ -328,55 +328,10 @@ expressApp.get("/socket.io/socket.io.js", (req, res) => {
     res.sendFile(path.join(__dirname, "/node_modules/socket.io/client-dist/socket.io.js"));
   });
 
-  const { Client } = require('discord-rpc');
-  const clientId = '1164429222345965668';
-  const rpc = new Client({ transport: 'ipc' });
-
-  const cookieParser = require('cookie-parser');
-
-  expressApp.use(cookieParser());
-
-  expressApp.get('/get-username', (req, res) => {
-    const username = req.cookies.username;
-    if (username) {
-      res.send(`Username: ${username}`);
-    } else {
-      res.send('Username not found.');
-    }
-  });
-  
-  fetch('http://localhost:3000/get-username')
-  .then((response) => response.text())
-  .then((data) => {
-    console.log(data);
-  })
-  .catch((error) => {
-    console.error(error);
-  });
-  
-  rpc.login({ clientId }).catch(console.error);
+ 
 
   io.on("connection", (socket) => {
-    rpc.clearActivity();
     console.log("A user connected");
-  
-    const cookies = socket.handshake.headers.cookie;
-
-    const usernameMatch = cookies.match(/username=([^;]*)/);
-    const username = usernameMatch ? `Пользователь: ${usernameMatch[1]}` : "Пользователь не авторизован";
-
-    const mapCellMatch = cookies.match(/mapCell=([^;]*)/);
-    const cell = mapCellMatch ? mapCellMatch[1] : "0";
-
-    const pageMatch = cookies.match(/page=([^;]*)/);
-    const page = pageMatch ? decodeURIComponent(pageMatch[1]) : "Авторизация";
-
-      rpc.setActivity({
-        details: `${username}`,
-        state: `Страница: ${page} || Клетка: ${cell}`,
-        largeImageText: 'DPG',
-        largeImageKey: 'dpg'
-      });
   
     socket.on("move", (data) => {
       io.emit("move", data);
@@ -384,7 +339,6 @@ expressApp.get("/socket.io/socket.io.js", (req, res) => {
   
     socket.on("disconnect", () => {
       console.log("A user disconnected");
-      rpc.clearActivity();
     });
   });
 

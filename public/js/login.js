@@ -67,7 +67,7 @@ function populateCurrentUserList() {
 
         document.cookie = `username=${sessionStorage.getItem("Username")}; path=/`;
         document.cookie = `mapCell=${sessionStorage.getItem("mapCell")}; path=/`;
-        document.cookie = `page=${encodeURIComponent(document.title)}; path=/`;
+        document.cookie = `page=${document.title}; path=/`;
 
         fullUserList = fullUsersData;
         getUserAvatar(user.id);
@@ -157,6 +157,7 @@ function updateCell(userId, mapCell) {
     .then((response) => response.json())
     .then((data) => {
       console.log("mapCell updated successfully:", data);
+      document.cookie = `mapCell=${mapCell}; path=/`;
     })
     .catch((error) => {
       console.error("Error updating mapCell:", error);
