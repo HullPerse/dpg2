@@ -213,6 +213,7 @@
   <script src="js/login.js"></script>
   <script src="js/contextmenu.js"></script>
   <script src="js/inventory.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
   <script>
     window.onload = function () {
       loadUI();
@@ -222,5 +223,8 @@
       startClock();
       populateCurrentUserList();
     };
+  </script>
+  <script>
+    const socket = io();
   </script>
 </html>

@@ -344,7 +344,7 @@ expressApp.get("/socket.io/socket.io.js", (req, res) => {
       res.send('Username not found.');
     }
   });
-
+  
   fetch('http://localhost:3000/get-username')
   .then((response) => response.text())
   .then((data) => {
@@ -360,31 +360,22 @@ expressApp.get("/socket.io/socket.io.js", (req, res) => {
     console.log("A user connected");
   
     const cookies = socket.handshake.headers.cookie;
+
     const usernameMatch = cookies.match(/username=([^;]*)/);
-    const username = usernameMatch ? usernameMatch[1] : "Unknown";
+    const username = usernameMatch ? `Пользователь: ${usernameMatch[1]}` : "Пользователь не авторизован";
 
     const mapCellMatch = cookies.match(/mapCell=([^;]*)/);
-    const cell = mapCellMatch ? mapCellMatch[1] : "1";
-  
-    function getUserAvatar(username, callback) {
-      db.get("SELECT avatar FROM users WHERE username = ?", username, (err, row) => {
-        if (err) {
-          console.error(err.message);
-          callback(null);
-        } else {
-          callback(row ? row.avatar : null);
-        }
-      });
-    }
-  
-    getUserAvatar(username, (avatarURL) => {
+    const cell = mapCellMatch ? mapCellMatch[1] : "0";
+
+    const pageMatch = cookies.match(/page=([^;]*)/);
+    const page = pageMatch ? pageMatch[1] : "Авторизация";
+
       rpc.setActivity({
-        details: `Пользователь: ${username}`,
-        state: `Клетка: ${cell}`,
+        details: `${username}`,
+        state: `Страница: ${page} || Клетка: ${cell}`,
         largeImageText: 'DPG',
         largeImageKey: 'dpg'
       });
-    });
   
     socket.on("move", (data) => {
       io.emit("move", data);

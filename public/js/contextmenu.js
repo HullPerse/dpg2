@@ -66,6 +66,11 @@ document.getElementById("exit").addEventListener("click", function () {
   sessionStorage.removeItem("isPlaced");
   sessionStorage.removeItem("xPos");
   sessionStorage.removeItem("yPos");
+
+  document.cookie = `username=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/`;
+  document.cookie = `mapCell=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/`;
+  document.cookie = `page=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/`;
+
   location.reload();
   hideContextMenu();
 });
