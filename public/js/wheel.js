@@ -495,7 +495,7 @@ function getPresetGame(i, presetArray) {
 
     gameMisc.innerHTML = `
     <p>Оценка:<span id="meta_uscore"> ${allData.store_uscore}</span></p>
-    <p>Стоимость:<span id="full_price"> ${parseInt(allData.full_price)}</span> ₽</p>
+    <p>Стоимость:<span id="full_price"> ${parseInt(allData.full_price / 100) * 40}</span> ₽</p>
     <p>Платформа:<span id="platforms"> ${allData.platforms}</span></p>
     <p>Время прохождения:<span id="hltb_single"> ${allData.hltb_single}</span> часов</p>
     `;
@@ -566,7 +566,7 @@ gameName.innerText = `${game.name}`;
 
 gameMisc.innerHTML = `
 <p>Оценка:<span id="meta_uscore"> ${game.store_uscore}</span></p>
-<p>Стоимость:<span id="full_price"> ${parseInt(game.full_price)}</span> ₽</p>
+<p>Стоимость:<span id="full_price"> ${parseInt(game.full_price / 100) * 40}</span> ₽</p>
 <p>Платформа:<span id="platforms"> ${game.platforms}</span></p>
 <p>Время прохождения:<span id="hltb_single"> ${game.hltb_single}</span> часов</p>
 `;
@@ -616,9 +616,6 @@ hltbHref.addEventListener("click", () => {
   }
 displayRandomGame();
 }
-
-
-
 
 function changeWindows() {
   const gamePage = document.getElementById("gamePage");

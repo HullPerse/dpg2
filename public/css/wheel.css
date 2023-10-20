@@ -633,11 +633,13 @@ input[type="number"]::-webkit-outer-spin-button {
 }
 
 .possibleItemListName {
-  padding-left: 10px;
-  transform: translateY(25px);
+  display: flex;
   height: 60px;
   width: 210px;
   border-radius: 10px;
+  align-items: center;
+  padding-top: 25px;
+  padding-left: 10px;
   user-select: text;
 }
 
