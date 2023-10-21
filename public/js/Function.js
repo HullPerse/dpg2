@@ -290,17 +290,51 @@ function showCurrentEvent() {
               const auctionItem = document.createElement("div");
               auctionItem.classList.add("auctionItem");
               auctionItem.innerHTML = `
-              <h4 class="auctionH4">${item.id}. ${item.name}</h4>
+              <h4 class="auctionH4">${item.id}. ${item.name} [${item.type}]</h4>
               <span class="auctionSpan">${item.description}</span>
               `;
               auctionItemsContainer.appendChild(auctionItem);
+
+              auctionItem.addEventListener("click", () => {
+                getAuctionItem(item.name, item.description, item.image);
+              });
             }
           })
         });
+
+        const auctionMainContainer = document.createElement("div");
+        auctionMainContainer.classList.add("auctionMainContainer");
+        auctionContainer.appendChild(auctionMainContainer);
 
         body.appendChild(eventBg);
         body.appendChild(auctionContainer);
       }
     });
   })
+}
+
+function getAuctionItem(name, description, img) {
+  const auctionMainContainer = document.querySelectorAll(".auctionMainContainer")[0];
+  auctionMainContainer.innerHTML = "";
+
+  const auctionMainItemImg = document.createElement("div");
+  auctionMainItemImg.classList.add("auctionMainItemImg");
+  auctionMainItemImg.innerHTML = `<img src="./img/items/${img}.png" />`;
+  auctionMainContainer.appendChild(auctionMainItemImg);
+
+  const auctionMainItemDescription = document.createElement("div");
+  auctionMainItemDescription.classList.add("auctionMainItemDescription");
+  auctionMainItemDescription.innerText = `${description}`;
+  auctionMainContainer.appendChild(auctionMainItemDescription);
+
+  const betAmount = document.createElement("input");
+  betAmount.classList.add("betAmount");
+  betAmount.setAttribute("type", "number");
+  betAmount.setAttribute("placeholder", "0");
+  auctionMainContainer.appendChild(betAmount);
+
+  const betButton = document.createElement("button");
+  betButton.classList.add("betButton");
+  betButton.innerText = `ПОСТАВИТЬ`;
+  auctionMainContainer.appendChild(betButton);
 }
