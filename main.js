@@ -17,7 +17,7 @@ expressApp.use(express.static(path.join(__dirname, "public"), { extensions: ["ht
 expressApp.use(express.json());
 
 expressApp.post("/adduser", upload.single("avatar"), (req, res) => {
-    const { username, color, isPlaced, xPos, yPos, Item1, Item2, Item3, Item4, Item5, Item6, mapCell, money, event } = JSON.parse(req.body.user);
+    const { username, color, isPlaced, xPos, yPos, Item1, Item2, Item3, Item4, Item5, Item6, mapCell, money, event, auction } = JSON.parse(req.body.user);
     const avatarData = req.file.buffer;
 
     if (!username) {
@@ -37,8 +37,8 @@ expressApp.post("/adduser", upload.single("avatar"), (req, res) => {
             return res.json({ success: false, message: "Такое имя пользователя уже занято" });
         }
 
-        const insertQuery = "INSERT INTO users (username, color, avatar, isPlaced, xPos, yPos, Item1, Item2, Item3, Item4, Item5, Item6, mapCell, money, event) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        db.run(insertQuery, [username.toLowerCase(), color, avatarData, isPlaced, xPos, yPos, Item1, Item2, Item3, Item4, Item5, Item6, mapCell, money, event], (err) => {
+        const insertQuery = "INSERT INTO users (username, color, avatar, isPlaced, xPos, yPos, Item1, Item2, Item3, Item4, Item5, Item6, mapCell, money, event, auction) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+        db.run(insertQuery, [username.toLowerCase(), color, avatarData, isPlaced, xPos, yPos, Item1, Item2, Item3, Item4, Item5, Item6, mapCell, money, event, auction], (err) => {
             if (err) {
                 console.log("Error adding user", err);
                 return res.json({ success: false, message: "Ошибка при добавлении пользователя" });
@@ -118,10 +118,10 @@ expressApp.post("/updateposition/:userId", (req, res) => {
   });
   expressApp.post("/updateuserdashboard/:username", (req, res) => {
     const username = req.params.username;
-    const { color, money, isPlaced, xPos, yPos, Item1, Item2, Item3, Item4, Item5, Item6 } = req.body;
+    const { color, money, isPlaced, xPos, yPos, Item1, Item2, Item3, Item4, Item5, Item6, auction } = req.body;
   
-    const updateQuery = "UPDATE users SET color = ?, money = ?, isPlaced = ?, xPos = ?, yPos = ?, Item1 = ?, Item2 = ?, Item3 = ?, Item4 = ?, Item5 = ?, Item6 = ? WHERE username = ?";
-    db.run(updateQuery, [color, money, isPlaced, xPos, yPos, Item1, Item2, Item3, Item4, Item5, Item6, username], (err) => {
+    const updateQuery = "UPDATE users SET color = ?, money = ?, isPlaced = ?, xPos = ?, yPos = ?, Item1 = ?, Item2 = ?, Item3 = ?, Item4 = ?, Item5 = ?, Item6 = ?, auction = ? WHERE username = ?";
+    db.run(updateQuery, [color, money, isPlaced, xPos, yPos, Item1, Item2, Item3, Item4, Item5, Item6, auction, username], (err) => {
       if (err) {
         console.log("Error updating user position and isPlaced:", err);
         return res.json({ success: false, message: "Error updating user position and isPlaced" });
@@ -194,6 +194,23 @@ expressApp.post("/updateposition/:userId", (req, res) => {
       return res.json({ success: true, message: "User events updated successfully" });
     });
   });
+
+  expressApp.post("/updateauction/:username", (req, res) => {
+    const username = req.params.username;
+    const { auction } = req.body;
+  
+    const updateQuery = "UPDATE users SET auction = ? WHERE username = ?";
+    db.run(updateQuery, [auction, username], (err) => {
+      if (err) {
+        console.log("Error updating user auction:", err);
+        return res.json({ success: false, message: "Error updating user auction" });
+      }
+  
+      console.log("User auction updated successfully");
+      return res.json({ success: true, message: "User auction updated successfully" });
+    });
+  });
+
 
 
 expressApp.get("/getavatar/:userId", (req, res) => {

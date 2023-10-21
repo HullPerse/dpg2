@@ -262,6 +262,45 @@ function showCurrentEvent() {
         });
         });
       }
+      if(user.username == sessionStorage.getItem("Username") && user.auction == "true") {
+        const body = document.querySelectorAll("body")[0];
+
+        const eventBg = document.createElement("div");
+        eventBg.classList.add("eventBackground");
+        
+        const auctionContainer  = document.createElement("div");
+        auctionContainer.classList.add("auctionContainer");
+
+        const auctionHeader = document.createElement("h2");
+        auctionHeader.innerText = "АУКЦИОН";
+        auctionContainer.appendChild(auctionHeader);
+
+        const auctionLine = document.createElement("hr");
+        auctionContainer.appendChild(auctionLine);
+
+        const auctionItemsContainer = document.createElement("div");
+        auctionItemsContainer.classList.add("auctionItemsContainer");
+        auctionContainer.appendChild(auctionItemsContainer);
+
+        fetch('/json/auction.json')
+        .then((response) => response.json())
+        .then((itemData) => {
+          itemData.Items.forEach((item) => {
+            if(!item.id == 0) {
+              const auctionItem = document.createElement("div");
+              auctionItem.classList.add("auctionItem");
+              auctionItem.innerHTML = `
+              <h4 class="auctionH4">${item.id}. ${item.name}</h4>
+              <span class="auctionSpan">${item.description}</span>
+              `;
+              auctionItemsContainer.appendChild(auctionItem);
+            }
+          })
+        });
+
+        body.appendChild(eventBg);
+        body.appendChild(auctionContainer);
+      }
     });
   })
 }

@@ -63,11 +63,11 @@ function populateCurrentUserList() {
         sessionStorage.setItem("item5", user.Item5);
         sessionStorage.setItem("item6", user.Item6);
 
-        document.cookie = `page=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/`;
+        document.cookie = `page=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/; sameSite=Lax`;
 
-        document.cookie = `username=${sessionStorage.getItem("Username")}; path=/`;
-        document.cookie = `mapCell=${sessionStorage.getItem("mapCell")}; path=/`;
-        document.cookie = `page=${document.title}; path=/`;
+        document.cookie = `username=${sessionStorage.getItem("Username")}; path=/; sameSite=Lax`;
+        document.cookie = `mapCell=${sessionStorage.getItem("mapCell")}; path=/; sameSite=Lax`;
+        document.cookie = `page=${document.title}; path=/; sameSite=Lax`;
 
         fullUserList = fullUsersData;
         getUserAvatar(user.id);
@@ -321,7 +321,8 @@ function registerUser() {
       Item5: 0,
       Item6: 0,
       money: 0,
-      event: "none"
+      event: "none",
+      auction: "false"
   };
 
   const formData = new FormData();

@@ -666,6 +666,11 @@ function loadUserTable() {
             userMoney.classList.add("tdMisc");
             dashboardTable.appendChild(userMoney);
 
+            const userAuction = document.createElement("td");
+            userAuction.textContent = user.auction;
+            userAuction.classList.add("tdMisc");
+            dashboardTable.appendChild(userAuction);
+
             const settingButton = document.createElement("button");
             settingButton.innerHTML = `<text>*</text>`;
             settingButton.classList.add("gameSettings");
@@ -681,7 +686,7 @@ function loadUserTable() {
             });
 
             settingButton.addEventListener("click", () => {
-                changeUserInfo(user.id, user.username, user.color, user.isPlaced, user.xPos, user.yPos, user.Item1, user.Item2, user.Item3, user.Item4, user.Item5, user.Item6, user.money, user.event);
+                changeUserInfo(user.id, user.username, user.color, user.isPlaced, user.xPos, user.yPos, user.Item1, user.Item2, user.Item3, user.Item4, user.Item5, user.Item6, user.money, user.event, user.auction);
             });
 
             mainUserTable.appendChild(dashboardTable);
@@ -690,6 +695,8 @@ function loadUserTable() {
         });
         const turnEventOn = document.getElementById("turnEventsOn");
         const turnEventOff = document.getElementById("turnEventsOff");
+        const turnAuctionOn = document.getElementById("turnAuctionOn");
+        const turnAuctionOff = document.getElementById("turnAuctionOff");
 
         turnEventOn.addEventListener("click", () => {
             userData.forEach((user) => {
@@ -739,10 +746,58 @@ function loadUserTable() {
             }
             });
         });
+        turnAuctionOn.addEventListener("click", () => {
+            userData.forEach((user) => {
+                if(user.auction == "false") {
+                const auction = "true";
+                fetch(`/updateauction/${user.username}`, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({ auction }),
+                })
+                .then((response) => response.json())
+                .then((data) => {
+                    console.log("Events updated successfully for user:", user.username, data);
+                    window.location.reload();
+                })
+                .catch((error) => {
+                    console.error("Error updating events for user:", user.username, error);
+                });
+            } else {
+                console.log("auction is already on");
+            }
+            });
+        });
+        turnAuctionOff.addEventListener("click", () => {
+            userData.forEach((user) => {
+                if(user.auction == "true") {
+                const auction = "false";
+                fetch(`/updateauction/${user.username}`, {
+                    method: "POST",
+                    headers: {
+                        "Content-Type": "application/json",
+                    },
+                    body: JSON.stringify({ auction }),
+                })
+                .then((response) => response.json())
+                .then((data) => {
+                    console.log("Events updated successfully for user:", user.username, data);
+                    window.location.reload();
+                })
+                .catch((error) => {
+                    console.error("Error updating events for user:", user.username, error);
+                });
+            } else {
+                console.log("auction is already off");
+            }
+            });
+        });
     });
 }
 
-function changeUserInfo(id, username, color, isPlaced, xPos, yPos, Item1, Item2, Item3, Item4, Item5, Item6, money, event) {
+function changeUserInfo(id, username, color, isPlaced, xPos, yPos, Item1, Item2, Item3, Item4, Item5, Item6, money, event, auction) {
     const body = document.querySelectorAll("body")[0];
     const dashboardModal = document.getElementById("userInfoModalContainer");
     dashboardModal.style.display = "grid";
@@ -772,6 +827,7 @@ function changeUserInfo(id, username, color, isPlaced, xPos, yPos, Item1, Item2,
     const userItem4 = document.getElementById("userItem4");
     const userItem5 = document.getElementById("userItem5");
     const userItem6 = document.getElementById("userItem6");
+    const userAuction = document.getElementById("userAuction");
 
     userMoney.value = money;
     userIsPlaced.value = isPlaced;
@@ -783,9 +839,10 @@ function changeUserInfo(id, username, color, isPlaced, xPos, yPos, Item1, Item2,
     userItem4.value = Item4;
     userItem5.value = Item5;
     userItem6.value = Item6;
+    userAuction.value = auction;
 
     closeButton.addEventListener("click", () => {
-        updateUserData(username, userColor.value, userMoney.value, userIsPlaced.value, userX.value, userY.value, userItem1.value, userItem2.value, userItem3.value, userItem4.value, userItem5.value, userItem6.value);
+        updateUserData(username, userColor.value, userMoney.value, userIsPlaced.value, userX.value, userY.value, userItem1.value, userItem2.value, userItem3.value, userItem4.value, userItem5.value, userItem6.value, userAuction.value);
         dashboardModal.style.display = "none";
     });
 
@@ -794,14 +851,14 @@ function changeUserInfo(id, username, color, isPlaced, xPos, yPos, Item1, Item2,
     body.appendChild(dashboardModal);
 }
 
-function updateUserData(username, color, money, isPlaced, xPos, yPos, Item1, Item2, Item3, Item4, Item5, Item6) {
+function updateUserData(username, color, money, isPlaced, xPos, yPos, Item1, Item2, Item3, Item4, Item5, Item6, auction) {
 
     fetch(`/updateuserdashboard/${username}`, {
             method: "POST",
             headers : {
                 "Content-type": "application/json"
             },
-            body: JSON.stringify({ color, money, isPlaced, xPos, yPos, Item1, Item2, Item3, Item4, Item5, Item6 } )
+            body: JSON.stringify({ color, money, isPlaced, xPos, yPos, Item1, Item2, Item3, Item4, Item5, Item6, auction } )
     })
     .then(response => response.json())
         .then(data => {

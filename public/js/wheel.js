@@ -1,7 +1,7 @@
 let isRolling = false;
 
 let stdSettings = {
-  gameAmountSlider: 12,
+  gameAmountSlider: 16,
   gamePreset: 0,
   gameCostMin: 0,
   gameCostMax: 5000,
@@ -642,7 +642,7 @@ let itemArray = [];
 function possibleItems() {
   const possibleItems = document.getElementById("possibleItems");
   const selectedItemPreset = document.querySelector('input[name="itemList"]:checked');
-  const excludeItems = ["Пшено", "Древнерусский выстрел с раскачки", "Пылесос"];
+  const excludeItems = ["Пшено", "Древнерусский выстрел с раскачки", "Пылесос", "Маска протеста", "Маска каппы", "Ветровка с множеством карманов", "К.Э.К.К", "Знамя", "Умная татуировка", "Батина флешка"];
 
   possibleItems.innerHTML = "";
   itemArray  = [];
@@ -672,7 +672,7 @@ function possibleItems() {
       });
     }
     if(selectedItemPreset.value == "Buffs") {
-        itemData.Items.slice(1).forEach((item) => {
+      itemData.Items.filter(item => !excludeItems.includes(item.name)).slice(1).forEach((item) => {
         if(item.type == "Бафф") {
         const possibleItemListImg = document.createElement("div");
         const possibleItemListP = document.createElement("p");
@@ -695,7 +695,7 @@ function possibleItems() {
       });
     }
     if(selectedItemPreset.value == "Debuffs") {
-      itemData.Items.slice(1).forEach((item) => {
+      itemData.Items.filter(item => !excludeItems.includes(item.name)).slice(1).forEach((item) => {
       if(item.type == "Дебафф") {
       const possibleItemListImg = document.createElement("div");
       const possibleItemListP = document.createElement("p");

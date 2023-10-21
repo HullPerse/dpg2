@@ -52,23 +52,13 @@ tbody td:hover {
   left: 0px;
   top: 10px;
   display: grid;
-  grid-template-columns: 160px 160px;
+  grid-template-columns: repeat(9, 160px);
   grid-gap: 40px;
   height: auto;
   width: 360px;
 }
 
-#turnEventsOn {
-  display: grid;
-  height: 60px;
-  width: 160px;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  border-radius: 10px;
-}
-
-#turnEventsOff {
+#userButtonsContainer button {
   display: grid;
   height: 60px;
   width: 160px;

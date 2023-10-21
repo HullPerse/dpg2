@@ -40,16 +40,12 @@
 
         <span>Item5:</span>
         <span>Item6:</span>
-        <span style="visibility: hidden">Item6:</span>
+        <span>Auction:</span>
         <span style="visibility: hidden">Item6:</span>
 
         <input type="number" class="dashboardInput" id="userItem5" />
         <input type="number" class="dashboardInput" id="userItem6" />
-        <input
-          style="visibility: hidden"
-          type="number"
-          class="dashboardInput"
-        />
+        <input type="text" class="dashboardInput" id="userAuction" />
         <input
           style="visibility: hidden"
           type="number"
@@ -77,8 +73,10 @@
     <div id="userDashboardSettingsModal" style="display: none"></div>
 
     <div id="userButtonsContainer">
-      <button id="turnEventsOn">ВКЛЮЧИТЬ</button>
-      <button id="turnEventsOff">ВЫКЛЮЧИТЬ</button>
+      <button id="turnEventsOn">HALLOWEEN ON</button>
+      <button id="turnEventsOff">HALLOWEEN OFF</button>
+      <button id="turnAuctionOn">AUCTION ON</button>
+      <button id="turnAuctionOff">AUCTION OFF</button>
     </div>
 
     <table id="userDashboardTable">
@@ -97,6 +95,7 @@
         <td class="tdMisc">Предмет5</td>
         <td class="tdMisc">Предмет6</td>
         <td class="tdMisc">Чубрики</td>
+        <td class="tdMisc">Аукцион</td>
       </thead>
       <tbody id="mainUserTable" class="UserTableTr"></tbody>
     </table>
