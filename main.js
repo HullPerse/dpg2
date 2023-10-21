@@ -50,6 +50,23 @@ expressApp.post("/adduser", upload.single("avatar"), (req, res) => {
     });
 });
 
+
+expressApp.post("/updateauction/:item", (req, res) => {
+  const item = req.params.item;
+  const { owner } = req.body;
+
+  const updateQuery = "UPDATE auction SET owner = ? WHERE item = ?";
+  db.run(updateQuery, [owner, item], (err) => {
+    if (err) {
+      console.log("Error updating user ownership:", err);
+      return res.json({ success: false, message: "Error updating user ownership" });
+    }
+
+    console.log("User ownershipd updated successfully");
+    return res.json({ success: true, message: "User ownership updated successfully" });
+  });
+});
+
 expressApp.post("/addgame", (req, res) => {
   const { gameUsername, gameCell, gameTitle, gameStatus, gameCommentary } = req.body;
 
@@ -289,6 +306,16 @@ expressApp.get("/getusers", (req, res) => {
         }
         res.json(rows);
     });
+});
+
+expressApp.get("/getauction", (req, res) => {
+  const query = "SELECT * FROM auction";
+  db.all(query, (err, rows) => {
+      if (err) {
+          console.log("Error fetching auction");
+      }
+      res.json(rows);
+  });
 });
 
 expressApp.get("/getgames", (req, res) => {

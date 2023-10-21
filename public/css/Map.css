@@ -373,18 +373,11 @@ title:not() {
   border-radius: 10px;
 }
 
-.betAmount {
-  position: absolute;
-  bottom: 80px;
-  left: 50%;
-  transform: translateX(-50%);
-  height: 100px;
-  width: 300px;
-  border-radius: 10px;
-  border: 2px solid var(--color2);
-  background-color: var(--shadow-color);
+.itemOwner {
+  transform: translateY(-230px);
   color: white;
-  text-align: center;
-  font-weight: bolder;
   font-size: 20px;
+  padding: 5px 0px 0px 5px;
+  display: flex;
+  justify-self: center;
 }

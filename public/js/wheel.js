@@ -642,7 +642,7 @@ let itemArray = [];
 function possibleItems() {
   const possibleItems = document.getElementById("possibleItems");
   const selectedItemPreset = document.querySelector('input[name="itemList"]:checked');
-  const excludeItems = ["Пшено", "Древнерусский выстрел с раскачки", "Пылесос", "Маска протеста", "Маска каппы", "Ветровка с множеством карманов", "К.Э.К.К", "Знамя", "Умная татуировка", "Батина флешка"];
+  const excludeItems = ["Пшено", "Древнерусский выстрел с раскачки", "Пылесос", "Маска протеста", "Маска каппы", "Ветровка с множеством карманов", "К.Э.К.К", "Знамя", "Умная татуировка", "Батина флешка", "Ведро кончи"];
 
   possibleItems.innerHTML = "";
   itemArray  = [];

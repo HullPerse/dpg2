@@ -78,23 +78,18 @@
   border: 3px solid var(--color1);
   background-color: var(--shadow-color);
   border-radius: 10px;
+  justify-content: center;
+  align-items: center;
   overflow: hidden;
 }
 
 .user-items-img {
-  height: 60px;
-  width: 60px;
-  justify-content: center;
-  align-items: center;
   overflow: hidden;
   outline: transparent;
-}
-
-.user-items-img img {
-  max-width: 100%;
-  min-height: 100%;
-  object-fit: cover;
-  aspect-ratio: 1 / 1;
+  height: 100%;
+  max-height: 60px;
+  align-self: center;
+  justify-self: center;
 }
 
 .user-items-text {
@@ -192,6 +187,7 @@
 }
 
 .itemList {
+  display: grid;
   height: 190px;
   width: 190px;
   transform: translateY(-70px);
@@ -227,10 +223,9 @@
 }
 
 .itemList img {
-  max-width: 190px;
-  min-height: 190px;
-  object-fit: cover;
-  aspect-ratio: 1 / 1;
+  display: flex;
+  height: 100%;
+  max-height: 190px;
 }
 
 .descHeader {

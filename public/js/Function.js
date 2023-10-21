@@ -296,7 +296,7 @@ function showCurrentEvent() {
               auctionItemsContainer.appendChild(auctionItem);
 
               auctionItem.addEventListener("click", () => {
-                getAuctionItem(item.name, item.description, item.image);
+                getAuctionItem(item.id, item.name, item.description, item.image);
               });
             }
           })
@@ -313,28 +313,52 @@ function showCurrentEvent() {
   })
 }
 
-function getAuctionItem(name, description, img) {
+function getAuctionItem(id, name, description, img) {
   const auctionMainContainer = document.querySelectorAll(".auctionMainContainer")[0];
-  auctionMainContainer.innerHTML = "";
 
-  const auctionMainItemImg = document.createElement("div");
-  auctionMainItemImg.classList.add("auctionMainItemImg");
-  auctionMainItemImg.innerHTML = `<img src="./img/items/${img}.png" />`;
-  auctionMainContainer.appendChild(auctionMainItemImg);
+    auctionMainContainer.innerHTML = "";
 
-  const auctionMainItemDescription = document.createElement("div");
-  auctionMainItemDescription.classList.add("auctionMainItemDescription");
-  auctionMainItemDescription.innerText = `${description}`;
-  auctionMainContainer.appendChild(auctionMainItemDescription);
+    fetch("/getauction")
+      .then((response) => response.json())
+      .then((auctionData) => {
+        const auctionMainItemImg = document.createElement("div");
+        auctionMainItemImg.classList.add("auctionMainItemImg");
+        auctionMainItemImg.innerHTML = `<img src="./img/items/${img}.png" />`;
+        auctionMainContainer.appendChild(auctionMainItemImg);
+      
+        const auctionMainItemDescription = document.createElement("div");
+        auctionMainItemDescription.classList.add("auctionMainItemDescription");
+        auctionMainItemDescription.innerText = `${description}`;
+        auctionMainContainer.appendChild(auctionMainItemDescription);   
 
-  const betAmount = document.createElement("input");
-  betAmount.classList.add("betAmount");
-  betAmount.setAttribute("type", "number");
-  betAmount.setAttribute("placeholder", "0");
-  auctionMainContainer.appendChild(betAmount);
+        const itemOwner = document.createElement("span"); 
+        itemOwner.classList.add("itemOwner");
+        itemOwner.innerHTML = `Владелец: ${auctionData[id - 1].owner}`;
+        auctionMainContainer.appendChild(itemOwner);
+      
+        const betButton = document.createElement("button");
+        betButton.classList.add("betButton");
+        betButton.innerText = `ЗАБРАТЬ`;
+        auctionMainContainer.appendChild(betButton);
 
-  const betButton = document.createElement("button");
-  betButton.classList.add("betButton");
-  betButton.innerText = `ПОСТАВИТЬ`;
-  auctionMainContainer.appendChild(betButton);
+        betButton.addEventListener("click", () => {
+          const owner = sessionStorage.getItem("Username");
+
+          fetch(`/updateauction/${auctionData[id - 1].item}`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify({ owner }),
+          })
+            .then((response) => response.json())
+            .then((data) => {
+              console.log("ownership updated successfully:", data);
+              itemOwner.innerHTML = `Владелец: ${sessionStorage.getItem("Username")}`;
+            })
+            .catch((error) => {
+              console.error("Error updating ownership:", error);
+            });
+        });
+      });
 }
