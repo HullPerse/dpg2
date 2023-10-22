@@ -296,7 +296,7 @@ function showCurrentEvent() {
               auctionItemsContainer.appendChild(auctionItem);
 
               auctionItem.addEventListener("click", () => {
-                getAuctionItem(item.id, item.name, item.description, item.image);
+                getAuctionItem(item.id, item.name, item.description, item.image, item.type);
               });
             }
           })
@@ -313,7 +313,7 @@ function showCurrentEvent() {
   })
 }
 
-function getAuctionItem(id, name, description, img) {
+function getAuctionItem(id, name, description, img, type) {
   const auctionMainContainer = document.querySelectorAll(".auctionMainContainer")[0];
 
     auctionMainContainer.innerHTML = "";
@@ -321,44 +321,53 @@ function getAuctionItem(id, name, description, img) {
     fetch("/getauction")
       .then((response) => response.json())
       .then((auctionData) => {
-        const auctionMainItemImg = document.createElement("div");
-        auctionMainItemImg.classList.add("auctionMainItemImg");
-        auctionMainItemImg.innerHTML = `<img src="./img/items/${img}.png" />`;
-        auctionMainContainer.appendChild(auctionMainItemImg);
-      
-        const auctionMainItemDescription = document.createElement("div");
-        auctionMainItemDescription.classList.add("auctionMainItemDescription");
-        auctionMainItemDescription.innerText = `${description}`;
-        auctionMainContainer.appendChild(auctionMainItemDescription);   
 
-        const itemOwner = document.createElement("span"); 
-        itemOwner.classList.add("itemOwner");
-        itemOwner.innerHTML = `Владелец: ${auctionData[id - 1].owner}`;
-        auctionMainContainer.appendChild(itemOwner);
-      
-        const betButton = document.createElement("button");
-        betButton.classList.add("betButton");
-        betButton.innerText = `ЗАБРАТЬ`;
-        auctionMainContainer.appendChild(betButton);
-
-        betButton.addEventListener("click", () => {
-          const owner = sessionStorage.getItem("Username");
-
-          fetch(`/updateauction/${auctionData[id - 1].item}`, {
-            method: "POST",
-            headers: {
-              "Content-Type": "application/json",
-            },
-            body: JSON.stringify({ owner }),
-          })
-            .then((response) => response.json())
-            .then((data) => {
-              console.log("ownership updated successfully:", data);
-              itemOwner.innerHTML = `Владелец: ${sessionStorage.getItem("Username")}`;
+        if(type == "ПРЕДМЕТ") {
+          const auctionMainItemImg = document.createElement("div");
+          auctionMainItemImg.classList.add("auctionMainItemImg");
+          auctionMainItemImg.innerHTML = `<img src="./img/items/${img}.png" />`;
+          auctionMainContainer.appendChild(auctionMainItemImg);
+        
+          const auctionMainItemDescription = document.createElement("div");
+          auctionMainItemDescription.classList.add("auctionMainItemDescription");
+          auctionMainItemDescription.innerText = `${description}`;
+          auctionMainContainer.appendChild(auctionMainItemDescription);   
+  
+          const itemOwner = document.createElement("span"); 
+          itemOwner.classList.add("itemOwner");
+          itemOwner.innerHTML = `Владелец: ${auctionData[id - 1].owner}`;
+          auctionMainContainer.appendChild(itemOwner);
+        
+          const betButton = document.createElement("button");
+          betButton.classList.add("betButton");
+          betButton.innerText = `ЗАБРАТЬ`;
+          auctionMainContainer.appendChild(betButton);
+  
+          betButton.addEventListener("click", () => {
+            const owner = sessionStorage.getItem("Username");
+  
+            fetch(`/updateauction/${auctionData[id - 1].item}`, {
+              method: "POST",
+              headers: {
+                "Content-Type": "application/json",
+              },
+              body: JSON.stringify({ owner }),
             })
-            .catch((error) => {
-              console.error("Error updating ownership:", error);
-            });
-        });
+              .then((response) => response.json())
+              .then((data) => {
+                console.log("ownership updated successfully:", data);
+                itemOwner.innerHTML = `Владелец: ${sessionStorage.getItem("Username")}`;
+              })
+              .catch((error) => {
+                console.error("Error updating ownership:", error);
+              });
+          });
+        } else if (type == "ЭФФЕКТ") {
+
+          const auctionMainItemDescription = document.createElement("div");
+          auctionMainItemDescription.classList.add("auctionMainItemDescription");
+          auctionMainItemDescription.innerText = `${description}`;
+          auctionMainContainer.appendChild(auctionMainItemDescription);   
+        }
       });
 }
