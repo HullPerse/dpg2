@@ -779,6 +779,8 @@ function possibleItems() {
       const possibleItemListCustom = document.createElement("textarea");
       possibleItemListCustom.classList.add("possibleTextArea");
 
+
+
       textarea(possibleItemListCustom);
       
       possibleItems.appendChild(possibleItemListCustom);
@@ -998,6 +1000,25 @@ function textarea(textarea) {
         }
       });
     const randomCustomNumber = Math.floor(Math.random() * nonEmptyLines.length);
+
+    const maxRolls = 30;
+    let rolls = 0;
+  
+    function displayRandomNumber() {
+        const randomResult = Math.floor(Math.random() * nonEmptyLines.length);
+        itemRollTitleContainer.innerText = randomResult;
+        itemName.innerText = itemRollTitleContainer.innerText;
+  
+        rolls++;
+        if (rolls < maxRolls) {
+            setTimeout(displayRandomNumber, 100);
+            clearTimeout(setTimeout(displayRandomNumber, 100));
+        } else {
+          itemRollTitleContainer.innerText = Math.floor(Math.random() * nonEmptyLines.length);
+          itemName.innerText = itemRollTitleContainer.innerText;
+        }
+    }
+    displayRandomNumber();
 
     itemRollTitleContainer.innerText = nonEmptyLines[randomCustomNumber];
     itemName.innerText = nonEmptyLines[randomCustomNumber];
