@@ -345,8 +345,8 @@ function getAuctionItem(id, name, description, img, type) {
   
           betButton.addEventListener("click", () => {
             const owner = sessionStorage.getItem("Username");
-  
-            fetch(`/updateauction/${auctionData[id - 1].item}`, {
+          
+            fetch(`/updateauctionown/${auctionData[id - 1].item}`, {
               method: "POST",
               headers: {
                 "Content-Type": "application/json",
@@ -363,7 +363,6 @@ function getAuctionItem(id, name, description, img, type) {
               });
           });
         } else if (type == "ЭФФЕКТ") {
-
           const auctionMainItemDescription = document.createElement("div");
           auctionMainItemDescription.classList.add("auctionMainItemDescription");
           auctionMainItemDescription.innerText = `${description}`;
@@ -371,3 +370,5 @@ function getAuctionItem(id, name, description, img, type) {
         }
       });
 }
+
+

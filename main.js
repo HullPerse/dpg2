@@ -51,7 +51,7 @@ expressApp.post("/adduser", upload.single("avatar"), (req, res) => {
 });
 
 
-expressApp.post("/updateauction/:item", (req, res) => {
+expressApp.post("/updateauctionown/:item", (req, res) => {
   const item = req.params.item;
   const { owner } = req.body;
 
