@@ -108,5 +108,16 @@
         "platforms": "WIN",
         "full_price": 1499,
         "hltb_single": 6
+    },
+    {
+        "id": 10,
+        "name": "Shadows of Doubt",
+        "image": "https://cdn.cloudflare.steamstatic.com/steam/apps/986130/header_alt_assets_0.jpg?t=1696863667",
+        "store_uscore": 70,
+        "store_url": "https://store.steampowered.com/app/986130/Shadows_of_Doubt/",
+        "hltb_url": "https://howlongtobeat.com/game/80205",
+        "platforms": "WIN",
+        "full_price": 1999,
+        "hltb_single": 19
     }
 ]

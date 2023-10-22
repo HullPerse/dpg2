@@ -660,7 +660,3 @@ select option {
   background-color: var(--color1);
   color: var(--item-neutral);
 }
-
-#gamePresetSelection:hover {
-  appearance: none;
-}
