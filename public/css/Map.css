@@ -381,3 +381,7 @@ title:not() {
   display: flex;
   justify-self: center;
 }
+
+.resizableContainer {
+  resize: horizontal;
+}
