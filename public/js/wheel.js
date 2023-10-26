@@ -802,9 +802,8 @@ function possibleItems() {
     }
     if(selectedItemPreset.value == "customList") {
       const possibleItemListCustom = document.createElement("textarea");
+      possibleItemListCustom.innerHTML = "";
       possibleItemListCustom.classList.add("possibleTextArea");
-
-
 
       textarea(possibleItemListCustom);
       
@@ -849,8 +848,6 @@ function rollItemAnimation() {
           } else {
             rollItem();
           }
-        } else {
-          rollItem()
         }
         }
       displayRandomItem();
@@ -868,7 +865,8 @@ function rollItem() {
   let rolledArray = [];
 
   itemImgSrc.src = "";
-
+  itemRollTitleContainer.innerText = "";
+  itemName.innerText = "";
 
   if(itemArray.length > 0) {
 
@@ -1007,6 +1005,9 @@ function rollItem() {
 
 function textarea(textarea) {
   const itemButtonRoll = document.getElementById("itemButtonRoll");
+  const itemImgSrc = document.getElementById("itemImgSrc");
+  const itemDescription = document.getElementById("itemDescription");
+  const possibleItemListName = document.querySelectorAll(".possibleItemListName");
 
   const itemRollTitleContainer = document.getElementById("itemRollTitleContainer");
   const itemName = document.getElementById("itemName");
@@ -1031,7 +1032,7 @@ function textarea(textarea) {
   
     function displayRandomNumber() {
         const randomResult = Math.floor(Math.random() * nonEmptyLines.length);
-        itemRollTitleContainer.innerText = randomResult;
+        itemRollTitleContainer.innerText = nonEmptyLines[randomResult];
         itemName.innerText = itemRollTitleContainer.innerText;
   
         rolls++;
@@ -1039,14 +1040,11 @@ function textarea(textarea) {
             setTimeout(displayRandomNumber, 100);
             clearTimeout(setTimeout(displayRandomNumber, 100));
         } else {
-          itemRollTitleContainer.innerText = Math.floor(Math.random() * nonEmptyLines.length);
+          itemRollTitleContainer.innerText = nonEmptyLines[randomCustomNumber];
           itemName.innerText = itemRollTitleContainer.innerText;
         }
     }
     displayRandomNumber();
-
-    itemRollTitleContainer.innerText = nonEmptyLines[randomCustomNumber];
-    itemName.innerText = nonEmptyLines[randomCustomNumber];
     }
   });
 }
