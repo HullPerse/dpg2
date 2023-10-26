@@ -1044,7 +1044,11 @@ function textarea(textarea) {
           itemName.innerText = itemRollTitleContainer.innerText;
         }
     }
+    if(nonEmptyLines.length > 0) {
     displayRandomNumber();
+      } else {
+        itemRollTitleContainer.innerText = "Добавь пункты, сука";
+      }
     }
   });
 }
