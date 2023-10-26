@@ -8,7 +8,6 @@ const upload = multer();
 const serverPort = 3000;;
 const dbPath = "public/database/users.db";
 const db = new sqlite3.Database(dbPath);
-const penis = 1;
 
 const httpServer = require("http").createServer(expressApp);
 const io = require("socket.io")(httpServer);
@@ -309,21 +308,91 @@ expressApp.get("/getusers", (req, res) => {
     });
 });
 
-expressApp.get("/getauction", (req, res) => {
-  const query = "SELECT * FROM auction";
-  db.all(query, (err, rows) => {
-      if (err) {
-          console.log("Error fetching auction");
-      }
-      res.json(rows);
-  });
-});
-
 expressApp.get("/getgames", (req, res) => {
   const query = "SELECT * FROM games";
   db.all(query, (err, rows) => {
       if (err) {
           console.log("Error fetching games");
+      }
+      res.json(rows);
+  });
+});
+
+const steamdbPath = "public/database/steamgames.db";
+const steamdb = new sqlite3.Database(steamdbPath);
+
+expressApp.get('/getRandomGame', (req, res) => {
+  const jsonDataPath = "./public/json/steamdb.json";
+
+
+  fs.readFile(jsonDataPath, 'utf8', (err, data) => {
+    if (err) {
+      console.error(err);
+      res.status(500).send('Error reading JSON file');
+      return;
+    }
+    const gameData = JSON.parse(data);
+
+    const filteredGames = getRandomGames(gameData, req.query);
+    
+    res.json(filteredGames);
+  });
+});
+
+function getRandomGames(gameData, queryParams) {
+  const {
+    gameAmountSlide,
+    gameCostMaxRange,
+    gameCostMinRange,
+    gameTimeMinRange,
+    gameTimeMaxRange,
+    gameScoreMinRange,
+    gameScoreMaxRange,
+    afterDate,
+    beforeDate,
+    selectedTags,
+  } = queryParams;
+
+const selectedTagsArray = selectedTags.split(',');
+
+const randomGames = [];
+  // Filter games based on the provided query parameters
+  const filteredGames = gameData.filter(game => {
+
+    const noTagsFilter = selectedTagsArray.length === 0 || (game.tags && selectedTagsArray.some(tag => game.tags.includes(tag)));
+
+    const costFilter =
+      game.full_price / 100 >= gameCostMaxRange / 30 &&
+      game.full_price / 100 <= gameCostMinRange / 30;
+
+    const timeFilter =
+      game.hltb_single >= gameTimeMaxRange && game.hltb_single <= gameTimeMinRange;
+
+    const scoreFilter =
+      game.igdb_score >= gameScoreMaxRange && game.igdb_score <= gameScoreMinRange;
+
+    const dateFilter =
+      game.published_store >= beforeDate && game.published_store <= afterDate;
+
+    // Ensure all filtering criteria are met
+    return noTagsFilter && costFilter && timeFilter && scoreFilter && dateFilter;
+  });
+
+  // Select random games from the filtered list
+
+  while (randomGames.length < gameAmountSlide && filteredGames.length > 0) {
+    const randomIndex = Math.floor(Math.random() * filteredGames.length);
+    randomGames.push(filteredGames.splice(randomIndex, 1)[0]);
+  }
+
+  return randomGames;
+}
+
+expressApp.get("/getauction", (req, res) => {
+  const query = "SELECT * FROM auction";
+  db.all(query, (err, rows) => {
+      if (err) {
+          console.log("Error fetching auction");
       }
       res.json(rows);
   });
@@ -343,18 +412,26 @@ expressApp.get("/", (req, res) => {
 
 expressApp.get("/getjson1", (req, res) => {
     const jsonFilePath = path.join(__dirname, "public/json/cells.json");
-    readAndSendJson(jsonFilePath, res);
+    sendJsonFile(jsonFilePath, res);
 });
 
 expressApp.get("/getjson2", (req, res) => {
   const jsonFilePath = path.join(__dirname, "public/json/items.json");
-  readAndSendJson(jsonFilePath, res);
+  sendJsonFile(jsonFilePath, res);
 });
 
-expressApp.get("/getjson3", (req, res) => {
-  const jsonFilePath = path.join(__dirname, "public/json/steamdb.json");
-  readAndSendJson(jsonFilePath, res);
-});
+function sendJsonFile(filePath, response) {
+  const readStream = fs.createReadStream(filePath);
+
+  response.setHeader("Content-Type", "application/json");
+
+  readStream.pipe(response);
+
+  readStream.on("error", (err) => {
+    console.error("Error reading JSON file:", err);
+    response.status(500).json({ error: "Error reading JSON file" });
+  });
+}
 
 function readAndSendJson(filePath, response) {
     fs.readFile(filePath, "utf8", (err, data) => {

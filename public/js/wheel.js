@@ -85,8 +85,7 @@ function openCase() {
   }
 }
 
-
-function getRandomGame(randomArray) {
+function getRandomGame() {
   const gameAmountSlide = document.getElementById("gameAmountSlider").value;
   const gameCostMaxRange = document.getElementById("gameCostMaxRange").value;
   const gameCostMinRange = document.getElementById("gameCostMinRange").value;
@@ -97,91 +96,42 @@ function getRandomGame(randomArray) {
   const afterDate = document.getElementById("afterDate").value;
   const beforeDate = document.getElementById("beforeDate").value;
 
+  const gameName = document.getElementById("gameName");
+
   const checkboxes = document.querySelectorAll(".checkbox");
   const selectedTags = Array.from(checkboxes)
-    .filter(checkbox => checkbox.checked)
-    .map(checkbox => checkbox.value);
+  .filter(checkbox => checkbox.checked)
+  .map(checkbox => checkbox.value);
 
-  fetch("json/steamdb.json")
+const queryParams = {
+  gameAmountSlide,
+  gameCostMaxRange,
+  gameCostMinRange,
+  gameTimeMinRange,
+  gameTimeMaxRange,
+  gameScoreMinRange,
+  gameScoreMaxRange,
+  afterDate,
+  beforeDate,
+  selectedTags: selectedTags.join(',')
+};
+
+  const queryString = new URLSearchParams(queryParams).toString();
+
+  fetch(`/getRandomGame?${queryString}`)
     .then((response) => response.json())
-    .then((gameData) => {
-      let i = 0;
-      let foundItem = false;
+    .then((randomGames) => {
 
-      while (randomArray.length < gameAmountSlide && i < gameData.length) {
-        const randomNumber = Math.floor(Math.random() * gameData.length);
-        const game = gameData[randomNumber];
-
-        let noTagsFilter = true;
-
-        if (game.tags) {
-          if (selectedTags.length > 0) {
-            noTagsFilter = selectedTags.some(tag => game.tags.includes(tag));
-          }
-        } else {
-          noTagsFilter = selectedTags.length === 0;
-        }
-
-        const costFilter = (
-          (game.full_price / 100) >= (gameCostMaxRange / 30) &&
-          (game.full_price / 100) <= (gameCostMinRange / 30)
-        );
-        const timeFilter = (
-          game.hltb_single >= gameTimeMaxRange &&
-          game.hltb_single <= gameTimeMinRange
-        );
-        const scoreFilter = (
-          game.igdb_score >= gameScoreMaxRange &&
-          game.igdb_score <= gameScoreMinRange
-        );
-        const dateFilter = (
-          game.published_store >= beforeDate &&
-          game.published_store <= afterDate
-        );
-
-        if (noTagsFilter && costFilter && timeFilter && scoreFilter && dateFilter) {
-          randomArray.push(randomNumber);
-          foundItem = true;
-        }
-
-        i += 1;
-      }
-
-      if (!foundItem) {
+      if (randomGames.length <= 0) {
         noGamesModal();
         return;
       }
 
-      const randomIndex = Math.floor(Math.random() * randomArray.length);
-      insertGame(randomArray[randomIndex], randomArray);
+      const randomIndex = Math.floor(Math.random() * randomGames.length);
+      insertGame(randomGames[randomIndex], randomGames);
       isRolling = false;
+      return;
     });
-}
-
-
-function noGamesModal() {
-  const noGamesModal = document.getElementById("noGamesModal");
-  if(noGamesModal.style.display == "none") {
-    noGamesModal.style.display = "grid";
-  } else {
-    noGamesModal.style.display = "none";
-    window.location.reload();
-  }
-}
-
-
-function containerSwitch() {
-    const ItemContainer = document.getElementById("itemPage");
-    const gameButton = document.getElementById("gameButton");
-    const itemButton = document.getElementById("itemButton");
-
-    if (ItemContainer.style.display == "grid") {
-        gameButton.style.backgroundColor = "var(--color1)";
-        itemButton.style.backgroundColor = "var(--color3)";
-    } else {
-        itemButton.style.backgroundColor = "var(--color1)";
-        gameButton.style.backgroundColor = "var(--color3)"
-    }
 }
 
 function insertGame(finalGame, randomArray) {
@@ -204,11 +154,7 @@ function insertGame(finalGame, randomArray) {
   const maxRolls = 30;
   let rolls = 0;
 
-  fetch("json/steamdb.json")
-    .then((response) => response.json())
-    .then((gameData) => {     
-      randomArray.forEach((allData) => {
-
+  randomArray.forEach((allData) => {
         const resultGameListImg = document.createElement("div");
         const resultGameListName = document.createElement("div");
         const resultGameListImgSrc = document.createElement("img");
@@ -216,17 +162,17 @@ function insertGame(finalGame, randomArray) {
         resultGameListImg.classList.add("resultGameListImg");
         resultGameListName.classList.add("resultGameListName");
 
-        resultGameListImg.setAttribute("id", `${gameData[allData].name}`);
-        resultGameListName.setAttribute("id", `${gameData[allData].name}`);
+        resultGameListImg.setAttribute("id", `${allData.name}`);
+        resultGameListName.setAttribute("id", `${allData.name}`);
   
         resultGameListName.style.paddingLeft = "5px";
   
-        resultGameListImgSrc.src = gameData[allData].image;
+        resultGameListImgSrc.src = allData.image;
         resultGameListImgSrc.setAttribute("loading", "lazy");
         resultGameListImg.appendChild(resultGameListImgSrc);
   
-        resultGameListName.innerText = gameData[allData].name;
-        mainGameName.innerText = gameData[finalGame].name;
+        resultGameListName.innerText = allData.name;
+        mainGameName.innerText = finalGame.name;
   
         resultGameListImgSrc.addEventListener("mouseover", () => {
           resultGameListImg.style.borderColor = "var(--primary-accent)";
@@ -243,36 +189,36 @@ function insertGame(finalGame, randomArray) {
         resultGameListImgSrc.addEventListener("click", () => {
           gameHref.innerHTML = ``;
 
-          gameImgSrc.src = gameData[allData].image;
-          gameName.innerText = gameData[allData].name;
-          gameDescription.innerHTML = `<p>${gameData[allData].description}</p>
+          gameImgSrc.src = allData.image;
+          gameName.innerText = allData.name;
+          gameDescription.innerHTML = `<p>${allData.description}</p>
           <hr style="color: var(--color1)">`;
 
           gameMisc.innerHTML = `
-          <p>Оценка: <span id="meta_uscore">${gameData[allData].igdb_score}</span></p>
-          <p>Стоимость: <span id="full_price">${parseInt(gameData[allData].full_price / 100) * 40}</span> ₽</p>
-          <p>Жанр: <span id="genres">${gameData[allData].genres}</span></p>
-          <p>Теги: <span id="tags">${gameData[allData].tags}</span></p>
-          <p>Платформа: <span id="platforms">${gameData[allData].platforms}</span></p>
-          <p>Время прохождения: <span id="hltb_single">${gameData[allData].hltb_single}</span> часов</p>
+          <p>Оценка: <span id="meta_uscore">${allData.igdb_score}</span></p>
+          <p>Стоимость: <span id="full_price">${parseInt(allData.full_price / 100) * 40}</span> ₽</p>
+          <p>Жанр: <span id="genres">${allData.genres}</span></p>
+          <p>Теги: <span id="tags">${allData.tags}</span></p>
+          <p>Платформа: <span id="platforms">${allData.platforms}</span></p>
+          <p>Время прохождения: <span id="hltb_single">${allData.hltb_single}</span> часов</p>
           `;
 
-          if(gameData[allData].igdb_score == null) {
+          if(allData.igdb_score == null) {
                 document.getElementById("meta_uscore").innerText  = " ???";
               }
-              if(gameData[allData].full_price == null) {
+              if(allData.full_price == null) {
                 document.getElementById("full_price").innerText  = " ???";
               }
-              if(gameData[allData].genres == null) {
+              if(allData.genres == null) {
                 document.getElementById("genres").innerText  = " ???";
               }
-              if(gameData[allData].tags == null) {
+              if(allData.tags == null) {
                 document.getElementById("tags").innerText  = " ???";
               }
-              if(gameData[allData].platforms == null) {
+              if(allData.platforms == null) {
                 document.getElementById("platforms").innerText  = " ???";
               }
-              if(gameData[allData].hltb_single == null) {
+              if(allData.hltb_single == null) {
                 document.getElementById("hltb_single").innerText  = " ???";
               }
 
@@ -286,16 +232,16 @@ function insertGame(finalGame, randomArray) {
           hltbHref.innerHTML = "<span>HLTB</span>";
 
           steamHref.addEventListener("click", () => {
-              if (gameData[allData].store_url) {
-                window.open(gameData[allData].store_url, "_blank");
+              if (allData.store_url) {
+                window.open(allData.store_url, "_blank");
             } else {
                 window.open("https://store.steampowered.com", "_blank");
             }
           });
         
           hltbHref.addEventListener("click", () => {
-              if (gameData[allData].hltb_url) {
-                window.open(gameData[allData].hltb_url, "_blank");
+              if (allData.hltb_url) {
+                window.open(allData.hltb_url, "_blank");
             } else {
                 window.open("https://howlongtobeat.com/", "_blank");
             }
@@ -306,7 +252,7 @@ function insertGame(finalGame, randomArray) {
         });
         resultGameListEntity.appendChild(resultGameListImg);
         resultGameListEntity.appendChild(resultGameListName);
-      });
+  });
 
       function rollItem() {
         gameName.innerHTML = "";
@@ -317,47 +263,47 @@ function insertGame(finalGame, randomArray) {
 
         const randomResult = Math.floor(Math.random() * randomArray.length);
 
-        mainGameName.innerText = gameData[randomArray[randomResult]].name;
+        mainGameName.innerText = randomArray[randomResult].name;
         gameName.innerText = mainGameName.innerText;
 
         if (rolls < maxRolls) {
               setTimeout(rollItem, 300);
             } else {
               setTimeout(function() {
-                mainGameName.innerText = gameData[finalGame].name;
+                mainGameName.innerText = finalGame.name;
                 gameName.innerText = mainGameName.innerText;
-                gameImgSrc.src = gameData[finalGame].image;
+                gameImgSrc.src = finalGame.image;
 
                 gameDescription.innerHTML = `
-                <p>${gameData[finalGame].description}</p>
+                <p>${finalGame.description}</p>
                 <hr style="color: var(--color1)">
                 `;
 
                 gameMisc.innerHTML = `
-                <p>Оценка:<span id="meta_uscore"> ${gameData[finalGame].igdb_score}</span></p>
-                <p>Стоимость:<span id="full_price"> ${parseInt(gameData[finalGame].full_price / 100) * 40}</span> ₽</p>
-                <p>Жанр:<span id="genres"> ${gameData[finalGame].genres}</span></p>
-                <p>Теги:<span id="tags"> ${gameData[finalGame].tags}</span></p>
-                <p>Платформа:<span id="platforms"> ${gameData[finalGame].platforms}</span></p>
-                <p>Время прохождения:<span id="hltb_single"> ${gameData[finalGame].hltb_single}</span> часов</p>
+                <p>Оценка:<span id="meta_uscore"> ${finalGame.igdb_score}</span></p>
+                <p>Стоимость:<span id="full_price"> ${parseInt(finalGame.full_price / 100) * 40}</span> ₽</p>
+                <p>Жанр:<span id="genres"> ${finalGame.genres}</span></p>
+                <p>Теги:<span id="tags"> ${finalGame.tags}</span></p>
+                <p>Платформа:<span id="platforms"> ${finalGame.platforms}</span></p>
+                <p>Время прохождения:<span id="hltb_single"> ${finalGame.hltb_single}</span> часов</p>
                 `;
                     
-                if(gameData[finalGame].igdb_score == null) {
+                if(finalGame.igdb_score == null) {
                   document.getElementById("meta_uscore").innerText  = " ???";
                 }
-                if(gameData[finalGame].full_price == null) {
+                if(finalGame.full_price == null) {
                   document.getElementById("full_price").innerText  = " ???";
                 }
-                if(gameData[finalGame].genres == null) {
+                if(finalGame.genres == null) {
                   document.getElementById("genres").innerText  = " ???";
                 }
-                if(gameData[finalGame].tags == null) {
+                if(finalGame.tags == null) {
                   document.getElementById("tags").innerText  = " ???";
                 }
-                if(gameData[finalGame].platforms == null) {
+                if(finalGame.platforms == null) {
                   document.getElementById("platforms").innerText  = " ???";
                 }
-                if(gameData[finalGame].hltb_single == null) {
+                if(finalGame.hltb_single == null) {
                   document.getElementById("hltb_single").innerText  = " ???";
                 }
 
@@ -374,16 +320,16 @@ function insertGame(finalGame, randomArray) {
                 gameHref.appendChild(hltbHref);
          
                 steamHref.addEventListener("click", () => {
-                 if (gameData[finalGame].store_url) {
-                 window.open(gameData[finalGame].store_url, "_blank");
+                 if (finalGame.store_url) {
+                 window.open(finalGame.store_url, "_blank");
                } else {
                  window.open("https://store.steampowered.com", "_blank");
                }
              });
            
                 hltbHref.addEventListener("click", () => {
-                 if (gameData[finalGame].hltb_url) {
-                 window.open(gameData[finalGame].hltb_url, "_blank");
+                 if (finalGame.hltb_url) {
+                 window.open(finalGame.hltb_url, "_blank");
                } else {
                  window.open("https://howlongtobeat.com/", "_blank");
                }
@@ -403,7 +349,32 @@ function insertGame(finalGame, randomArray) {
     rolls++;
   }
       rollItem();
-  });
+}
+
+function noGamesModal() {
+  const noGamesModal = document.getElementById("noGamesModal");
+  if(noGamesModal.style.display == "none") {
+    noGamesModal.style.display = "grid";
+  } else {
+    noGamesModal.style.display = "none";
+    window.location.reload();
+  }
+}
+
+
+
+function containerSwitch() {
+    const ItemContainer = document.getElementById("itemPage");
+    const gameButton = document.getElementById("gameButton");
+    const itemButton = document.getElementById("itemButton");
+
+    if (ItemContainer.style.display == "grid") {
+        gameButton.style.backgroundColor = "var(--color1)";
+        itemButton.style.backgroundColor = "var(--color3)";
+    } else {
+        itemButton.style.backgroundColor = "var(--color1)";
+        gameButton.style.backgroundColor = "var(--color3)"
+    }
 }
 
 function dropdownGenres(){
