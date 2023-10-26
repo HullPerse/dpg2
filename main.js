@@ -8,6 +8,7 @@ const upload = multer();
 const serverPort = 3000;;
 const dbPath = "public/database/users.db";
 const db = new sqlite3.Database(dbPath);
+const penis = 1;
 
 const httpServer = require("http").createServer(expressApp);
 const io = require("socket.io")(httpServer);
