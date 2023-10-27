@@ -818,6 +818,9 @@ function rollItemAnimation() {
   const itemName = document.getElementById("itemName");
   const itemDescription = document.getElementById("itemDescription");
   const possibleItemListName = document.querySelectorAll(".possibleItemListName");
+  const resultGameListContainer = document.getElementById("resultGameListContainer");
+
+  resultGameListContainer.innerHTML = "";
 
   const maxRolls = 30;
   let rolls = 0;

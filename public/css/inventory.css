@@ -367,26 +367,18 @@
   display: grid;
   left: 350px;
   top: 50px;
-  height: auto;
-  width: 1550px;
-  max-width: 1550px;
+  text-align: center;
+  table-layout: auto;
+  white-space: normal;
+  word-break: break-all;
   border-radius: 10px;
   border: 3px solid var(--color1);
   background-color: var(--color1);
-  table-layout: fixed;
-  border-collapse: separate;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  overflow-x: hidden;
 }
 
 #gameTableContainer tr {
   font-size: 20px;
-  height: 70px;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
+  height: 40px;
 }
 
 tbody td:hover {
@@ -399,19 +391,19 @@ tbody td:hover {
 }
 
 .tdCell {
-  max-width: 100px;
+  width: 150px;
 }
 
 .tdTitle {
-  max-width: 600px;
+  width: 600px;
 }
 
 .tdStatus {
-  max-width: 200px;
+  width: 200px;
 }
 
 .tdCommentary {
-  max-width: 200px;
+  width: 570px;
 }
 
 #gameModal {
@@ -540,9 +532,9 @@ a {
   align-items: center;
 }
 
-td {
+/* td {
   padding: 0 132px;
-}
+} */
 
 #userModalContainer {
   position: absolute;

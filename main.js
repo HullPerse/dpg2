@@ -9,6 +9,8 @@ const serverPort = 3000;;
 const dbPath = "public/database/users.db";
 const db = new sqlite3.Database(dbPath);
 
+const sharp = require("sharp");
+
 const httpServer = require("http").createServer(expressApp);
 const io = require("socket.io")(httpServer);
 
@@ -17,39 +19,45 @@ expressApp.use(express.static(path.join(__dirname, "public"), { extensions: ["ht
 expressApp.use(express.json());
 
 expressApp.post("/adduser", upload.single("avatar"), (req, res) => {
-    const { username, color, isPlaced, xPos, yPos, Item1, Item2, Item3, Item4, Item5, Item6, mapCell, money, event, auction } = JSON.parse(req.body.user);
-    const avatarData = req.file.buffer;
+  const { username, color, isPlaced, xPos, yPos, Item1, Item2, Item3, Item4, Item5, Item6, mapCell, money, event, auction } = JSON.parse(req.body.user);
 
-    if (!username) {
-        console.log("Имя пользователя не может быть пустым");
-        return res.json({ success: false, message: "Имя пользователя не может быть пустым" });
-    }
+  if (!username) {
+      console.log("Имя пользователя не может быть пустым");
+      return res.json({ success: false, message: "Имя пользователя не может быть пустым" });
+  }
 
-    const checkQuery = "SELECT COUNT(*) AS count FROM users WHERE username = ?";
-    db.get(checkQuery, [username.toLowerCase()], (err, row) => {
-        if (err) {
-            console.log("Error checking username");
-            return res.json({ success: false, message: "Ошибка при проверке имени пользователя" });
-        }
+  const checkQuery = "SELECT COUNT(*) AS count FROM users WHERE username = ?";
+  db.get(checkQuery, [username.toLowerCase()], (err, row) => {
+      if (err) {
+          console.log("Error checking username");
+          return res.json({ success: false, message: "Ошибка при проверке имени пользователя" });
+      }
 
-        if (row.count > 0) {
-            console.log("Такое имя пользователя уже занято");
-            return res.json({ success: false, message: "Такое имя пользователя уже занято" });
-        }
+      if (row.count > 0) {
+          console.log("Такое имя пользователя уже занято");
+          return res.json({ success: false, message: "Такое имя пользователя уже занято" });
+      }
 
-        const insertQuery = "INSERT INTO users (username, color, avatar, isPlaced, xPos, yPos, Item1, Item2, Item3, Item4, Item5, Item6, mapCell, money, event, auction) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
-        db.run(insertQuery, [username.toLowerCase(), color, avatarData, isPlaced, xPos, yPos, Item1, Item2, Item3, Item4, Item5, Item6, mapCell, money, event, auction], (err) => {
-            if (err) {
-                console.log("Error adding user", err);
-                return res.json({ success: false, message: "Ошибка при добавлении пользователя" });
-            }
+      sharp(req.file.buffer)
+          .toBuffer()
+          .then((avatarData) => {
+              const insertQuery = "INSERT INTO users (username, color, avatar, isPlaced, xPos, yPos, Item1, Item2, Item3, Item4, Item5, Item6, mapCell, money, event, auction) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)";
+              db.run(insertQuery, [username.toLowerCase(), color, avatarData, isPlaced, xPos, yPos, Item1, Item2, Item3, Item4, Item5, Item6, mapCell, money, event, auction], (err) => {
+                  if (err) {
+                      console.log("Error adding user", err);
+                      return res.json({ success: false, message: "Ошибка при добавлении пользователя" });
+                  }
 
-            console.log("User added successfully");
-            return res.json({ success: true, message: "Пользователь успешно добавлен" });
-        });
-    });
+                  console.log("User added successfully");
+                  return res.json({ success: true, message: "Пользователь успешно добавлен" });
+              });
+          })
+          .catch((error) => {
+              console.error("Error compressing the avatar image", error);
+              return res.json({ success: false, message: "Ошибка при сжатии изображения аватара" });
+          });
+  });
 });
-
 
 expressApp.post("/updateauctionown/:item", (req, res) => {
   const item = req.params.item;
@@ -356,7 +364,6 @@ function getRandomGames(gameData, queryParams) {
 const selectedTagsArray = selectedTags.split(',');
 
 const randomGames = [];
-  // Filter games based on the provided query parameters
   const filteredGames = gameData.filter(game => {
 
     const noTagsFilter = selectedTagsArray.length === 0 || (game.tags && selectedTagsArray.some(tag => game.tags.includes(tag)));
@@ -374,11 +381,8 @@ const randomGames = [];
     const dateFilter =
       game.published_store >= beforeDate && game.published_store <= afterDate;
 
-    // Ensure all filtering criteria are met
     return noTagsFilter && costFilter && timeFilter && scoreFilter && dateFilter;
   });
-
-  // Select random games from the filtered list
 
   while (randomGames.length < gameAmountSlide && filteredGames.length > 0) {
     const randomIndex = Math.floor(Math.random() * filteredGames.length);

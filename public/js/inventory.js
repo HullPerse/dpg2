@@ -289,6 +289,7 @@ function userTableLoad() {
                     const gameTitle = document.createElement("td");
                     gameTitle.textContent = game.gameTitle;
                     gameTitle.classList.add("tdTitle");
+                    gameTitle.style.cursor = "pointer";
                     gameTable.appendChild(gameTitle);
 
                     const gameStatus = document.createElement("td");
