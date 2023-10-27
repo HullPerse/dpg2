@@ -59,6 +59,28 @@ expressApp.post("/adduser", upload.single("avatar"), (req, res) => {
   });
 });
 
+expressApp.post("/updateUserPicture/:username", upload.single("avatar"), (req, res) => {
+  const username = req.params.username;
+
+
+  sharp(req.file.buffer)
+          .toBuffer()
+          .then((avatarData) => {
+
+            const updateQuery = "UPDATE users SET avatar = ? WHERE username = ?";
+            db.run(updateQuery, [avatarData, username], (err) => {
+              if (err) {
+                console.log("Error updating user avatar:", err);
+                return res.json({ success: false, message: "Error updating user avatar" });
+              }
+          
+              console.log("User avatar updated successfully");
+              return res.json({ success: true, message: "User avatar updated successfully" });
+            });
+  });
+});
+
+
 expressApp.post("/updateauctionown/:item", (req, res) => {
   const item = req.params.item;
   const { owner } = req.body;

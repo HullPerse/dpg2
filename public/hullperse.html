@@ -88,7 +88,6 @@
         type="number"
         id="moneyModalContainer"
         placeholder="Чубрики"
-        onkeydown="return false"
         onchange="updateMoneyAmount()"
       />
     </div>
@@ -115,6 +114,19 @@
     <div id="user-container">
       <div id="user-avatar-container">
         <div id="moneyContainer"></div>
+        <div id="labelContainer">
+          <label id="newPictureLabel" for="inputNewPicture"
+            >Изменить <br />
+            Аватар
+          </label>
+          <input
+            type="file"
+            id="inputNewPicture"
+            style="display: none"
+            oninput="saveuserAvatar()"
+          />
+        </div>
+
         <div id="user-avatar">
           <img id="profile-picture" src="#" draggable="false" />
         </div>

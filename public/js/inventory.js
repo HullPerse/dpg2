@@ -875,3 +875,53 @@ function inventoryTitle() {
 
     document.title = `Инвентарь ${inventoryUser}`;
 }
+
+function changeAvatar() {
+    const newPictureLabel = document.getElementById("newPictureLabel");
+
+    newPictureLabel.addEventListener("click", (e) => {
+
+        const path = location.pathname;
+        const inventoryUser = path.slice(1);
+
+        if (inventoryUser !== sessionStorage.getItem("Username")) {
+            e.preventDefault();
+            alert("You are not allowed to change the avatar for this user 💀.");
+        }
+    });
+}
+changeAvatar();
+
+function saveuserAvatar() {
+    const profileAvatar = document.getElementById("profile-picture");
+
+    const path = location.pathname;
+    const inventoryUser = path.slice(1);
+
+    const avatarInput = document.getElementById("inputNewPicture");
+
+    const avatarFile = avatarInput.files[0];
+    const username  = path.slice(1);
+
+  const formData = new FormData();
+  formData.append("avatar", avatarFile);
+
+
+    fetch(`/updateUserPicture/${username}`, {
+        method: "POST",
+        body: formData,
+      })
+        .then((response) => response.json())
+        .then((data) => {
+            if(data.success) {
+            const reader = new FileReader();
+            reader.onload = function () {
+              profileAvatar.src = reader.result;
+            };
+            reader.readAsDataURL(avatarFile);
+            }
+        })
+        .catch((error) => {
+          console.error("Error updating avatar:", error);
+        });
+}
